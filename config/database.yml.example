@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: root
+  password:
+
+development:
+  <<: *default
+  database: tourmega_development
+
+test:
+  <<: *default
+  database: tourmega_test
+
+
+production:
+  <<: *default
+  database: tourmega_production
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>

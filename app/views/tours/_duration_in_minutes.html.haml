@@ -1,0 +1,10 @@
+.form-group.tour_duration_in_minutes
+  %label.select.optional.control-label{:for => "tour_duration_in_minutes"} Duration (in minute)
+  .input-group.inline
+    %span.input-group-btn
+      %button.btn.btn-default.btn-number{"data-field" => "tour[duration_in_minutes]", "data-type" => "minus", :disabled => "disabled", :type => "button"}
+        %span.glyphicon.glyphicon-minus
+    %input#tour_duration_in_minutes.form-control.input-number{ :name => "tour[duration_in_minutes]", :type => "text", :value => "#{f.object.duration_in_minutes || 30}", min: 30, max: 10000}
+      %span.input-group-btn
+        %button.btn.btn-default.btn-number{"data-field" => "tour[duration_in_minutes]", "data-type" => "plus", :type => "button"}
+          %span.glyphicon.glyphicon-plus

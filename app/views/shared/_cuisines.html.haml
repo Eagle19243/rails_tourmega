@@ -1,0 +1,14 @@
+.white-bg
+  .row.wide
+    .small-12.small-centered.medium-8.columns.text-center.guide.content.short
+      %h3= t('cuisines.header')
+      %p= t('cuisines.para')
+.row.wide
+  %ul.small-block-grid-1.medium-block-grid-2.large-block-grid-4.text-center.featured-food
+    - cuisines.find_each do |cuisine|
+      %li.space-bottom
+        .row.collapse
+          .small-12.columns.text-center
+            = image_tag cuisine.image_url, alt: "#{cuisine.name} resizedForWeb"
+            %h6= cuisine.name
+            %p= cuisine.introduction

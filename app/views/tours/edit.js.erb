@@ -1,0 +1,3 @@
+$('ul.tabs > li').removeClass('active');
+$("li.submit_#{@active_tab}").addClass('active');
+$('.tour-edit-content').html("<%=j = render 'form', tour: @tour, active_tab: @active_tab %>");

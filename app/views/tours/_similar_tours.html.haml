@@ -1,0 +1,26 @@
+.small-12.column
+  .panel.white-bg
+    %h4 Similar Tours
+    .listings-container.flexslider
+      %ul.slides
+        - tour.top_similar_tours(5).each do |similar_tour|
+          %li
+            .item
+              .panel-image.listing-img
+                .media-photo
+                  %a{:href => "#{tour_path(similar_tour)}"}
+                    %img{:src => "#{similar_tour.images.first.try(:url)}"}/
+
+                %a.panel-overlay-bottom-left.panel-overlay-listing-price{:href => "#"}
+                  .price-container
+                    %sup $
+                    %span.price-amount= similar_tour.price
+                  %span.icon-instant-book.glyphicon.glyphicon-flash
+              .panel-body.panel-card-section
+                .info
+                  %a.profile-picture{:href => "#{public_profile_user_path(similar_tour.creator)}"}
+                    %img{:alt => "name", :src => "#{similar_tour.creator_avatar_url}"}/
+                  %h3.listing-name{:title => "#{similar_tour.name}"}
+                    %a{:href => "#{tour_path(similar_tour)}"}= similar_tour.name
+                  .listing-location
+                    = render 'shared/tour_rating', tour: similar_tour

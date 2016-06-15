@@ -1,0 +1,40 @@
+/*
+*= require chosen
+*= require font-awesome
+*= require common/search
+*/
+
+//
+// For example, to change the sidebar width:
+// $sidebar-width: 242px;
+
+// Active Admin's got SASS!
+
+@import "active_admin/mixins";
+@import "active_admin/base";
+@import "active_admin_datetimepicker";
+
+$skinActiveColor: #3CB371;
+$skinLogo: asset-url("admin_logo.png") no-repeat 0 0;
+@import "active_skin";
+
+// Overriding any non-variable SASS must be done after the fact.
+// For example, to change the default status-tag color:
+//
+//   .status_tag { background: #6090DB; }
+
+.cke_chrome {
+  width: 79.5% !important;
+  overflow: hidden;
+}
+
+tr.row.images ul li {
+  float: left;
+}
+
+ul.images {
+  list-style-type: none;
+}
+ul.images li {
+  float: left;
+}

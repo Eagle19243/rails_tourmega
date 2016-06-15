@@ -1,0 +1,15 @@
+- flash.each do |type, message|
+  - if [:success, :alert, :notice, :error].include? type.to_sym
+    %div.tourmega-notification.alert.alert-centered.auto-fade{ :class => twitterized_type(type) }
+      %a.close{:href => "#", :"data-dismiss" => "alert"} ×
+      %span
+        = raw message
+
+:javascript
+  $(document).ready(function() {
+    setTimeout(function() {
+      $(".alert.auto-fade").fadeTo(500, 0).slideUp(500, function() {
+        $(this).remove();
+      });
+    }, 1000);
+  });

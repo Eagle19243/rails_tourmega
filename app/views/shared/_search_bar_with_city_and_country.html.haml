@@ -1,0 +1,9 @@
+.row
+  .small-6.columns.medium-12.locations-container.center
+    %input#available_provinces.text-center{"aria-controls" => "locations", "aria-expanded" => "false", "data-dropdown" => "locations", :placeholder => "Where to go in #{country.name} ?", :readonly => "", :type => "text"}
+      #locations.mega.f-dropdown.content{"data-dropdown-content" => "true"}
+        .columns
+          %ul
+            - country.cities.each do |city|
+              %li.province
+                = link_to city.name, country_city_path(country, city)

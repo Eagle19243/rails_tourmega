@@ -1,0 +1,26 @@
+- content_for(:title, "Reservation with Tourmega")
+
+.inner-wrap
+  %section.main-section
+    #reservation.white-bg
+      = simple_form_for(@reservation, url: tour_reservations_path(@tour), method: :post, html: { class: 'new_reservation' }) do |f|
+        = f.input :step, as: :fake, input_html: { value: 'passenger' }, label: false
+        = render 'step_bar', tour: @tour, reservation: @reservation
+        = render 'creator_details', creator: @creator
+        = render 'general_information', f: f
+        = render 'external_guests', f: f
+        = render 'guest_information', f: f
+        .row
+          .small-12.columns.text-center
+            %p.grey-text.regular.space-top.space-bottom
+              We will ask you to sign in before we collect your billing information to
+              %strong
+                hold your reservation
+            = f.button :submit, 'Continue', class: 'button primary large'
+
+:javascript
+  $(function(){
+    $('.datepicker').datepicker({});
+    $('.chosen-input').chosen({allow_single_deselect: true, search_contains: true});
+    $('#header').addClass('not-overlay');
+  });

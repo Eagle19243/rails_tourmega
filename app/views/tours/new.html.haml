@@ -1,0 +1,12 @@
+%section.main-section.white-bg
+  .trip-edit
+    .wrapper-tabs
+      = render 'new_tabs', tour: @tour, active_tab: @active_tab
+    .tour-edit-content
+      = render 'form', tour: @tour, active_tab: @active_tab
+
+:javascript
+  $('form').keydown(function (e) {
+    if (e.which == 13)
+      return false;
+  });

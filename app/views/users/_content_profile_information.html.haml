@@ -1,0 +1,36 @@
+.row
+  .small-12.columns
+    = render 'profile_navbar'
+
+= javascript_include_tag 'gmap_autocomplete'
+
+#profile
+  = simple_form_for(current_user, url: user_path(current_user.id), method: :put, remote: true, html: { class: 'ng-pristine ng-valid' }) do |f|
+    .row
+      .small-12.medium-7.columns
+        %h4.manage-header Personal
+        = f.input :gender, as: :select, collection: User::GENDERS, required: true
+        = f.input :phone_number, input_html: { placeholder: 'Your using phone number' }
+        = f.input :job_title, input_html: { placeholder: 'Your current job' }
+        = f.label 'Birthdate'
+        = f.text_field :date_of_birth, class: 'form-control datepicker', placeholder: 'mm/dd/yyyy', label: 'Birth date'
+        = f.input :hobbies, as: :text, input_html: { rows: 10, type: 'text', placeholder: 'From 50 to 250 characters that describes your hobbies the best' }
+        .text-right
+          = f.button :submit, 'Update Profile', 'data-disable-with' => 'Updating', class: 'button'
+      .small-12.medium-5.columns
+        %h4.manage-header Additional
+        .row
+          .small-12.columns.user-info
+            = f.input :guide_type, as: :select, collection: User::GUIDE_TYPE.map{|e| [e.to_s.humanize, e]}
+            = f.input :primary_address, as: :fake, input_html: { name: 'user[primary_address]', id: 'user_primary_address', class: 'hidden', value: f.object.primary_address.try(:hash_attributes) }, label: false, wrapper: false, required: false
+            = f.input :locate_primary_address, as: :fake, input_html: { placeholder: 'Choose your current primary address', class: 'autocomplete-location', autocomplete: 'off', 'fill-to-input' => 'user_primary_address', value: f.object.primary_address.try(:address) }, label: 'Primary address'
+            = f.input :languages, as: :select, collection: Tour::LANGUAGES, :input_html => { :class => "chosen-input with-bootstrap", multiple: true, 'data-placeholder' => "Choose a languages..." }, include_hidden: false, label: 'Languages'
+            = f.input :nationality_id, as: :select, collection: Country.collection, :input_html => { :class => "chosen-input with-bootstrap", multiple: false }
+
+:javascript
+  loadGoogleMapScript('#{google_map_uri}', true, initAutocomplete);
+  $(function(){
+    $('.chosen-input').chosen({no_results_text: "No country match", placeholder_text_single: "Choose a country", allow_single_deselect: true, search_contains: true});
+    $('.content-column').removeClass('free-meals');
+    $('li.profile>a').addClass('current');
+  });

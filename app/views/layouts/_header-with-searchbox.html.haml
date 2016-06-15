@@ -1,0 +1,15 @@
+%section#header{"sticky-nav" => "", class: ""}
+  - unless Rails.env.production?
+    #pending-notification
+      = render "shared/flash_messages", locals: { flash: flash }
+  .row.wide#main-header
+    .small-12.columns
+      #logo
+        %a{:href => "#{root_path}"}
+          %img{:alt => "TourMega logo", :src => "#{asset_url('logo.png')}"}
+      %form.search-form
+        %i.fa.fa-search
+        %input.autocomplete-location.form-control{:type => 'text', :placeholder => 'Type for listing tours all over the world'}
+      %a.right.right-off-canvas-toggle.menu-icon.hide-for-medium-up
+        .arrow
+      = render 'layouts/user_navbar'

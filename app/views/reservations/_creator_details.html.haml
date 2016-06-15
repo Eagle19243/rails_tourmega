@@ -1,0 +1,15 @@
+.row.space-top
+  .small-12.columns.text-center.space-top.space-bottom
+    %img.avatar.large{ alt: "#{creator.name}", src: "#{creator.avatar_url}"}
+    %p.no-space.small You are reserving a MegaTour with
+    %h3.host-name= creator.name
+    .uppercase.semi-bold= creator.primary_address.to_s
+.row.mandatory_fields
+  .small-2.medium-1.large-1.columns
+    .vertical-text
+      %span
+  .small-10.columns.end.content-block
+    .row
+      .small-12.large-4.columns
+        %label Please let us know which we can help you
+      .small-12.large-8.columns.end

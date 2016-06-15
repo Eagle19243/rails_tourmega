@@ -1,0 +1,22 @@
+- content_for(:title, "#{@country.name} with Tourmega")
+
+%section#home.main-section
+  #country-level-page
+    #hero.countries{"background-image" => "#{@country.default_scene_image_url}", "background-position" => "50% 10%"}
+      .message
+        .row
+          .small-12.small-centered.medium-10.large-8.columns.text-center
+            %h1.larger= "Explore #{@country.name}"
+            = render 'shared/search_bar_with_city_and_country', country: @country
+    .white-bg
+      .row.wide
+        .small-12.small-centered.medium-8.columns.text-center.guide.content.short
+          %h3= "Travel Experiences in #{@country.name}"
+          %p= "#{@country.introduction}"
+      - if @tours.present?
+        #tours
+          = render 'shared/tours', tours: @tours
+    = render 'shared/map', place: @country
+    - if false
+      - if @cuisines.present?
+        = render 'shared/cuisines', cuisines: @cuisines

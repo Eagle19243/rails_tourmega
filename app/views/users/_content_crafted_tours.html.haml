@@ -1,0 +1,16 @@
+#crafted_tours.manage
+  .row
+    .small-12.columns
+      %ul.breadcrumbs
+        %li.unavailable
+          %a{:href => crafted_tours_users_path} Crafted Tours
+  .row
+    .small-12.columns
+      = render 'shared/tours', tours: @tours
+
+
+:javascript
+  $(function(){
+    $('.content-column').removeClass('free-meals')
+    $('li.crafted_tours>a').addClass('current');
+  });

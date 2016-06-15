@@ -1,0 +1,10 @@
+- if tours.present?
+  .footer-results.small-12.column
+    = paginate tours, remote: true
+  .listings-container
+    .row
+      - tours.each do |tour|
+        = render 'tour', tour: tour
+
+  .footer-results.small-12.column
+    = paginate tours, remote: true

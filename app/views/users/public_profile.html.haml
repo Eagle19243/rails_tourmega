@@ -1,0 +1,63 @@
+= javascript_include_tag 'history_state', media: 'all'
+
+- content_for(:title, "#{@user.name} on Tourmega")
+
+%section.main-section.no-margin-top
+  .public-profile
+    .row
+      .col-xs-12.col-sm-4.col-md-3
+        .block.block-profile-media
+          %img{:src => @user.avatar_url}
+        = render 'panel_verification', user: @user
+        = render 'panel_about_me', user: @user
+
+      .col-xs-12.col-sm-8.col-md-9
+        %h1= "Hey, I’m #{@user.name}"
+        %h5
+          - if @user.primary_address
+            %a= @user.primary_address.address
+            %br/
+          %span= display_signed_up_time(@user)
+        .space-6
+          %p= @user.biography
+        .space-6
+          - if @tours.present?
+            .block.block-listings
+              .block-title
+                Tours
+                %small= "(#{@tours.count})"
+              .block-content
+                = render 'public_profile_tours', tours: @tours
+        .space-6
+          .user-badge
+            .badge-item
+              %a{:href => "#", :title => "Reviews"}
+                %span.count= @user.total_reviews
+                %span.text Reviews
+            .badge-item
+              %a{:href => "#references", :title => "Reference"}
+                %span.count= @user.total_references
+                %span.text Reference
+            .badge-item.verified-item{"data-toggle" => "tooltip"}
+              - if @user.verified?
+                %a{:href => "#", :title => "Verified"}
+                  %i.icon.fa.fa-check-square-o
+                  %span.text Verified
+                  #verified-info
+                    .panel-header Verified ID
+                    .panel-body
+                      %p= "#{@user.name} has completed online and offline ID verification."
+              - else
+                %a{:href => "#", :title => "Not Verified"}
+                  %i.icon.red.fa.fa-times-circle-o
+                  %span.text Not Verified
+
+        - if false
+          = render 'wishlist_box', user: @user
+        = render 'reviews_box', user: @user
+
+:javascript
+  $(function(){
+    $('body').removeClass().addClass('manage').attr('style','');
+    $('#header').addClass('solid');
+  });

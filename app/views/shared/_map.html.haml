@@ -1,0 +1,29 @@
+= javascript_include_tag 'gmap_tour_location'
+
+.light-grey-bg
+  .row
+    .small-12.columns.text-center.space-top.space-bottom
+      %h3= "Where we are #{in_country_of_city(place)}".html_safe
+  .row.wide
+    - if is_country?(place)
+      .small-12.columns.text-center
+        .host-cities
+          We have tours in
+          - place.cities.each_with_index do |city, index|
+            = link_to city.name, country_city_path(place, city)
+            = linking_word(index, @length ||= place.cities.length)
+  .row.wide.collapse.map-container
+    - if is_country?(place)
+      #map-place-address.small-12.columns.picture{ style: 'width: 75%;', address: "#{place.name}", lat: "#{place.lat}", lng: "#{place.lng}", place: 'country' }
+    - else
+      #map-place-address.small-12.columns.picture{ style: 'width: 75%;', address: "#{place.geometry_name}", lat: "#{place.country.lat}", lng: "#{place.country.lng}" }
+    .toolbox
+      - if helper_toolbox_visible?
+        .center
+          .space-top.space-bottom
+            = render 'resources/svg/airplane.html.haml'
+          %h3 Let's travel
+          %p Need help finding a local tour? Fill out our form and one of our travel specialists will get back to you!
+          %a.button.wide{ href: "#{home_contact_us_path}" } ASK US A QUESTION
+
+= include_gmap('initCountryOrCityMap')

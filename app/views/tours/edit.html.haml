@@ -1,0 +1,12 @@
+%section.main-section.white-bg
+  .trip-edit
+    .wrapper-tabs
+      = render 'edit_tabs', tour: @tour, active_tab: @active_tab
+    .tour-edit-content
+      = render 'form', tour: @tour, active_tab: @active_tab
+
+:javascript
+  $(function(){
+    $('#header').addClass('not-overlay');
+    $('#header').css('position', '');
+  });

@@ -1,0 +1,31 @@
+- content_for(:title, "Tourmega")
+
+= javascript_include_tag 'gmap_search'
+
+%section.main-section
+  #host-selection-page
+    #hero
+      .map-container
+        #map.map-canvas
+      .toolbox.transparent
+        .row.wide.light-grey-bg.header
+          .small-12.columns
+            %h5= search_place
+        .row.space-bottom
+          #filter-form.small-12.columns
+            = render 'search_filter_category'
+            = render 'search_filter_price'
+        .row.light-grey-bg
+        #tours
+        #map-popup-items
+      = render 'currency_and_languages'
+
+
+= include_gmap('initializeGoogleMapSearching')
+
+:javascript
+  $(function(){
+    $('#header').addClass('solid');
+    $(".chosen-input").chosen();
+  });
+

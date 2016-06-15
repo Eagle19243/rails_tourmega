@@ -1,0 +1,278 @@
+.inner-wrap
+  %section.main-section
+    #reservation.white-bg
+      = simple_form_for(@reservation, tour_reservation_path(@reservation), method: :put, class: 'edit_booking')
+        = f.input :step, as: :fake, class: 'hidden', value: 'passenger'
+        = render 'step_bar', tour: @tour, reservation: @reservation
+        .row.space-top
+          .small-12.columns.text-center.space-top.space-bottom
+            %img.avatar.large{:alt => "#{@creator.name}", :src => "#{@creator.avatar_url}"}/
+            %p.no-space.small You are reserving a MegaTour with
+            %h3.host-name= @creator.name
+            .uppercase.semi-bold= @creator.primary_address.to_s
+        .row.mandatory_fields
+          .small-2.medium-1.large-1.columns
+            .vertical-text
+              %span
+          .small-10.columns.end.content-block
+            .row
+              .small-12.large-4.columns
+                %label Please let us know which we can help you
+              .small-12.large-8.columns.end
+        .row{"data-equalizer" => ""}
+          .small-2.medium-1.large-1.columns.space-bottom{"data-equalizer-watch" => ""}
+            .vertical-text
+              %span
+                MegaTour
+          .small-10.columns.end.content-block{"data-equalizer-watch" => ""}
+            .row
+              .small-12.large-4.columns
+                %label Date(s)
+              .small-12.large-8.columns.end
+                .fields
+                  .row
+                    .columns.medium-6.small-12
+                      %input#booking_requested_dates_attributes_0_requested_at{:autocomplete => "off", :name => "booking[requested_dates_attributes][0][requested_at]", :required => "required", :type => "text", "ui-date" => "", :value => "Monday, 21 March 2016"}/
+            .row
+              .small-12.large-4.columns
+                %label{:for => "booking_guest_number"}
+                  Number of guests
+                  %span Including yourself
+              .small-12.medium-6.large-3.columns.end
+                %select.ng-cloak{:name => "booking[guest_number]", "ng-change" => "booking.updateExperiences(); booking.updateSectionHeight(); booking.children_number = 0", "ng-init" => "booking.guest_number = '';", "ng-model" => "booking.guest_number", :required => ""}
+                  %option{"ng-repeat" => "number in booking.available_numbers", :value => "{{number}}"}
+                    {{number}}
+        .row{"data-equalizer" => ""}
+          .small-2.medium-1.large-1.columns.space-bottom{"data-equalizer-watch" => ""}
+            .vertical-text
+              %span
+                Guests
+          .small-10.columns.end.content-block{"data-equalizer-watch" => ""}
+            .row
+              .small-12.large-4.columns
+                %label
+                  With whom are you traveling
+                  %span Our hosts are excited to know!
+              .small-12.large-8.columns.end
+                %input#booking_traveling_with_spouse.radio-button.hidden{:name => "booking[traveling_with][]", :type => "checkbox", :value => "Spouse"}/
+                %label{:for => "booking_traveling_with_spouse"} Spouse
+                %input#booking_traveling_with_children.radio-button.hidden{:name => "booking[traveling_with][]", :type => "checkbox", :value => "Children"}/
+                %label{:for => "booking_traveling_with_children"} Children
+                %input#booking_traveling_with_family.radio-button.hidden{:name => "booking[traveling_with][]", :type => "checkbox", :value => "Family"}/
+                %label{:for => "booking_traveling_with_family"} Family
+                %input#booking_traveling_with_colleague.radio-button.hidden{:name => "booking[traveling_with][]", :type => "checkbox", :value => "Colleague"}/
+                %label{:for => "booking_traveling_with_colleague"} Colleague
+                %input#booking_traveling_with_friend.radio-button.hidden{:name => "booking[traveling_with][]", :type => "checkbox", :value => "Friend"}/
+                %label{:for => "booking_traveling_with_friend", style: "margin-right:38px;"} Friend
+                %input#booking_traveling_with_other.radio-button.hidden{:name => "booking[traveling_with][]", :type => "checkbox", :value => "Other"}/
+                %label{:for => "booking_traveling_with_other"} Other
+            .row{"ng-if" => "booking.guest_number &gt; 1"}
+              .small-12.large-4.columns
+                %label{:for => "booking_children_number"}
+                  Children
+                  %span Total number of children
+              .small-12.medium-6.large-3.columns.end
+                %select#booking_children_number{:name => "booking[children_number]", "ng-change" => "booking.updateSectionHeight()", "ng-model" => "booking.children_number"}
+                  %option{"ng-if" => "booking.guest_number &gt; 0", :selected => "", :value => "0"} 0
+                  %option{"ng-if" => "booking.guest_number &gt; 1", :value => "1"} 1
+                  %option{"ng-if" => "booking.guest_number &gt; 2", :value => "2"} 2
+                  %option{"ng-if" => "booking.guest_number &gt; 3", :value => "3"} 3
+                  %option{"ng-if" => "booking.guest_number &gt; 4", :value => "4"} 4
+                  %option{"ng-if" => "booking.guest_number &gt; 5", :value => "5"} 5
+            %input{:name => "booking[children_number]", "ng-if" => "booking.guest_number &lt;= 1", :type => "hidden", :value => "0"}
+              .row{"ng-if" => "booking.children_number &gt;= 1"}
+                .small-12.large-4.columns
+                  %label
+                    Child(ren)'s Age
+                    %span Enter each child's age. Children between the ages of 5 - 12 are charged at 50% & under 5 are free.
+                .small-12.large-3.columns.end
+                  %div{"ng-if" => "booking.children_number &gt;= 1"}
+                    %select#booking_children_ages_{:name => "booking[children_ages][]"}
+                      %option{:value => "0"} 0
+                      %option{:value => "1"} 1
+                      %option{:value => "2"} 2
+                      %option{:value => "3"} 3
+                      %option{:value => "4"} 4
+                      %option{:value => "5"} 5
+                      %option{:value => "6"} 6
+                      %option{:value => "7"} 7
+                      %option{:value => "8"} 8
+                      %option{:value => "9"} 9
+                      %option{:value => "10"} 10
+                      %option{:value => "11"} 11
+                      %option{:value => "12"} 12
+                      %option{:value => "13"} 13
+                      %option{:value => "14"} 14
+                      %option{:value => "15"} 15
+                      %option{:value => "16"} 16
+                      %option{:value => "17"} 17
+                  %div{"ng-if" => "booking.children_number &gt;= 2"}
+                    %select#booking_children_ages_{:name => "booking[children_ages][]"}
+                      %option{:value => "0"} 0
+                      %option{:value => "1"} 1
+                      %option{:value => "2"} 2
+                      %option{:value => "3"} 3
+                      %option{:value => "4"} 4
+                      %option{:value => "5"} 5
+                      %option{:value => "6"} 6
+                      %option{:value => "7"} 7
+                      %option{:value => "8"} 8
+                      %option{:value => "9"} 9
+                      %option{:value => "10"} 10
+                      %option{:value => "11"} 11
+                      %option{:value => "12"} 12
+                      %option{:value => "13"} 13
+                      %option{:value => "14"} 14
+                      %option{:value => "15"} 15
+                      %option{:value => "16"} 16
+                      %option{:value => "17"} 17
+                  %div{"ng-if" => "booking.children_number &gt;= 3"}
+                    %select#booking_children_ages_{:name => "booking[children_ages][]"}
+                      %option{:value => "0"} 0
+                      %option{:value => "1"} 1
+                      %option{:value => "2"} 2
+                      %option{:value => "3"} 3
+                      %option{:value => "4"} 4
+                      %option{:value => "5"} 5
+                      %option{:value => "6"} 6
+                      %option{:value => "7"} 7
+                      %option{:value => "8"} 8
+                      %option{:value => "9"} 9
+                      %option{:value => "10"} 10
+                      %option{:value => "11"} 11
+                      %option{:value => "12"} 12
+                      %option{:value => "13"} 13
+                      %option{:value => "14"} 14
+                      %option{:value => "15"} 15
+                      %option{:value => "16"} 16
+                      %option{:value => "17"} 17
+                  %div{"ng-if" => "booking.children_number &gt;= 4"}
+                    %select#booking_children_ages_{:name => "booking[children_ages][]"}
+                      %option{:value => "0"} 0
+                      %option{:value => "1"} 1
+                      %option{:value => "2"} 2
+                      %option{:value => "3"} 3
+                      %option{:value => "4"} 4
+                      %option{:value => "5"} 5
+                      %option{:value => "6"} 6
+                      %option{:value => "7"} 7
+                      %option{:value => "8"} 8
+                      %option{:value => "9"} 9
+                      %option{:value => "10"} 10
+                      %option{:value => "11"} 11
+                      %option{:value => "12"} 12
+                      %option{:value => "13"} 13
+                      %option{:value => "14"} 14
+                      %option{:value => "15"} 15
+                      %option{:value => "16"} 16
+                      %option{:value => "17"} 17
+                  %div{"ng-if" => "booking.children_number &gt;= 5"}
+                    %select#booking_children_ages_{:name => "booking[children_ages][]"}
+                      %option{:value => "0"} 0
+                      %option{:value => "1"} 1
+                      %option{:value => "2"} 2
+                      %option{:value => "3"} 3
+                      %option{:value => "4"} 4
+                      %option{:value => "5"} 5
+                      %option{:value => "6"} 6
+                      %option{:value => "7"} 7
+                      %option{:value => "8"} 8
+                      %option{:value => "9"} 9
+                      %option{:value => "10"} 10
+                      %option{:value => "11"} 11
+                      %option{:value => "12"} 12
+                      %option{:value => "13"} 13
+                      %option{:value => "14"} 14
+                      %option{:value => "15"} 15
+                      %option{:value => "16"} 16
+                      %option{:value => "17"} 17
+                  %div{"ng-if" => "booking.children_number &gt;= 6"}
+                    %select#booking_children_ages_{:name => "booking[children_ages][]"}
+                      %option{:value => "0"} 0
+                      %option{:value => "1"} 1
+                      %option{:value => "2"} 2
+                      %option{:value => "3"} 3
+                      %option{:value => "4"} 4
+                      %option{:value => "5"} 5
+                      %option{:value => "6"} 6
+                      %option{:value => "7"} 7
+                      %option{:value => "8"} 8
+                      %option{:value => "9"} 9
+                      %option{:value => "10"} 10
+                      %option{:value => "11"} 11
+                      %option{:value => "12"} 12
+                      %option{:value => "13"} 13
+                      %option{:value => "14"} 14
+                      %option{:value => "15"} 15
+                      %option{:value => "16"} 16
+                      %option{:value => "17"} 17
+              .row{"ng-if" => "booking.guest_number &gt; 1"}
+                .small-12.large-4.columns
+                  %label
+                    Additional guest info
+                    %span Please tell your host the names of your other guests. If your guests would like to receive a copy of the confirmation, please enter their email here
+                .small-12.large-8.columns.end
+                  .row{"ng-if" => "booking.guest_number &gt;= 2", "ng-init" => "booking.guest_0_email = false"}
+                    .small-6.columns
+                      %input{:name => "booking[guests_attributes][14572093700][name]", :placeholder => "Guest 1 Name", :required => "", :type => "text"}
+                    .small-6.columns
+                      %a.add_email{"ng-click" => "booking.guest_0_email = true", "ng-if" => "!booking.guest_0_email"} +ADD EMAIL (optional)
+                      %input{:name => "booking[guests_attributes][14572093700][email]", "ng-if" => "booking.guest_0_email", :placeholder => "Email", :type => "text"}
+                        %a.remove_email{"ng-click" => "booking.guest_0_email = false", "ng-if" => "booking.guest_0_email"} x
+                  .row{"ng-if" => "booking.guest_number &gt;= 3", "ng-init" => "booking.guest_1_email = false"}
+                    .small-6.columns
+                      %input{:name => "booking[guests_attributes][14572093701][name]", :placeholder => "Guest 2 Name", :required => "", :type => "text"}
+                    .small-6.columns
+                      %a.add_email{"ng-click" => "booking.guest_1_email = true", "ng-if" => "!booking.guest_1_email"} +ADD EMAIL (optional)
+                      %input{:name => "booking[guests_attributes][14572093701][email]", "ng-if" => "booking.guest_1_email", :placeholder => "Email", :type => "text"}
+                        %a.remove_email{"ng-click" => "booking.guest_1_email = false", "ng-if" => "booking.guest_1_email"} x
+                  .row{"ng-if" => "booking.guest_number &gt;= 4", "ng-init" => "booking.guest_2_email = false"}
+                    .small-6.columns
+                      %input{:name => "booking[guests_attributes][14572093702][name]", :placeholder => "Guest 3 Name", :required => "", :type => "text"}
+                    .small-6.columns
+                      %a.add_email{"ng-click" => "booking.guest_2_email = true", "ng-if" => "!booking.guest_2_email"} +ADD EMAIL (optional)
+                      %input{:name => "booking[guests_attributes][14572093702][email]", "ng-if" => "booking.guest_2_email", :placeholder => "Email", :type => "text"}
+                        %a.remove_email{"ng-click" => "booking.guest_2_email = false", "ng-if" => "booking.guest_2_email"} x
+                  .row{"ng-if" => "booking.guest_number &gt;= 5", "ng-init" => "booking.guest_3_email = false"}
+                    .small-6.columns
+                      %input{:name => "booking[guests_attributes][14572093703][name]", :placeholder => "Guest 4 Name", :required => "", :type => "text"}
+                    .small-6.columns
+                      %a.add_email{"ng-click" => "booking.guest_3_email = true", "ng-if" => "!booking.guest_3_email"} +ADD EMAIL (optional)
+                      %input{:name => "booking[guests_attributes][14572093703][email]", "ng-if" => "booking.guest_3_email", :placeholder => "Email", :type => "text"}
+                        %a.remove_email{"ng-click" => "booking.guest_3_email = false", "ng-if" => "booking.guest_3_email"} x
+                  .row{"ng-if" => "booking.guest_number &gt;= 6", "ng-init" => "booking.guest_4_email = false"}
+                    .small-6.columns
+                      %input{:name => "booking[guests_attributes][14572093704][name]", :placeholder => "Guest 5 Name", :required => "", :type => "text"}
+                    .small-6.columns
+                      %a.add_email{"ng-click" => "booking.guest_4_email = true", "ng-if" => "!booking.guest_4_email"} +ADD EMAIL (optional)
+                      %input{:name => "booking[guests_attributes][14572093704][email]", "ng-if" => "booking.guest_4_email", :placeholder => "Email", :type => "text"}
+                        %a.remove_email{"ng-click" => "booking.guest_4_email = false", "ng-if" => "booking.guest_4_email"} x
+                  .row{"ng-if" => "booking.guest_number &gt;= 7", "ng-init" => "booking.guest_5_email = false"}
+                    .small-6.columns
+                      %input{:name => "booking[guests_attributes][14572093705][name]", :placeholder => "Guest 6 Name", :required => "", :type => "text"}
+                    .small-6.columns
+                      %a.add_email{"ng-click" => "booking.guest_5_email = true", "ng-if" => "!booking.guest_5_email"} +ADD EMAIL (optional)
+                      %input{:name => "booking[guests_attributes][14572093705][email]", "ng-if" => "booking.guest_5_email", :placeholder => "Email", :type => "text"}
+                        %a.remove_email{"ng-click" => "booking.guest_5_email = false", "ng-if" => "booking.guest_5_email"} x
+              .row
+                .small-12.large-4.columns
+                  %label
+                    Tell us about yourself
+                    %span Our hosts are wonderful people too and would love to know more about you to make your experience unique and personalized. Use this space to share a little about you
+                .small-12.large-8.columns.end
+                  %textarea#booking_description{:name => "booking[description]", :required => "required", :rows => "5"}
+                    :preserve
+
+              .row
+                .small-12.large-4.columns
+                  %label
+                    Your travel background
+                    %span Tell your host about your interest in the local cuisine and cooking. Is this your first visit to the destination? Are there foods you are excited to learn about or try?
+                .small-12.large-8.columns.end
+                  %textarea#booking_culinary_background{:name => "booking[culinary_background]", :required => "required", :rows => "5"}
+                    :preserve
+
+          .row
+            .small-12.columns.text-center
+              %p.grey-text.regular.space-top.space-bottom We will ask you to sign in before we collect your billing information to hold your reservation
+              = link_to 'Continue', billing_information_tour_reservations_path(@tour), class: 'button primary large'

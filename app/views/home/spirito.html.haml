@@ -1,0 +1,719 @@
+%html
+  %head
+    %title Spirito
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+  %body.content-dark{"data-color" => "turquoise"}
+    #loader
+      .logo-name Spirito
+      .spinner
+        .spinner-container.container1
+          .circle1
+          .circle2
+          .circle3
+          .circle4
+        .spinner-container.container2
+          .circle1
+          .circle2
+          .circle3
+          .circle4
+        .spinner-container.container3
+          .circle1
+          .circle2
+          .circle3
+          .circle4
+    #wrapper
+      %header#home
+        #maximage.maximage-slider
+          = image_tag "img/demo/bg_1.jpg"
+          = image_tag "img/demo/bg_2.jpg"
+        .fullscreen-controls
+          %a.img-prev
+          %a.img-next
+        .pattern.dark-overlay
+        .home-wrapper
+          .logo
+            %h1 Spirito
+          #home-slider
+            .star-line
+              %span.line-pre
+              %span.icons
+                %i.glyphicon.glyphicon-star
+                %i.glyphicon.glyphicon-star
+                %i.glyphicon.glyphicon-star
+              %span.line-after
+            %ul.bxslider
+              %li
+                %h1 Creative &amp; Beautiful Designs
+              %li
+                %h1 Impressive &amp; Thoughtful Ideas
+              %li
+                %h1 Amazing &amp; Clean Results
+          = form_tag("/search", method: "post") do
+            = label_tag(:q, "Search for:")
+            = fields_for 'hidden_location_fields' do
+              = render partial: 'hidden_location_fields'
+            = text_field_tag(:q)
+            = submit_tag("Search")
+          .buttons
+            %a.btn{"data-scroll" => "#about", :href => "#about"} Learn More
+      %nav#main.dark
+        .container
+          .logo
+            %h1 Spirito
+          .menu-trigger
+            %a{:href => "#"}
+              %i.fa.fa-bars
+          %ul
+            %li.active
+              %a{:href => "#home"} Home
+            %li
+              %a{:href => "#about"} About
+            %li
+              %a{:href => "#team"} Team
+            %li
+              %a{:href => "#portfolio"} Portfolio
+            %li
+              %a{:href => "#pricing"} Pricing
+            %li
+              %a{:href => "#blog"} Blog
+            %li
+              %a{:href => "#contact"} Contact
+      .style-switcher
+        %i.fa.fa-gear.switcher-icon
+        .body
+          %h4 Change Color
+          %ul.list-unstyled.colors
+            %li.turquoise
+            %li.pink
+            %li.purple
+            %li.blue
+            %li.green
+            %li.red
+            %li.orange
+            %li.yellow
+          %br/
+          %h4 Navigation Style
+          %ul.list-unstyled.head-color
+            %li
+              %a.btn.btn-sm.btn-default.btn-block{"data-header" => "light"} Light
+            %li
+              %a.btn.btn-sm.btn-default.btn-block{"data-header" => "dark"} Dark
+            %li
+              %a.btn.btn-sm.btn-default.btn-block{"data-header" => "colored"} Colored
+      %section#about
+        .container.page
+          .section-title
+            %h1.super-title{"data-animate" => "fadeInDown"}
+              We are a Spirito.
+              %br>/
+              It's nice to meet you.
+            %p.subheading{"data-animate" => "fadeInDown"}
+              We are a creative agency located in Paris, France.
+              %br>/
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+      %section.grey
+        .container.page
+          .section-title
+            %h4{"data-animate" => "fadeIn"} What we do?
+            %h2{"data-animate" => "fadeIn"} We creating best-looking web design and logotypes.
+          .row
+            .col-xs-12.col-sm-4.col-md-4.col-lg-4{"data-animate" => "bounceIn"}
+              .feature-box
+                %i.fa.fa-eye
+                %h4 RETINA READY
+                %p Praesent vitae purus eu libero laoreet ornare. Justo quamet cursus neque. Fusce dui nibh auctor. Nam ornare neque odio.
+            .col-xs-12.col-sm-4.col-md-4.col-lg-4{"data-animate" => "bounceIn"}
+              .feature-box
+                %i.fa.fa-arrows-alt
+                %h4 FULLY RESPONSIVE
+                %p Praesent vitae purus eu libero laoreet ornare. Justo quamet cursus neque. Fusce dui nibh auctor. Nam ornare neque odio.
+            .col-xs-12.col-sm-4.col-md-4.col-lg-4{"data-animate" => "bounceIn"}
+              .feature-box
+                %i.fa.fa-eye
+                %h4 RETINA READY
+                %p Praesent vitae purus eu libero laoreet ornare. Justo quamet cursus neque. Fusce dui nibh auctor. Nam ornare neque odio.
+      %section#team
+        .hexagon.bottom
+        .container.page
+          .section-title
+            %h1{"data-animate" => "fadeInDown"}
+              %span.text-primary Our
+              Team
+            %hr{"data-animate" => "fadeIn"}/
+            %p.subheading{"data-animate" => "fadeInDown"}
+              Best projects is built by people with passion and love for what they do
+              %br/
+              Our goal is to build simple, unique and user-friendly designs
+          .row
+            .col-xs-12.col-sm-6.col-md-3.col-lg-3
+              .team{"data-animate" => "zoomIn", "data-delay" => "100"}
+                .team-photo
+                  .team-mask
+                  = image_tag "img/demo/team_1.jpg", alt: "Jennifer Goldberg"
+                  .team-overlay
+                  %ul.team-social
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-twitter
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-facebook
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-dribbble
+                %p.team-name Jennifer Goldberg
+                %p.team-type CEO Founder
+                %p Lorem ipsum Ut est anim et adipisicing Excepteur Duis culpa quis proident esse sunt est nisi.
+            .col-xs-12.col-sm-6.col-md-3.col-lg-3
+              .team{"data-animate" => "zoomIn", "data-delay" => "200"}
+                .team-photo
+                  .team-mask
+                  = image_tag "img/demo/team_3.jpg", alt: "Daniel Olson"
+                  .team-overlay
+                  %ul.team-social
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-twitter
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-facebook
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-dribbble
+                %p.team-name Daniel Olson
+                %p.team-type Web Designer
+                %p Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata.
+            .col-xs-12.col-sm-6.col-md-3.col-lg-3
+              .team{"data-animate" => "zoomIn", "data-delay" => "300"}
+                .team-photo
+                  .team-mask
+                  = image_tag "img/demo/team_2.jpg", alt: "John Doe"
+                  .team-overlay
+                  %ul.team-social
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-twitter
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-facebook
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-dribbble
+                %p.team-name John Doe
+                %p.team-type Developer
+                %p Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies.
+            .col-xs-12.col-sm-6.col-md-3.col-lg-3
+              .team{"data-animate" => "zoomIn", "data-delay" => "400"}
+                .team-photo
+                  .team-mask
+                  = image_tag "img/demo/team_4.jpg", alt: "Alice Brink"
+                  .team-overlay
+                  %ul.team-social
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-twitter
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-facebook
+                    %li
+                      %a{:href => "#"}
+                        %i.fa.fa-dribbble
+                %p.team-name Alice Brink
+                %p.team-type Graphic Designer
+                %p Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella.
+      %section#quote.parallax{:style => "background-image: url(#{asset_path 'img/demo/quote_bg.jpg'});"}
+        .pattern.dark-overlay
+        .container
+          .quote.white{"data-animate" => "zoomIn"}
+            %h2 You can't connect the dots looking forward. You can only connect them looking backwards. So you have to trust that the dots will somehow connect in&#160;your&#160;future.
+            %p - Steve Jobs -
+      %section#portfolio
+        .hexagon.top
+        .page
+          .container
+            .section-title
+              %h1{"data-animate" => "fadeInDown"}
+                %span.text-primary Our
+                Work
+              %hr{"data-animate" => "fade-in"}/
+              %p.subheading{"data-animate" => "fadeInDown"} We creating best-looking web design and logotypes. We also offer rebrand your company in&#160;way that you never seen before.
+          %ul#portfolio-filters.portfolio-grid-controls{"data-animate" => "fadeIn"}
+            %li.filter{"data-filter" => "all"}
+              All
+            %li.filter{"data-filter" => "webdesign"}
+              Web design
+            %li.filter{"data-filter" => "logo"}
+              Logo
+            %li.filter{"data-filter" => "video"}
+              Video
+            %li.filter{"data-filter" => "printdesign"}
+              Print Design
+          #portfolio-items.portfolio-grid{"data-animate" => "fadeIn"}
+            .portfolio-item.webdesign.video{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/1_big.jpg", "data-title" => "Natural Food"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Natural Food
+                      %h6 Webdesign, Video
+                  = image_tag "img/demo/portfolio/1.jpg", alt: ""
+            .portfolio-item.video.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/13_big.jpg", "data-title" => "Boba Fett"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Boba Fett
+                      %h6 Video
+                  = image_tag "img/demo/portfolio/13.jpg"
+            .portfolio-item.video.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/14_big.jpg", "data-title" => "The Avengers"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 The Avengers
+                      %h6 Video
+                  = image_tag "img/demo/portfolio/14.jpg"
+            .portfolio-item.logo.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/7_big.jpg", "data-title" => "Hudddle"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Hudddle
+                      %h6 Logo
+                  = image_tag "img/demo/portfolio/7.jpg"
+            .portfolio-item.webdesign.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/2_big.jpg", "data-title" => "Coffee UI Kit"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Coffee UI Kit
+                      %h6 Web Design
+                  = image_tag "img/demo/portfolio/2.jpg"
+            .portfolio-item.video.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/15_big.jpg", "data-title" => "The Walking Dead"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 The Walking Dead
+                      %h6 Video
+                  = image_tag "img/demo/portfolio/15.jpg"
+            .portfolio-item.logo.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/8_big.jpg", "data-title" => "Apple"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Apple
+                      %h6 Logo
+                  = image_tag "img/demo/portfolio/8.jpg"
+            .portfolio-item.webdesign.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/3_big.jpg", "data-title" => "Hotel Site"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Hotel Site
+                      %h6 Web Design
+                  = image_tag "img/demo/portfolio/3.jpg"
+            .portfolio-item.webdesign.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/4_big.jpg", "data-title" => "Colors UI"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Colors UI
+                      %h6 Web Design
+                  = image_tag "img/demo/portfolio/4.jpg"
+            .portfolio-item.webdesign.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/5_big.jpg", "data-title" => "Open Cinema"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Open Cinema
+                      %h6 Web Design
+                  = image_tag "img/demo/portfolio/5.jpg"
+            .portfolio-item.printdesign.video.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/11_big.jpg", "data-title" => "Pictos"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Pictos
+                      %h6 Print Design, Video
+                  = image_tag "img/demo/portfolio/11.jpg"
+            .portfolio-item.printdesign.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/12_big.jpg", "data-title" => "Standard Issue"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Standard Issue
+                      %h6 Print Design
+                  = image_tag "img/demo/portfolio/12.jpg"
+            .portfolio-item.webdesign.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/6_big.jpg", "data-title" => "Dark UI Kit"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Dark UI Kit
+                      %h6 Web Design
+                  = image_tag "img/demo/portfolio/6.jpg"
+            .portfolio-item.logo.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/9_big.jpg", "data-title" => "Ark Designs"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Ark Designs
+                      %h6 Logo
+                  = image_tag "img/demo/portfolio/9.jpg"
+            .portfolio-item.video.logo.all{"data-description" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "data-largesrc" => "img/demo/portfolio/10_big.jpg", "data-title" => "Reflect Architecture"}
+              .portfolio-item-inner
+                .portfolio-image
+                  .portfolio-overlay
+                    .portfolio-details
+                      %h3 Reflect Architecture
+                      %h6 Video, Logo
+                  = image_tag "img/demo/portfolio/10.jpg"
+      %section#clients.parallax{:style => "background-image: url(#{asset_path('img/demo/clients_bg.jpg')});"}
+        .pattern.dark-overlay
+        .container.page
+          .section-title
+            %h1.white{"data-animate" => "fadeInDown"}
+              %span.text-primary Our
+              best clients
+            %hr{"data-animate" => "fadeIn"}/
+            %p.subheading.white{"data-animate" => "fadeInDown"}
+              We worked with some of the largest companies in the world.
+          .clients
+            .row
+              .col-xs-6.col-sm-3.col-md-3.col-lg-3
+                .client{"data-animate" => "fadeIn"}
+                  %a.inner{:href => "#"}
+                    = image_tag "img/demo/logos/fb.png"
+              .col-xs-6.col-sm-3.col-md-3.col-lg-3
+                .client{"data-animate" => "fadeIn"}
+                  %a.inner{:href => "#"}
+                    = image_tag "img/demo/logos/google.png"
+              .col-xs-6.col-sm-3.col-md-3.col-lg-3
+                .client{"data-animate" => "fadeIn"}
+                  %a.inner{:href => "#"}
+                    = image_tag "img/demo/logos/microsoft.png"
+              .col-xs-6.col-sm-3.col-md-3.col-lg-3
+                .client{"data-animate" => "fadeIn"}
+                  %a.inner{:href => "#"}
+                    = image_tag "img/demo/logos/ubuntu.png"
+            .row
+              .col-xs-6.col-sm-3.col-md-3.col-lg-3
+                .client{"data-animate" => "fadeIn"}
+                  %a.inner{:href => "#"}
+                    = image_tag "img/demo/logos/twitter.png"
+              .col-xs-6.col-sm-3.col-md-3.col-lg-3
+                .client{"data-animate" => "fadeIn"}
+                  %a.inner{:href => "#"}
+                    = image_tag "img/demo/logos/behance.png"
+              .col-xs-6.col-sm-3.col-md-3.col-lg-3
+                .client{"data-animate" => "fadeIn"}
+                  %a.inner{:href => "#"}
+                    = image_tag "img/demo/logos/loreal.png"
+              .col-xs-6.col-sm-3.col-md-3.col-lg-3
+                .client{"data-animate" => "fadeIn"}
+                  %a.inner{:href => "#"}
+                    = image_tag "img/demo/logos/sony.png"
+      %section.grey
+        .container
+          .call-to
+            %h3{"data-animate" => "zoomIn"}
+              You like
+              %span.text-primary our
+              work? So why not drop us a call?
+              %a.btn.btn-primary.btn-lg{"data-scroll" => "#contact"} Contact Us
+      %section#pricing
+        .hexagon.hexagon-primary.bottom
+        .container.page
+          .section-title
+            %h1{"data-animate" => "fadeInDown"}
+              %span.text-primary Pricing
+              plans
+            %hr{"data-animate" => "fadeIn"}/
+            %p.subheading{"data-animate" => "fadeInDown"}
+              Right packages to suit your budget.
+          .row
+            .col-sm-3{"data-animate" => "bounceIn"}
+              .pricing
+                %h1.bg-primary.white Basic
+                %h2.val
+                  $15
+                  %small /month
+                %ul.list-unstyled
+                  %li
+                    %span> 5 GB
+                    Storage
+                  %li
+                    %span> 1
+                    Email account
+                  %li
+                    %span> 2
+                    Hosted domains
+                  %li
+                    %span> 24/7
+                    Email support
+                .space-md
+                %a.btn.btn-primary{:href => "#"} Sign Up Now
+            .col-sm-3{"data-animate" => "bounceIn"}
+              .pricing
+                %h1.bg-primary.white Advanced
+                %h2.val
+                  $30
+                  %small /month
+                %ul.list-unstyled
+                  %li
+                    %span> 12 GB
+                    Storage
+                  %li
+                    %span> 3
+                    Email account
+                  %li
+                    %span> 5
+                    Hosted domains
+                  %li
+                    %span> 24/7
+                    Email support
+                .space-md
+                %a.btn.btn-primary{:href => "#"} Sign Up Now
+            .col-sm-3{"data-animate" => "bounceIn"}
+              .pricing.featured
+                %h1.bg-primary.white Professional
+                %h2.val
+                  $50
+                  %small /month
+                %ul.list-unstyled
+                  %li
+                    %span> 20 GB
+                    Storage
+                  %li
+                    %span> 15
+                    Email account
+                  %li
+                    %span> 20
+                    Hosted domains
+                  %li
+                    %span> 24/7
+                    Email support
+                .space-md
+                %a.btn.btn-primary{:href => "#"} Sign Up Now
+            .col-sm-3{"data-animate" => "bounceIn"}
+              .pricing
+                %h1.bg-primary.white Enterprise
+                %h2.val
+                  $99
+                  %small /month
+                %ul.list-unstyled
+                  %li
+                    %span> Unlimited
+                    Storage
+                  %li
+                    %span> Unlimited
+                    Email account
+                  %li
+                    %span> Unlimited
+                    Hosted domains
+                  %li
+                    %span> 24/7
+                    Phone and Email support
+                .space-md
+                %a.btn.btn-primary{:href => "#"} Sign Up Now
+      %section#featured.parallax{:style => "background-image: url(#{asset_path('img/demo/featured_bg.jpg')};"}
+        .pattern-square-light.primary-overlay
+        .container.page.no-padding-bottom
+          .section-title
+            %h1.white{"data-animate" => "fadeInDown"} Clean and Beautiful Design
+          = image_tag "img/demo/featured_img.png", "data-animate" => "fadeInUp"
+      %section#blog
+        .hexagon.hexagon-primary.top
+        .container.page
+          .section-title
+            %h1{"data-animate" => "fadeInDown"}
+              %span.text-primary Latest
+              Blog Entries
+            %hr{"data-animate" => "fadeIn"}/
+            %p.subheading{"data-animate" => "fadeInDown"}
+              Read latest news, tutorial and other useful resources
+          .blog-home
+            .row.posts
+              .col-xs-12.col-sm-6.col-md-4.col-lg-4
+                %article.post{"data-animate" => "flipInX"}
+                  %a.post-image{:href => "blog/blog_post.html"}
+                    = image_tag "img/demo/portfolio/3.jpg"
+                    .overlay
+                      %i.fa.fa-picture-o
+                  %h3.post-title
+                    %a{:href => "blog/blog_post.html"} This is a post title
+                  %p.post-meta
+                    %span.meta-date 21 December 2013
+                    %span.meta-by
+                      %a{:href => "#"} Jonathan
+                  %p.post-content
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, labore, earum accusamus corrupti odio saepe dicta ipsum dolores! Eveniet, enim consectetur.
+                  %p.post-read-more
+                    %a.btn.btn-primary.btn-sm{:href => ""} Read More
+              .col-xs-12.col-sm-6.col-md-4.col-lg-4
+                %article.post{"data-animate" => "flipInX"}
+                  %a.post-image{:href => "blog/blog_post.html"}
+                    = image_tag "img/demo/portfolio/6.jpg"
+                    .overlay
+                      %i.fa.fa-film
+                  %h3.post-title
+                    %a{:href => "blog/blog_post.html"} This is a post title
+                  %p.post-meta
+                    %span.meta-date 21 December 2013
+                    %span.meta-by
+                      %a{:href => "#"} Jonathan
+                  %p.post-content
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi earum sapiente aperiam quia voluptates harum id. Quidem, sit aut nulla con.
+                  %p.post-read-more
+                    %a.btn.btn-primary.btn-sm{:href => ""} Read More
+              .col-xs-12.col-sm-6.col-md-4.col-lg-4
+                %article.post{"data-animate" => "flipInX"}
+                  %a.post-image{:href => "blog/blog_post.html"}
+                    = image_tag "img/demo/portfolio/9.jpg"
+                    .overlay
+                      %i.fa.fa-globe
+                  %h3.post-title
+                    %a{:href => "blog/blog_post.html"} This is a post title
+                  %p.post-meta
+                    %span.meta-date 21 December 2013
+                    %span.meta-by
+                      %a{:href => "#"} Jonathan
+                  %p.post-content
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi dignissimos ut architecto aliquam doloribus. Magni, sequi aut quos reiciendis consequatur.
+                  %p.post-read-more
+                    %a.btn.btn-primary.btn-sm{:href => ""} Read More
+              .col-xs-12.col-sm-6.col-md-4.col-lg-4
+                %article.post{"data-animate" => "flipInX"}
+                  %a.post-image{:href => "blog/blog_post.html"}
+                    = image_tag "img/demo/portfolio/2.jpg"
+                    .overlay
+                      %i.fa.fa-music
+                  %h3.post-title
+                    %a{:href => "blog/blog_post.html"} This is a post title
+                  %p.post-meta
+                    %span.meta-date 21 December 2013
+                    %span.meta-by
+                      %a{:href => "#"} Jonathan
+                  %p.post-content
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel voluptatem facere eligendi similique error consequatur vero quis minima. Laudantium iusto.
+                  %p.post-read-more
+                    %a.btn.btn-primary.btn-sm{:href => ""} Read More
+              .col-xs-12.col-sm-6.col-md-4.col-lg-4
+                %article.post{"data-animate" => "flipInX"}
+                  %a.post-image{:href => "blog/blog_post.html"}
+                    = image_tag "img/demo/portfolio/8.jpg"
+                    .overlay
+                      %i.fa.fa-link
+                  %h3.post-title
+                    %a{:href => "blog/blog_post.html"} This is a post title
+                  %p.post-meta
+                    %span.meta-date 21 December 2013
+                    %span.meta-by
+                      %a{:href => "#"} Jonathan
+                  %p.post-content
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, debitis, quidem, illo alias eligendi assumenda excepturi voluptate consectetur.
+                  %p.post-read-more
+                    %a.btn.btn-primary.btn-sm{:href => ""} Read More
+              .col-xs-12.col-sm-6.col-md-4.col-lg-4
+                %article.post{"data-animate" => "flipInX"}
+                  %a.post-image{:href => "blog/blog_post.html"}
+                    = image_tag "img/demo/portfolio/11.jpg"
+                    .overlay
+                      %i.fa.fa-camera
+                  %h3.post-title
+                    %a{:href => "blog/blog_post.html"} This is a post title
+                  %p.post-meta
+                    %span.meta-date 21 December 2013
+                    %span.meta-by
+                      %a{:href => "#"} Jonathan
+                  %p.post-content
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, accusantium, molestias architecto rem consequatur fugit id aliquid nulla eveniet aut.
+                  %p.post-read-more
+                    %a.btn.btn-primary.btn-sm{:href => ""} Read More
+            .row
+              .col-xs-12.col-sm-12.col-md-12.col-lg-12.text-center
+                %br/
+                %a.blog-more-posts.btn.btn-primary.btn-lg{"data-animate" => "zoomIn", :href => "#"} Load more posts
+      %section.grey
+        .container.page
+          .subscribe.text-center{"data-animate" => "bounceIn"}
+            %h2.light Subscribe to our newsletter
+            %form{:action => "#", :method => "post"}
+              %input.form-control.input-lg{:placeholder => "Your e-mail address...", :type => "text"}/
+              %input.btn.btn-lg.btn-primary{:type => "submit", :value => "Subscribe"}/
+      %section.dark
+        .hexagon.top
+        .container.page
+          .connect.text-center
+            %h2.light.white{"data-animate" => "fadeIn"} We love hearing from you. Say hello or just connect with us
+            %ul.social-media
+              %li{"data-animate" => "bounceIn"}
+                %a{:href => "#"}
+                  %i.fa.fa-facebook
+              %li{"data-animate" => "bounceIn"}
+                %a{:href => "#"}
+                  %i.fa.fa-twitter
+              %li{"data-animate" => "bounceIn"}
+                %a{:href => "#"}
+                  %i.fa.fa-dribbble
+              %li{"data-animate" => "bounceIn"}
+                %a{:href => "#"}
+                  %i.fa.fa-instagram
+              %li{"data-animate" => "bounceIn"}
+                %a{:href => "#"}
+                  %i.fa.fa-flickr
+      %section#contact-details.parallax{:style => "background-image: url(#{asset_path 'img/demo/contact_bg.jpg'});"}
+        .pattern-square.dark-overlay
+        .container.page
+          .contact-details
+            .icon{"data-animate" => "fadeIn"}
+              %i.fa.fa-phone
+            .phone-number{"data-animate" => "fadeIn"}
+              %h2 123-456-7890
+            .company-address{"data-animate" => "fadeIn"}
+              %h2
+                Spirito Company, 223 Autumn Lane
+                %br>/
+                Paris, France
+      %section#contact
+        .container.page
+          .section-title
+            %h1{"data-animate" => "fadeInDown", "data-delay" => "none"} Contact
+            %hr{"data-animate" => "fadeIn", "data-delay" => "none"}/
+            %p.subheading{"data-animate" => "fadeInDown"}
+              You want to say hello, or you want to know more about us? Drop us a call! We&#160;will be happy to answer you.
+          %form#contact-form{:action => "#", :method => "post", :name => "contact-form"}
+            .row
+              .col-xs-12.col-sm-12.col-md-offset-2.col-md-4.col-lg-offset-2.col-lg-4{"data-animate" => "fadeInLeft", "data-delay" => "none"}
+                .form-group
+                  %input.form-control.input-lg{:name => "", :placeholder => "Name", :type => "text"}/
+                .form-group
+                  %input.form-control.input-lg{:name => "", :placeholder => "E-mail", :type => "text"}/
+                .form-group
+                  %input.form-control.input-lg{:name => "", :placeholder => "Subject", :type => "text"}/
+              .col-xs-12.col-sm-12.col-md-4.col-lg-4{"data-animate" => "fadeInRight", "data-delay" => "none"}
+                .form-group
+                  %textarea.form-control{:placeholder => "Your message"}
+                .form-group
+                  %input.btn.btn-primary.btn-lg.btn-block{:type => "submit", :value => "Submit"}/
+      %section#location-map
+        #google-map.map
+      %footer
+        %h3 Spirito
+    :javascript
+      $(document).ready(function() {
+        Spirito.init().initSliders().initPortfolio().initMaps();
+        Grid.init();
+
+        $(window).load(function(){
+          $('#loader .logo-name, #loader .spinner').fadeOut(200,function(){
+              $('#loader').fadeOut(700,function(){
+                $(this).remove();
+                $(window).trigger('scroll');
+              });
+          });
+          Spirito.parallax();
+        });
+      });

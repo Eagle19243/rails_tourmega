@@ -1,0 +1,17 @@
+- if tour.images.present?
+  .media-photo
+    .flexslider
+      %ul.slides
+        - tour.images.each do |image|
+          %li
+            %img{:src => "#{image.url}"}/
+- else
+  %span No images yet
+
+:javascript
+  $(document).ready(function(){
+    $(".flexslider").flexslider({
+      slideshow: false,
+      controlNav: true
+    });
+  });

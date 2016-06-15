@@ -1,0 +1,88 @@
+- content_for(:title, "Give additional info for your tour on Tourmega")
+
+= javascript_include_tag 'gmap_autocomplete'
+
+.row
+  .small-12.columns
+    .headline.text-center
+      %h1.h3 Let’s create an awesome megatour together!
+      %h5 Last step, you are almost done. Please add some additional information with time and price.
+    .step-panel
+      = simple_form_for(tour, url: update_additional_info_tour_path, method: :put, html: { class: 'new_tour' }) do |f|
+        .panel-container
+          .field.row.display-table
+            .medium-7.columns.table-cell
+              %label
+                Which language(s) can you guide in?
+              .input-box
+                = f.input :languages, as: :select, collection: Tour::LANGUAGES, :input_html => { :class => "chosen-input with-bootstrap", multiple: true, 'data-placeholder' => "Choose a languages..." }, include_hidden: false, label: false
+            .medium-5.columns.field-guide.table-cell.space-3
+              %p
+                Choose the languages that you can guide travellers during your tour.
+
+          .field
+            %label
+              How many travelers can you handle?
+            .input-box
+              = render 'quantity_box', f: f
+
+          .field.clear-both
+            %label
+              When are you available to guide this tour?
+            .input-box
+              = render 'start_time', f: f
+            .input-box
+              = render 'duration_in_minutes', f: f
+
+          .field.clear-both
+            %label
+              The price
+            %p
+              Estimate all the expenses incurred in your tour such as transportation, meal, entrance tickets, etc., then add in your guiding fee.
+            .row
+              .small-12.medium-6.column.space-3
+                .cols-set-options.cols-2-set
+                  .col-1.col-option.text-center.price-option.price-per-person.selected{:name => 'price_per_person'}
+                    .col-content
+                      .media-photo
+                        %img{:alt => "Price Per Person", :src => "#{asset_url('each-price.png')}"}
+                      %h5 Price Per Person
+                  .col-2.col-option.text-center.price-option.fixed-price{:name => 'fixed_price'}
+                    .col-content
+                      .media-photo
+                        %img{:alt => "Fixed Price", :src => "#{asset_url('total-price.png')}"}
+                      %h5 Fixed Price
+            .row
+              .small-12.medium-6.column
+                .input-box.inline
+                  = f.input :price, label: false, input_html: { min: 0, placeholder: 'Price in $' }
+              .medium-6.columns.field-guide.hidden
+                .input-box
+                  = f.input :price_type, as: :text, wrapper: false, label: false, input_html: {value: 'price_per_person'}
+
+          .field
+            %label
+              Flexible conditions:
+            %p
+              Included and Excluded conditions in the price
+            .input-box
+              = f.input :flexible_requirement, as: :text, label: false, input_html: { class: 'redactor' }
+
+          .field
+            %label
+              Cancellation policy:
+            .input-box
+              = f.input :cancellation, as: :radio_buttons, collection: Tour::CANCELLATION_RULE, label: false, input_html: { class: 'as-button', style: 'opacity: 1' }
+        .row
+          .small-12.medium-4.medium-push-8.columns.text-right
+            = f.button :submit, 'Next step', class: 'button ladda-button', 'data-style' => 'expand-right', 'data-color' => 'mint'
+
+:javascript
+  $(function(){
+    $('.chosen-input').chosen( {allow_single_deselect: true, search_contains: true} );
+    $('.price-option').on('click', function(){
+      $('.price-option').removeClass('selected');
+      $(this).addClass('selected');
+      $('#tour_price_type').val($(this).attr('name'));
+    });
+  });

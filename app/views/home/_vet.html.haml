@@ -1,0 +1,8 @@
+#vet.white-bg
+  .row.small-stacked
+    - %w(host safety ambassador).each do |content|
+      .small-12.medium-4.columns.text-center
+        %a{:href => "/become#{content}"}
+          %svg.vet-icon
+          %h3= t("home.vet.#{content}.header")
+          %p= t("home.vet.#{content}.para")

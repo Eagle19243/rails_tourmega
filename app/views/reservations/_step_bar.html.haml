@@ -1,0 +1,25 @@
+.row.wide.space-botom{"data-equalizer" => ""}
+  .current.columns.medium-4.small-4.step.step-1
+    .text-center
+      - if reservation.complete?(:passenger)
+        = link_to passenger_tour_reservation_path(tour, reservation), remote: true do
+          = display_passenger_bar
+        = render 'resources/svg/animated_checkmark'
+      - else
+        = display_passenger_bar
+  .columns.small-4.medium-4.step.step-2
+    .text-center
+      - if reservation.complete?(:billing_information)
+        = link_to billing_information_tour_reservation_path(tour, reservation), remote: true do
+          = display_billing_information_bar
+        = render 'resources/svg/animated_checkmark'
+      - else
+        = display_billing_information_bar
+  .columns.small-4.medium-4.step.step-3
+    .text-center
+      - if reservation.complete?(:review_and_submit)
+        = link_to review_and_submit_tour_reservation_path(tour, reservation), remote: true do
+          = display_review_and_submit_bar
+        = render 'resources/svg/animated_checkmark'
+      - else
+        = display_review_and_submit_bar

@@ -1,0 +1,21 @@
+.row
+  .small-12.columns
+    = render 'profile_navbar'
+
+#profile
+  .row
+    .small-12.medium-7.columns
+      %h4.manage-header Change Password
+      .change-password.space-top
+        = simple_form_for(current_user, as: :user, url: user_registration_path(current_user), method: :put, html: { class: 'ng-pristine ng-valid' }) do |f|
+          = f.input :email, id: 'traveler_email', required: true, input_html: { disabled: true }
+          = f.input :password, autocomplete: 'off', label: 'New Password'
+          = f.input :password_confirmation
+          .text-right
+            = f.button :submit, 'Update Password', 'data-disable-with' => 'Updating', class: 'button expand'
+
+:javascript
+  $(function(){
+    $('.content-column').removeClass('free-meals');
+    $('li.profile>a').addClass('current');
+  });

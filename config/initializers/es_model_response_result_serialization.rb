@@ -1,0 +1,1 @@
+Elasticsearch::Model::Response::Result.send(:include, ActiveModel::Serialization)

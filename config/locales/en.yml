@@ -1,0 +1,146 @@
+en:
+  hello: "Hello world"
+  active_admin:
+    powered_by: "TourMega © 2016. All Rights Reserved with ActiveAdmin"
+  date:
+    datepicker:
+      default: "mm/dd/yyyy"
+      long: "MM dd, yyyy"
+    formats:
+      default: "%m/%d/%Y"
+      long: ! "%B %d %Y"
+  record_not_found: "Could not find the record"
+  record_not_unique: "The record is not unique"
+  unauthorized: 'You are not authorised to access this page.'
+  controllers:
+    profiles:
+      become_guide:
+        flash:
+          notice: 'You successfully register to become a host. Going to make a experience with love with us'
+  user:
+    gender:
+      male: Male
+      female: Female
+  references:
+    successfully: 'Your friend is going to get the invitation email soon'
+    failed: There is an unexpected error.
+  cuisines:
+    header: "Discover the local cuisine"
+    para: "Here are some of the best local-cooked dishes that you don't typically find in restaurants. Join our tours below with whom you can share these authentic local foods."
+  reservations:
+    successfully: 'Your reservation is successfully registered'
+  megatours:
+    header: "Join our Tourmega lovers community"
+    waiting_for_approved: 'Tour is in approving process. We will contact you soon.'
+    create_successfully: 'Tour was successfully registered. We are going to contact you soon'
+    create_failed: 'There is an unexpected error.'
+    destroy_successfully: 'Tour was successfully removed.'
+    destroy_failed: 'There is an unexpected error.'
+    update_successfully: 'Tour was successfully updated.'
+    update_failed: 'There is an unexpected error.'
+  tour:
+    not_found: 'This tour is no longer exists. Please take a look and message us if possible'
+  countries:
+    photo_bg: "http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Hoi-An-2396.jpg"
+    header: An authentic experience adventrue awaits
+    introduction: 'Travelling all over the world with TourMega'
+  cities:
+    photo_bg: "https://d26oxw2p26xsun.cloudfront.net/assets/hero/countries-header-26bc4904d05ff553c58e5ca87b087346.jpg"
+    header: An authentic culinary adventrue awaits
+    introduction: 'Travelling all over the world with TourMega'
+  user:
+    session:
+      background: "http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/North-Vietnam-7463.jpg"
+    registration:
+      background: "http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/North-Vietnam-7463.jpg"
+    not_found: 'This user is no longer exists'
+  search:
+    click_pin: Click on a pin to view more
+    view_more: "From the detailed view, click to go to the host profile, see their reviews and book an experience"
+    location: "Destinations"
+    date: Dates
+    tour_types:
+      art: "Arts & Culture"
+      tech: "Tech & Specialty"
+      shopping: "Shopping"
+      food: "Food & Wine"
+      night_life: "Night Life"
+      outdoors: "Outdoors & Nature"
+      photography: "Photography"
+      excursion: "Excursions & Day Trips"
+      sightseeing: 'Sightseeing & Landmarks'
+      cruises: Cruises
+      sports: Sports
+  become_guide:
+    background_image: "http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Hoi-An-2396.jpg"
+    header: 'Join our Tourmega lovers community'
+    introduction: 'Guides are at the heart of the TourMega community, and we would love to talk with you if you think you might be a good fit to join our growing community.'
+    why_we_need_host:
+      header: 'An Ideal Guide'
+      introduction: ' We love connecting with passionate travel guide who care about the experiences they create and delight in sharing it with others. If you are an airline, hotel, car rental site, or travel search engine, you can partner with us by providing a link back to TourMega to tourists and travelers. We would love to meet you and give you the opportunity to make profit via doing what you love and share it with travelers.'
+    application:
+      header: 'Application Process'
+      steps:
+        0: Submit online application form
+        1: Phone/ Email communication
+        2: In-person visit and tasting
+        3: Enter your payment details and get ready to create an experience!
+      picture: 'http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Mekong-Delta-Circuit-3-Jours-0557.jpg'
+    trust_and_safety: "We want you to feel 100% comfortable when guiding. This is why we have made sure that every TourMega booking is covered by our guide guarantee that covers you should any problems arise. All of our guides are pre-screened, recommended and reviewed by the TourMega community. Additionally, we communicate as much information about our guests as possible and allow you to communicate with them directly so that you never have to accept a booking without feeling absolutely comfortable about it."
+    guide_feedback: '"It was a pleasure to guide people from all over the world. We had a wonderful interaction and sharing of experiences with our guests. It was gratifying to know that they enjoyed the meal so much. We did not want our guests to leave and neither did they. We look forward to guide for TourMega again."'
+    guide_photo_bg: 'http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Phu-Loc-2863.jpg'
+  home:
+    contact_us: 'Tourmega helps you with every issue Connect now'
+    contact_us_bg: 'http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Tee-time.jpg'
+    help_image: "https://d26oxw2p26xsun.cloudfront.net/assets/icons/concierge-icon-grey-8e5cb4d0efff2a23ed233238e73fc281.png"
+    larger_text: Search from thousands of tours from all over the world
+    hide_for_small_text: and have the most unique experiences for your travels
+    not_found_location: DON'T SEE YOUR DESTINATION?
+    other_locations: We have other experiences available.
+    testimonial: What people say
+    testimonials:
+      0: "Ryan|I spent about three weeks traveling through SE Asia and can easily say that my Traveling Spoon experience was the best part of my trip. The fish we made was the best thing I ate on the entire trip."
+      1: "Alice Waters - chef and advisor|TourMega is a brilliant idea. The world needs it."
+      2: "Natalie|Our group traveled India for over a week, and this was by far my favorite experience. Experiencing the life of a local - the house, the food, the family - was priceless."
+    introduction:
+      header: "Local guide for an authentic taste of life"
+      content: "<p>We are here to connect world travellers with local tour guides for a real, local experience. We are a marketplace where you can discover, book and offer tours, activities and unique experiences anywhere in the world.</p><p>We offer high quality local experiences reviewed by community, each with trustworthy and reliable.</p>"
+      step:
+        0: "https://d1oh9y2nmj4y5b.cloudfront.net/uploads/cover_photo/filename/7/small_japan.jpg|Home cooks|Experience the joy of a homemade meal (and eat it the way the locals do) over conversation about food and culture"
+    how_it_works: How it Works
+    howitworks:
+      step:
+        0: "Find amazing tours for your travel|Search from our large inventory of tours for your travel destination"
+        1: "Book a tour|Choose a tour guide, select dates and book with our secured platform"
+        2: "Experience|Get ready to immerse and have the most memorial experiences of your life"
+    intro_locations: Explore The World
+    press:
+      main:
+        alt: Forbes text
+        src: https://d26oxw2p26xsun.cloudfront.net/assets/media/forbes-text-852d946c100c5c6caae67afb4b194321.png
+      sub:
+        media:
+          0: https://d26oxw2p26xsun.cloudfront.net/assets/media/ngtraveler-79de4411b71a1f85de7ecbb547e714c8.png
+          1: https://d26oxw2p26xsun.cloudfront.net/assets/media/cnn-3e0db110edb608f54de2a65f49294270.png
+          2: https://d26oxw2p26xsun.cloudfront.net/assets/media/travel-leisure-grey-cbab9a2fd0b5ace4a6633492541d0f22.png
+          3: https://d26oxw2p26xsun.cloudfront.net/assets/media/travelchannel-ae1845bda45629b521d11b222b18db90.png
+          4: https://d26oxw2p26xsun.cloudfront.net/assets/media/afar-1130c3add5545cb40cdf5a5dda275a90.png
+          5: https://d26oxw2p26xsun.cloudfront.net/assets/media/women20-de03b3fc5c4deaf052cf8f8d885e5eac.png
+    vet:
+      host:
+        header: Interested in hosting
+        para: Learn more about the process of becoming a host
+      safety:
+        header: 100% of our hosts are vetted
+        para: Safety and security is our top priority. Learn more
+      ambassador:
+        header: Call for Ambassadors
+        para: Learn more about becoming an ambassador
+    all_rights_reserved: TourMega © 2016. All Rights Reserved
+    blog: https://blog.tourmega.com
+    facebook: https://www.facebook.com/tourmega
+    twitter: https://www.twitter.com/tourmega
+    instagram: https://www.instagram.com/tourmega
+  input:
+    placeholder:
+      where_are_you_going: Where to go?

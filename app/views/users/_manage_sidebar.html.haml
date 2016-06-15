@@ -1,0 +1,34 @@
+.row
+  .small-12.columns
+    %ul.side-nav.space-top
+      %li.reservation
+        = link_to reservations_users_path, remote: true do
+          .left.space-right
+            %i.fa.fa-align-left
+          Reservations
+      %li.previous-travels
+        = link_to travels_users_path, remote: true do
+          .left.space-right
+            %i.fa.fa-calendar
+          Travels
+      - if current_user.is_a_host?
+        %li.crafted_tours
+          = link_to crafted_tours_users_path, remote: true do
+            .left.space-right
+              %i.fa.fa-user
+            Crafted Tours
+      %li.profile
+        = link_to users_path, remote: true do
+          .left.space-right
+            %i.fa.fa-user
+          Profile Info
+      %li.references
+        = link_to references_users_path, remote: true do
+          .left.space-right
+            %i.fa.fa-thumbs-up
+          References
+      %li
+        %a.credits-available
+          .left.space-right
+            %i.fa.fa-usd
+          = "Credits available: $ #{current_user.credits.to_f}"

@@ -1,0 +1,26 @@
+.row
+  .small-12.columns.field
+    %label What is tour about?
+    .categories.select-icons
+      %ul.small-block-grid-2.medium-block-grid-2.large-block-grid-5
+        - Category.find_each do |category|
+          %li
+            %div.icon-category{ onClick: "updateCategoryIds(this, #{category.id})", name: category.id }
+              = render "resources/svg/categories/#{category.symbol}"
+            %label{onClick: "updateCategoryIds(this, #{category.id})" }= category.name.titleize
+
+:javascript
+  function updateCategoryIds(caller, category_id){
+    categories = window.categories || []
+    category_index = categories.indexOf(category_id)
+    if (categories && category_index > -1) {
+      $(caller).removeClass('active');
+      categories.splice(category_index, 1);
+    }
+    else {
+      categories.push(category_id);
+      $(caller).addClass('active');
+    }
+    window.categories = categories;
+    getToursFromWindowOptions();
+  }

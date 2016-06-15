@@ -1,0 +1,49 @@
+- content_for(:title, "Founders of Tourmega")
+
+#founders-statement.white-bg
+  .row.wide
+    .small-12.medium-8.columns.picture{ style: "background-image: url('http://culinarymission.com/wp-content/uploads/2015/09/Banh-Mi-Ho-Chi-Minh-City-1024x683.jpg');background-position: 50% 35%" }
+    .small-12.medium-4.columns
+      .row.hide-for-small.accent{ style: "background-image: url('http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Saigon-cityscape.jpg');background-position: 50% 35%; min-height: 214px;" }
+      .row.orange-bg
+        .small-12.small-centered.large-11.columns.content
+          %p
+            “Our mission is to find you the most meaningful and memorable travel experiences”
+            %span.by Quynh &amp; Jin
+#founders-story.white-bg
+  .row.content.shorter
+    .small-12.columns.space-top.space-bottom
+      %h3 Founders' Story
+      %p Born through the love for travel, eye for adventure and commitment to entrepreneurship, Tourmega was launched in mid 2016. Tourmega is an tremendous online Uber for tours which is connecting travelers to local guides to facilitate authentic travel experiences. Whether it is a famous landmark, a local hangout, a slice of history, a taste of culture or a bite of food, see it through the eyes of locals. With a fast growing trend of cultural and experiential tourism, local entrepreneurs can earn income by sharing the authentic flavors of their city with travelers from around the world.
+
+#founders-bio.light-grey-bg
+  .row
+    .small-12.content.shorter
+      %h3 Our team
+      .founder-text
+        .panel.white-bg
+          .media
+            %figure.media-photo.media-round.pull-left
+              %img{:alt => "Quynh Pham", :height => "150", :src => "#{asset_url('female.jpg')}", :width => "150"}
+            .media-body
+              %h2.h3
+                Quynh Pham
+                %br
+                  %small CEO &amp; Co-Founder
+              %p
+                Quynh is a serial entrepreneur and Founder at Tourmega. She leads the company’s vision and mission and manages all systems and IT developments. Quynh earned a Computer Science degree at Penn State University and is an enthusiastic world traveler.
+        .panel.white-bg
+          .media
+            %figure.media-photo.media-round.pull-left
+              %img{:alt => "Jin Bui", :height => "150", :src => "#{asset_url('male.png')}", :width => "150"}
+            .media-body
+              %h2.h3
+                Jin Bui
+                %br
+                  %small CTO &amp; Co-Founder
+              %p Jin is the co-founder and CTO at Tourmega. He oversees the technical strategy of the product, and is dedicated to building a team of world-class engineers to keep Tourmega at the forefront of the travel industry.
+
+:javascript
+  $(function(){
+    $('.founders-path>a').addClass('current');
+  });

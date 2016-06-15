@@ -1,0 +1,25 @@
+#experience.white-bg
+  .row.wide{ data: { equalizer: "" } }
+    - if @random_tour && @random_tour.thumbnail_image_url
+      .small-12.medium-6.medium-push-6.columns.hide-for-small.picture{ "background-image" => "#{@random_tour.thumbnail_image_url}", "data-equalizer-watch" => "" }
+    - else
+      .small-12.medium-6.medium-push-6.columns.hide-for-small.picture{ "data-equalizer-watch" => "" }
+
+    .small-12.medium-6.medium-pull-6.columns.guide{ "data-equalizer-watch" => "" }
+      .row.content
+        - if @random_tour.present?
+          .small-12.large-11.columns
+            %h3.header
+              = link_to @random_tour.name, tour_path(@random_tour)
+            = truncate_html @random_tour.description, length: 700, omission: '...'
+          .row
+            .small-12.medium-3.columns.text-center
+              %img.avatar.large{:src => "#{@random_tour.creator_avatar_url}"}
+            .small-12.medium-9.columns
+              .step
+                .experience-title= @random_tour.creator_name
+                %p= @random_tour.creator.biography
+        - else
+          .small-12.large-11.columns
+            %h3.header= t('home.introduction.header')
+            = t('home.introduction.content').html_safe

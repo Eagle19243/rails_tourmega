@@ -1,0 +1,13 @@
+.row{"data-equalizer" => ""}
+  .small-2.medium-1.large-1.columns.space-bottom{"data-equalizer-watch" => ""}
+    .vertical-text
+      %span
+        Guests
+  .small-10.columns.end.content-block{"data-equalizer-watch" => ""}
+    .row
+      .small-12.large-4.columns
+        %label
+          With whom are you traveling
+          %span Our hosts are excited to know!
+      .small-12.large-8.columns.end
+        = f.input :external_guests, as: :select, collection: Reservation::EXTERNAL_GUESTS.map { |guest| [ guest.to_s.upcase, guest] }, :input_html => { :class => "chosen-input with-bootstrap", multiple: true, 'data-placeholder' => "Come with whom ?" }, label: false

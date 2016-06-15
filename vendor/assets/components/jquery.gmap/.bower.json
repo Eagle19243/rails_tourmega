@@ -1,0 +1,15 @@
+{
+  "name": "jquery.gmap",
+  "homepage": "https://github.com/fridek/gmap",
+  "version": "3.3.3",
+  "_release": "3.3.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.3.3",
+    "commit": "6ea138e8bdc02559425da5e67a08fbe8ccde94cd"
+  },
+  "_source": "git://github.com/fridek/gmap.git",
+  "_target": "~3.3.3",
+  "_originalSource": "jquery.gmap",
+  "_direct": true
+}

@@ -1,0 +1,38 @@
+.small-12.medium-12.large-8.columns.content.short.tour-content
+  .row.tour-inner
+    .col-sm-3.text-center.tour-media
+      %a{:href => "#{public_profile_user_path(tour.creator)}"}
+        .media-photo.media-round
+          %img.avatar.x-large.text-center{:src => "#{tour.creator_avatar_url}", :alt => "#{tour.creator_name}"}
+        .text-center.hide-sm
+          %span= @tour.creator_name
+          %span.hide = @tour.creator.biography
+    .col-sm-9.tour-info.small-only-text-center
+      %h1.h3.tour-title= tour.name
+      .display-address.space-3
+        = render 'shared/tour_rating', tour: tour
+      .row.text-center
+        .col-xs-3
+          %i.icon.fa.fa-usd
+          %p= "#{tour.price}"
+        .col-xs-3
+          %i.icon.fa.fa-group
+          %p= "#{tour.min_quantity} - #{tour.max_quantity}"
+        .col-xs-3
+          %i.icon.fa.fa-clock-o
+          %p= "#{tour.duration_in_minutes} mins"
+      .row.hidden
+        %p= tour.overview.try(:html_safe)
+        - if tour.overview.try(:html_safe).to_s.length > 100
+          .el-expandable
+            .el-expandable-content
+              %p= tour.overview.try(:html_safe)
+              .expandable-indicator
+            %a.el-expandable-more{:href => "#"} See more
+
+:javascript
+  $(function(){
+    $('i.fa.fa-map-marker').on('click', function(){
+      drawMapWithLatAndLng($(this).attr('lat'), $(this).attr('lng'));
+    });
+  });

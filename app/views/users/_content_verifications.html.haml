@@ -1,0 +1,45 @@
+.row
+  .small-12.columns
+    = render 'profile_navbar'
+
+#profile
+  .panel.panel-has-header.white-bg
+    .panel-header Verify Your ID
+    .panel-body
+      .row.row-condensed.row-table
+        .col-xs-12.col-sm-7.col-middle
+          %p
+            Getting your Verified ID is the easiest way to help build trust in the TourMega community.  We’ll verify you by matching information from an online account to an official ID.
+
+          %p Or, you can choose to only add the verifications you want below.
+        .col-xs-12.col-sm-5.col-middle
+          .text-center
+            %a.button.btn-danger{:href => "#", :title => "Verify Me"} Verify Me
+  .panel.panel-has-header.white-bg
+    .panel-header Your Current Verifications
+    .panel-body
+      %ul.list-unstyled
+        %li.space-4
+          .row.row-table
+            .col-xs-12.col-sm-7.col-middle
+              %h5 Facebook
+              %p
+                Sign in with Facebook and discover your trusted connections to hosts and guests all over the world.
+            .col-xs-12.col-sm-5.col-middle
+              .text-center
+                %a.button.btn-normal{:href => "#", :title => "Disconnect"} Disconnect
+          %li.space-4
+            %h5 Twitter
+            .row
+              .col-xs-12.col-sm-7
+                %p
+                  Connect your TourMega account to your Twitter account for simplicity and ease.
+              .col-xs-12.col-sm-5
+                .text-center
+                  %a.button.expand{:href => "#", :title => "Connect"} Connect
+
+:javascript
+  $(function(){
+    $('.content-column').removeClass('free-meals');
+    $('li.profile>a').addClass('current');
+  });

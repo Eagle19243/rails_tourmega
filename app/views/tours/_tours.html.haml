@@ -1,0 +1,12 @@
+- if tours.present?
+  .footer-results{style: 'padding-left: 40px;'}
+    = paginate tours, remote: true
+
+  .listings-container
+    .row
+      - tours.each do |tour|
+        .small-4.column
+          = render 'tour', tour: tour
+
+  .footer-results{style: 'padding-left: 40px;'}
+    = paginate tours, remote: true

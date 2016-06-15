@@ -1,0 +1,44 @@
+
+%section.main-section{style: 'margin-top:300px;'}
+  #host-selection-page
+    #hero
+      %img{:src => "/uploads/tour/images/2/IM.bin"}
+      = render 'resources/svg/categories/art'
+      = text_area_tag :editor, "", :class => "redactor", :rows => 40, :cols => 120
+
+#map-popup-item
+  .item
+    .panel-image.listing-img
+      .media-photo
+        .flexslider
+          %ul.slides
+	          %li
+	            %img{:src => "/uploads/tour/images/199/533f11a0-c234-4530-8217-1ec5f14d9c5f.jpg"}
+	          %li
+	            %img{:src => "/uploads/tour/images/199/e358f336-39aa-45b7-9af6-040ad221ff89.jpg"}
+	          %li
+	            %img{:src => "/uploads/tour/images/199/ef3c5bc4-2e26-4f70-ad6e-7b442d08d7b8.jpg"}
+	          %li
+	            %img{:src => "/uploads/tour/images/199/895950a6-1a3f-4333-a097-b5e5762c31fb.jpg"}
+	          %li
+	            %img{:src => "/uploads/tour/images/199/37107433-5232-494a-aedc-e40cbb2cd47f.jpg"}
+      %a.panel-overlay-bottom-left.panel-overlay-listing-price{:href => "#"}
+        .price-container
+          %sup $
+          %span.price-amount= 40.0
+        %span.icon-instant-book.glyphicon.glyphicon-flash
+    .panel-body.panel-card-section
+      .info
+        %a.profile-picture{:href => "#{}"}
+          %img{:alt => "", :src => "/uploads/user/avatar/100/083593b5-9376-4de3-930e-00f1222ee6e1_small_1411087122_10341433_819249698103545_3004239799711702131_n.jpg"}/
+        %h3.listing-name{:title => "Boat Trip / Paseo de Barco / Passeio de Barco"}
+          %a{:href => "#"} = Boat Trip / Paseo de Barco / Passeio de Barco
+        .listing-location
+          %a.text-normal{:href => "#"}
+            .star-rating
+              %i.fa.fa-star
+              %i.fa.fa-star
+              %i.fa.fa-star
+              %i.fa.fa-star
+              %i.fa.fa-star-half-full
+            = "5 reviews"

@@ -1,0 +1,15 @@
+$(function() {
+  if ("<%= flash[:notice] || flash[:alert] || flash[:warning] %>") {
+    if ("<%= flash[:notice] %>")
+      (new FlashMessage({ type: "notice", message: "<%= flash[:notice] %>" })).show();
+    else if ("<%= flash[:alert] %>")
+      (new FlashMessage({ type: "error", message: "<%= flash[:error] %>" })).show();
+    else
+      (new FlashMessage({ type: "warning", message: "<%= flash[:warning] %>" })).show();
+    setTimeout(function() {
+      $(".alert.auto-fade").fadeTo(500, 0).slideUp(500, function() {
+        $(this).remove();
+      });
+    }, 1000);
+  }
+});

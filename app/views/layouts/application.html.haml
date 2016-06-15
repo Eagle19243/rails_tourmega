@@ -1,0 +1,40 @@
+!!!
+%html{"ng-app" => "tourmega"}
+  %head
+    %title= yield(:title).presence || Tourmega
+    %meta{charset: "utf-8"}
+    %meta{'http-equiv' => "X-UA-Compatible", content: 'IE=edge'}
+    %meta{name: "twitter:card", content: "summary_large_image"}
+    %meta{:content => "article", :property => "og:type"}
+    %meta{:content => "Tourmega", :property => "og:title"}
+    %meta{:content => "Tourmega is a platform searching for tours", :property => "og:description"}
+    %meta{:content => "www.tourmega.com", :property => "og:url"}
+    %meta{:content => "Tourmega", :property => "og:site_name"}
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1'}
+    %meta{ :name => "google", :value => "notranslate"}
+    %title= yield(:title) + ' - TourMega'
+    %meta{ :name => "description", :content => "Edit & send #{yield(:title)}" }
+    %meta{ :name => "keywords", :content => "Tourmega, a travelling hub, searching platform, booking references, #{yield(:meta_keywords)}"}
+    %link{ href: asset_path("favicon.png"), rel: "shortcut icon" }
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'required', media: 'all'
+    = google_analytics_script if Rails.env.production?
+    = include_gon
+    = csrf_meta_tags
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Varela+Round&subset=latin,vietnamese', media: 'all'
+
+  %body.fade-in-on-load{:style => "opacity: 1;"}
+    .off-canvas-wrap.docs-wrap{"data-offcanvas" => ""}
+      = render 'layouts/header'
+      .inner-wrap
+        = yield
+      .right-off-canvas-menu-wrap
+        = render 'layouts/canvas_menu'
+      %section#footer
+        = render 'layouts/footer' if display_footer?
+        = render 'layouts/copyright'
+      %a.exit-off-canvas
+    = render 'layouts/blueimp'
+  = javascript_include_tag 'application', media: 'all'
+  = render 'shared/zendesk' if Rails.env.production?

@@ -1,0 +1,21 @@
+{
+  "name": "tourmega",
+  "version": "0.0.1",
+  "description": "Tourmega app",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests",
+    "src"
+  ],
+  "dependencies": {
+    "eonasdan-bootstrap-datetimepicker": "~4.14.30",
+    "jquery.scrollTo": "~2.1.1",
+    "bootstrap": "~3.3.4",
+    "jquery-appear": "~0.2.2"
+  }
+}

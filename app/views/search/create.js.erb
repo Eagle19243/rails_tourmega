@@ -1,0 +1,4 @@
+$('#map-popup-items').html("<%=j render 'map_popup_items', tours: @response_tours %>");
+drawMarkers(<%= raw @data.to_json %>);
+setTimeout(openAllClusters, 1000);
+$('#tours').html("<%=j render 'tours', tours: @tours %>");

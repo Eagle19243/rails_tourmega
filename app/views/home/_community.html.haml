@@ -1,0 +1,74 @@
+.community-wrapper.container-fluid
+  .space-8.text-center
+    %h2 Our Service
+  %ul.row.community-container.list-unstyled
+    %li.col-md-3.col-sm-6
+      .community-card.community-card-creating
+        .panel
+          %a.community-card-link.panel-image.media-photo.media-link.text-center{:href => "#{new_tour_path}"}
+            .media-cover.media-cover-dark.background-cover
+              %img{:src => "#{asset_url('service_backpack.jpg')}"}/
+            .community-card-header
+              .community-card-header-label
+                %strong.text-contrast
+                  Guide
+            .row.row-table.row-full-height.text-contrast
+              .col-sm-10.col-center.col-bottom
+                .h3
+                  %strong Make Tourmega
+                %div
+                  Create your experiences,
+                  %br/
+                  Tell your story
+    %li.col-md-3.col-sm-6
+      .community-card.community-card-traveling
+        .panel
+          %a.community-card-link.panel-image.media-photo.media-link.text-center{:href => "#{countries_path}"}
+            .media-cover.media-cover-dark.background-cover
+              %img{:src => "#{asset_url('service_experience.jpg')}"}/
+            .community-card-header
+              .community-card-header-label
+                %strong.text-contrast
+                  Traveling
+            .row.row-table.row-full-height.text-contrast
+              .col-sm-10.col-center.col-bottom
+                .h3
+                  %strong Local travel
+                %div
+                  We are always searching for local experiences
+    %li.col-md-3.col-sm-6
+      .community-card.community-card-business
+        .panel
+          %a.community-card-link.panel-image.media-photo.media-link.text-center{:href => 'javascript:void(0);'}
+            .media-cover.media-cover-dark.background-cover
+              %img{:src => "#{asset_url('service_local.jpg')}"}/
+            .community-card-header
+              .community-card-header-label
+                %strong.text-contrast
+                  Day life
+            .row.row-table.row-full-height.text-contrast
+              .col-sm-11.col-center.col-bottom
+                .h3
+                  %strong Day life
+                %div
+                  Feel at home,
+                  %br/
+                  Enjoy local day-life services
+    %li.col-md-3.col-sm-6
+      .community-card.community-card-hosting
+        .panel
+          %a.community-card-link.panel-image.media-photo.media-link.text-center{:href => 'javascript:void(0);'}
+            .media-cover.media-cover-dark.background-cover
+              %img{:src => "#{asset_url('service_cuisine.jpg')}"}/
+            .community-card-header
+              .community-card-header-label
+                %strong.text-contrast
+                  Cuisine
+            .row.row-table.row-full-height
+              .col-sm-12.col-center.col-bottom.text-contrast
+                .h3
+                  %strong Authentic food
+                %div
+                  Experience the joy of a local meal,
+                  %br/
+                  In-home cooking

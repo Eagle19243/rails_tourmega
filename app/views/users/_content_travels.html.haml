@@ -1,0 +1,15 @@
+#previous-trips.manage
+  .row
+    .small-12.columns
+      %ul.breadcrumbs
+        %li.unavailable
+          %a{:href => travels_users_path} Previous Travels
+  .row
+    = render 'travels_table', tours: @travels
+
+
+:javascript
+  $(function(){
+    $('.content-column').removeClass('free-meals')
+    $('li.previous-travels>a').addClass('current');
+  });

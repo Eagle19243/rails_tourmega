@@ -1,0 +1,23 @@
+#testimonial-slider.orange-bg
+  .flexslider-container
+    .flexslider
+      %ul.slides
+        - t('home.testimonials').each do |index, content|
+          - author, testimonial = content.chomp.split('|')
+          %li.text-center
+            .testimonial
+              %h3= t('home.testimonial').upcase
+              .testimonial-body
+                %blockquote= testimonial
+                .by.text-center
+                  %span= author
+      %ul.flex-direction-nav
+        %li
+          %a.flex-prev{:href => "#"} Previous
+        %li
+          %a.flex-next{:href => "#"} Next
+
+:javascript
+  $(function(){
+    $('ul.slides>li.text-center:nth-child(1)').addClass('flex-active-slide');
+  });

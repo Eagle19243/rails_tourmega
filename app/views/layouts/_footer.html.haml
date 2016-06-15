@@ -1,0 +1,42 @@
+#sitemap
+  .row
+    .small-12.large-7.columns
+      .row
+        .small-12.medium-6.large-6.columns
+          %nav
+            .row
+              .small-12.columns
+                %strong Company Info
+            .row
+              .small-6.columns
+                %ul
+                  %li
+                    %a{href: "/about"} About
+                  %li
+                    %a{href: "/founders"} Team
+              .small-6.columns
+                %ul
+                  %li
+                    %a{href: "/how-it-works"} How it Works
+                  %li
+                    %a{href: "/safety"} Safety
+        .small-6.medium-3.large-3.columns
+          %nav
+            %strong Join Us
+            %ul
+              %li
+                %a{href: "/become_guide"} Become a Guide
+
+        = render 'layouts/partnerships'
+
+    .small-12.large-5.columns.text-right
+      = simple_form_for Subscriber.new, url: subscribers_path, method: :post, remote: true do |f|
+        .row
+          .small-12.columns.text-left
+            %label
+              %strong Subscribe to our newsletter!
+        .row
+          .small-12.medium-8.columns
+            = f.input :email, placeholder: "Enter Email Address", label: false
+          .small-12.medium-4.columns
+            = f.button :submit, 'Add Me', class: 'button expand', 'data-disable-with' => 'Adding...'

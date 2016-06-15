@@ -1,0 +1,24 @@
+.space-4#references.references
+  %h2.block-title
+    Reviews
+    %small= "(#{user.total_reviews})"
+    .references-list
+    - if user.total_reviews > 0
+      - user.all_reviews.find_each do |tour_review|
+        .row.text-center-sm.item
+          .col-xs-12.col-sm-4.col-lg-2
+            .avatar-wrapper.text-center
+              .media-photo.media-round
+                %a{:href => public_profile_user_path(tour_review.reviewer), :title => tour_review.reviewer_name}
+                  %img{:src => tour_review.reviewer_avatar_url}
+              .profile-name
+                %a{:href => public_profile_user_path(tour_review.reviewer), :title => tour_review.reviewer_name}= tour_review.reviewer_name
+          .col-xs-12.col-sm-8.col-lg-10
+            .comment-container
+              = tour_review.comment
+            .date.text-gray
+              = tour_review.created_at.strftime('%B %Y')
+        .row.line-separation
+          .col-xs-12.col-sm-4.col-lg-2
+          .col-xs-12.col-sm-8.col-lg-10
+            %hr

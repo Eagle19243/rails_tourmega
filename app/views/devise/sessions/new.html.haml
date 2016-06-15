@@ -1,0 +1,51 @@
+- content_for(:title, "Tourmega - Sign in")
+
+%section.main-section
+  #signin{"background-image" => t('user.session.background')}
+    .content
+      .row.photo-bg
+        .small-12.small-centered.medium-11.medium-pull-1.large-7.large-pull-1.columns
+          = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'translucent'}) do |f|
+            .row
+              .small-12.columns
+            .row
+              .small-12.columns
+                %h3
+                  Sign in to your account
+                  %sup
+                    Need to create an account?
+                    %a#sign_up{:href => "#{new_user_registration_path}"} Sign up
+            .row.collapse.social-logins
+              .small-12.medium-6.columns
+                %a.facebook-login{:href => "#{omniauth_authorize_path(resource_name, :facebook)}"}
+                  %i.fa.fa-facebook
+                  Login with Facebook
+              .small-12.medium-6.columns
+                %a.twitter-login{:href => "#{omniauth_authorize_path(resource_name, :twitter)}"}
+                  %i.fa.fa-twitter
+                  Login with Twitter
+            .row
+              .small-12.columns
+                %span.or-divider or
+            .row
+              .small-12.columns
+                = f.input :email, autofocus: true, required: true, class: 'translucent', placeholder: 'Email', wrapper: false
+                %label{:for => "user_email"} Email
+            .row
+              .small-12.columns
+                = f.input :password, autocomplete: false, autofocus: true, required: true, placeholder: 'Password', wrapper: false
+                %label{:for => "user_password"} Password
+            .row.hide
+              .small-12.columns
+                = f.input :remember_me, as: :boolean, value: "1"
+            .row
+              .small-12.columns
+                = f.button :submit, "Sign in", class: 'button primary'
+            .row
+              .small-12.columns.space-bottom
+                %p.signin
+                  Forgot your password?
+                  %a{:href => "#{new_user_password_path}"} Reset password
+                  %br
+                  Need to create an account?
+                  %a{:href => "#{new_user_registration_path}"} Sign up

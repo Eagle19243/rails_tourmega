@@ -1,0 +1,88 @@
+# encoding: utf-8
+
+class ImageUploader < BaseUploader
+
+  # Include RMagick or MiniMagick support:
+  # include CarrierWave::RMagick
+  # include CarrierWave::MiniMagick
+
+  # Choose what kind of storage to use for this uploader:
+  # storage :file
+
+  # Override the directory where uploaded files will be stored.
+  # This is a sensible default for uploaders that are meant to be mounted:
+  # Process files as they are uploaded:
+  # process :scale => [200, 300]
+  #
+  # def scale(width, height)
+  #   # do something
+  #   # process :convert => 'png'
+  # end
+
+  # Create different versions of your uploaded files:
+  version :thumb do
+    process resize_to_fill: [355, 235]
+  end
+
+  version :view do
+    process resize_to_fill: [600, 400]
+  end
+
+  version :large do
+    process resize_to_fill: [800, 600]
+  end
+  # version :medium, :from_version => :large do
+  #   process resize_to_fill: [299, 176]
+  # end
+
+  # version :medium_home, :from_version => :large do
+  #   process resize_to_fill: [370, 218]
+  # end
+
+  # version :large, :from_version => :xlarge do
+  #   process resize_to_fill: [460, 292]
+  # end
+
+  # version :xlarge do
+  #   process resize_to_fill: [620, 364]
+  # end
+
+  # version :view do
+  #   process resize_to_fill_if_larger: [645, 318]
+  # end
+
+  # version :view_larger do
+  #   process resize_to_fill_if_larger: [645, 430]
+  # end
+
+  def image
+    @image ||= MiniMagick::Image.open( model.send(mounted_as).path )
+  end
+
+  def image_width
+     image[:width]
+  end
+
+  def image_height
+    image[:height]
+  end
+
+  def resize_to_fill_if_larger(width, height, gravity='center')
+    width = self.image_width if self.image_width < width
+    height = self.image_height if self.image_height < height
+    resize_to_fill(width, height, gravity)
+  end
+
+  # Add a white list of extensions which are allowed to be uploaded.
+  # For images you might use something like this:
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
+
+  def filename
+    if original_filename.present?
+      @updated_name ||= "#{SecureRandom.uuid}.jpg"
+    end
+  end
+
+end

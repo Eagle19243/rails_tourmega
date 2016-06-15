@@ -1,0 +1,23 @@
+#copyright
+  .row.wide{"data-equalizer" => "" }
+    .small-12.large-3.columns{"data-equalizer-watch" => "", :style => "height: 34px;" }
+      %p.vertical-align
+        = t('home.all_rights_reserved')
+    .small-12.large-3.columns{"data-equalizer-watch" => "", :style => "height: 34px;" }
+      %p.vertical-align
+        %a{ href: "#{home_term_of_services_path}" } Terms
+        |
+        %a{ href: "#{home_privacy_policy_path}" } Privacy Policy
+        |
+        %a{ href: "#{home_contact_us_path}" } Contact us
+    .small-12.large-6.columns.text-right{"data-equalizer-watch" => "", :style => "height: 34px;" }
+      %ul.social
+        %li
+          %a{ href: "#{t('home.facebook')}", :target => "_blank" }
+            %i.fa.fa-facebook.fa-2x
+        %li
+          %a{ href: "#{t('home.twitter')}", :target => "_blank" }
+            %i.fa.fa-twitter.fa-2x
+        %li
+          %a{ href: "#{t('home.instagram')}", :target => "_blank" }
+            %i.fa.fa-instagram.fa-2x

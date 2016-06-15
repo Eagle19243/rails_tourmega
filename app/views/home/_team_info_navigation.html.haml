@@ -1,0 +1,14 @@
+.company-menu
+  %h3 Team Info
+  %nav
+    %ul
+      %li.about-path
+        = link_to 'About', home_about_path, remote: true
+      %li.founders-path
+        = link_to 'Founders', home_founders_path, remote: true
+      %li.how-it-works-path
+        = link_to 'How it works', home_how_it_works_path, remote: true
+      %li.safety-path.hidden
+        = link_to 'Safety', home_safety_path, remote: true
+      %li.careers-path.hidden
+        = link_to 'Careers', home_careers_path, remote: true

@@ -1,0 +1,23 @@
+# Ignore bundler config.
+/.bundle
+/.idea
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+/public/uploads
+/public/system
+/doc
+/docs
+# ignore secret keys
+.DS_Store
+config/application.yml
+config/database.yml
+notes.md
+/public/public
+.byebug_history
+dump.rdb
+elastic_bash_command.md
+/node_modules
+db/tours.csv
+db/csv

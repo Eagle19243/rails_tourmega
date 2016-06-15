@@ -1,0 +1,81 @@
+= javascript_include_tag 'history_state', media: 'all'
+
+%section.main-section
+  .manage-listing
+    .manage-listing-content-wrapper.row
+      .manage-listing-content.white-bg
+        %h4 Select an options:
+        .cols-set-options.cols-3-set
+          .col-1.col-option.text-center.calendar-option.calendar-always
+            .col-content
+              .media-photo
+                %img{:alt => "Always", :src => "#{asset_url('calendar-always.png')}"}
+              %h5 Always Available
+              %strong List completely open calendar
+          .col-2.col-option.text-center.calendar-option.calendar-onetime
+            .col-content
+              .media-photo
+                %img{:alt => "Onetime", :src => "#{asset_url('calendar-onetime.png')}"}
+              %h5 Onetime Available
+              %strong List some days as available
+          .col-3.col-option.expand-onetime
+            .col-content
+              %h5 Start Date
+              %input.checkin.ui-datepicker{:type => "text", :name =>"start-date", :placeholder => "Start date"}
+              %h5 End Date
+              %input.checkout.ui-datepicker{:type => "text", :name =>"end-date", :placeholder => "End date"}
+    .manage-listing-nav.light-grey-bg
+      .nav-sections
+        .row
+          .small-12.column
+            .block.block-listing-nav
+              .block-title Basics
+              .block-content
+                %ul.list-unstyled
+                  %li.active
+                    %a{:href => "#"} Calendar
+                  %li
+                    %a{:href => "#"} Pricing
+            .block.block-listing-nav
+              .block-title Description
+              .block-content
+                %ul.list-unstyled
+                  %li
+                    %a{:href => "#"} Overview
+                  %li
+                    %a{:href => "#"} Photos
+            .block.block-listing-nav
+              .block-title Settings
+              .block-content
+                %ul.list-unstyled
+                  %li
+                    %a{:href => "#"} Amenities
+                  %li
+                    %a{:href => "#"} Listing
+      .publish-actions.text-center
+        Complete 
+        %strong.color-red 6 steps
+        to list your space
+
+:javascript
+  $(function(){
+    $('.ui-datepicker').datepicker({
+      format: 'dd/mm/yyyy',
+      todayHighlight: true,
+      leftArrow: '&laquo;',
+      rightArrow: '&raquo;',
+      autoclose: true
+    });
+    $('.calendar-option').on('click', function(){
+      $('.calendar-option').removeClass('selected');
+      $(this).addClass('selected');
+      var expandOnetime = $(this).parent().find('.expand-onetime');
+      if($(this).hasClass('calendar-onetime')){
+        expandOnetime.show();
+      }else{
+        expandOnetime.hide();
+      }
+    });
+    $('body').removeClass().addClass('manage').attr('style','');
+    $('#header').addClass('solid');
+  });

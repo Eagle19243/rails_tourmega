@@ -1,0 +1,18 @@
+.small-12.large-4.columns.book-instant-container
+  .book-instant-content
+    #request.row.padding-bottom.light-grey-bg.book-instant-inner
+      .small-12
+        .small-12.columns.space-bottom.price
+          .medium-8.large-7.columns
+            .span.tour-price= "$ #{'%.2f' % @tour.price.to_f}"
+          .medium-4.large-5.columns
+            .span.tour-price-type{style: 'font-size: 16px; padding-top:5px;'}= "#{display_price_type(tour.price_type)}"
+        .small-12.columns
+          - if tour.pending?
+            = link_to "Submit for approvement", update_preview_tour_path(@tour), method: :put, class: 'button expand ladda-button', 'data-style' => 'expand-right', 'data-color' => 'mint'
+          - elsif tour.wait_for_approved?
+            %h4.yellow This tour is under approvement
+          - elsif tour.approved?
+            %h4.mint This tour is approved
+          - elsif tour.declined?
+            %h4.red This tour is declined

@@ -1,0 +1,14 @@
+%section#header{"sticky-nav" => "", class: ("not-overlay" unless overlay_header_display? )}
+  - unless Rails.env.production?
+    #pending-notification
+      = render "shared/flash_messages", locals: { flash: flash }
+  .row.wide#main-header
+    .small-12.columns
+      #logo
+        %a{:href => "#{root_path}"}
+          %img{:alt => "TourMega logo", :src => "#{asset_url('logo.png')}"}
+      - if search_controller?
+        = render 'search/search_filter_location'
+      %a.right.right-off-canvas-toggle.menu-icon.hide-for-medium-up
+        .arrow
+      = render 'layouts/user_navbar'

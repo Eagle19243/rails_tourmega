@@ -1,0 +1,7 @@
+$(function(){
+  $('#profile_content').html("<%= j render('content_' + @column)%>");
+  $('li>a').removeClass('current');
+  $('.current-user-avatar').attr('src', "<%= current_user.avatar_url%>");
+});
+
+<%= render 'shared/flash_now_messages' %>

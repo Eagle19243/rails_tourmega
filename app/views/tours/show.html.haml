@@ -1,0 +1,49 @@
+- content_for(:title, "#{@tour.name} on Tourmega")
+
+- image = @tour.thumbnail_image.presence || @tour.images.first
+= javascript_include_tag 'gmap_tour_location'
+= javascript_include_tag 'tourmega_disqus'
+
+%section.main-section
+  #host-profile-page
+    #hero.has-photos{:lightbox => ""}
+      .orbit-container
+        %ul{"data-options" => "slide_number: false; bullets: false; timer: false", "data-orbit" => "data-orbit"}
+          - @tour.images.each do |image|
+            %li{:active => ""}
+              %a.slide{:href => "#{image.url}", :title => "#{image.identifier}"}
+                .hero.photo{"data-interchange" => "[#{image.url}, (default)]"}
+                  = image_tag image.url, alt: @tour.name, class: 'hide'
+      .caption
+        = "with #{@tour.creator.name}"
+        %span= "in #{@tour.location_full_address}"
+    .row.wide.white-bg
+      = render 'tour_introduction', tour: @tour
+
+      - if @tour.creator == current_user
+        = render 'admin_panel', tour: @tour
+      - else
+        = render 'instant_reservation', tour: @tour
+    .row.space-top
+      = render 'tour_details', tour: @tour
+    .row
+      .small-12.column
+        .panel.white-bg
+          #map-location-address{ address: "#{@tour.location.address}", lat: "#{@tour.location.latitude}", lng: "#{@tour.location.longitude}" }
+    .row
+      = render 'similar_tours', tour: @tour
+
+:javascript
+  $(function(){
+    $('.datepicker').datepicker({
+      format: 'dd/mm/yyyy',
+      todayHighlight: true,
+      leftArrow: '&laquo;',
+      rightArrow: '&raquo;',
+      autoclose: true
+    });
+    $('#header').addClass('not-overlay');
+    $('#header').css('position', '');
+  });
+
+= include_gmap('initLocationAddressMap')

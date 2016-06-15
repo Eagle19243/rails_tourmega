@@ -1,0 +1,27 @@
+- custom_tour_path = tour.active? ? tour_path(tour) : preview_tour_path(tour)
+
+.item
+  .panel-image.listing-img
+    - unless tour.active?
+      %a.panel-overlay-top-full.panel-overlay-listing-price{:href => ""}
+        %span.price-amount Not active yet
+    .media-photo
+      .flexslider
+        %ul.slides
+          - tour.images.each do |image|
+            %li
+              %a{:href => custom_tour_path}
+                %img{:src => "#{image.url}"}/
+    %a.panel-overlay-bottom-left.panel-overlay-listing-price{:href => "#"}
+      .price-container
+        %sup $
+        %span.price-amount= tour.price
+      %span.icon-instant-book.glyphicon.glyphicon-flash
+  .panel-body.panel-card-section
+    .info
+      %a.profile-picture{:href => "#{public_profile_user_path(tour.creator)}"}
+        %img{:alt => "name", :src => "#{tour.creator_avatar_url}"}/
+      %h3.listing-name{:title => "#{tour.name}"}
+        %a{:href => custom_tour_path}= tour.name
+      .listing-location
+        = render 'shared/tour_rating', tour: tour

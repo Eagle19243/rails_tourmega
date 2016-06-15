@@ -1,0 +1,10 @@
+%section#press-coverage
+  .row.medium-stacked
+    .small-12.large-6.columns.text-center.left-column
+      = link_to "javascript:void(0)" do
+        %img{:alt => "#{t('home.press.main.alt')}", :src => "#{t('home.press.main.src')}"}
+    .small-12.large-6.columns
+      .row
+        - t('home.press.sub.media').each do |index, media_url|
+          .small-12.medium-4.columns.media-outlet{style: "background-image: url(#{media_url}); background-position: 50% 50%; background-repeat: no-repeat;"}
+          = link_to '', "javascript:void(0)"

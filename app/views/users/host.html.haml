@@ -1,0 +1,25 @@
+%section.main-section
+  #host-form-page
+    #hero{ style: "background-image: url(#{asset_url('landscape.svg')}); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;" }
+      .message
+        .row
+          .small-12.small-centered.medium-10.large-8.columns.text-center
+            %h1.larger Thank you for your interest in becoming a Guide
+    .white-bg.content
+      = simple_form_for(@host, url: become_guide_users_path, method: :post, html: { class: 'new_host_application' }) do |f|
+        .row.content.short
+          .small-12.medium-8.medium-push-1.columns
+            = f.input :skype_id, required: true, label: 'Skype ID', input_html: { autofocus: true, tabindex: 1 }
+            = f.input :traveller_background, as: :text, required: true, input_html: { rows: 9, tabindex: 2 }, label: 'Tell us about your travel background'
+            = f.input :experience_background, as: :text, required: true, input_html: { rows: 6, tabindex: 3 }, label: 'Tell us about your experiences on guidance others with travelling'
+            = f.input :reason, as: :text, required: true, input_html: { rows: 4, tabindex: 4 }, label: 'Tell us why you want to become a host of TourMega'
+        .row
+          .small-12.medium-8.medium-push-1.columns.text-right
+            %sup.grey-text
+              By submitting you agree to the
+              %a{:href => "/terms-of-service"} Terms of Use
+              \&amp;
+              %a{:href => "/privacy-policy"} Privacy Policy
+        .row
+          .small-12.medium-4.medium-push-5.columns.text-right
+            = f.button :submit, 'Become a part of TourMega', class: 'button expand', tabindex: 5

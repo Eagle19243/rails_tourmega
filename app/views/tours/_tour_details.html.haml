@@ -1,0 +1,14 @@
+.small-12.large-8.columns
+  .panel.white-bg
+    %h4 Tour Information
+    = render 'grid_information', tour: tour
+
+  .panel.description.white-bg
+    %h4= tour.name
+    .el-expandable
+      .el-expandable-content
+        %p= tour.description.try(:html_safe)
+        .expandable-indicator
+      %a.el-expandable-more{:href => "#"} See more
+.small-12.large-8.columns
+  = render 'reviews', tour: tour

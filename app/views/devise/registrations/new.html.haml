@@ -1,0 +1,53 @@
+- content_for(:title, "Tourmega - Sign up")
+
+%section.main-section
+  #signup{"background-image" => t('user.registration.background')}
+    .content
+      .row.photo-bg
+        .small-12.small-centered.medium-11.medium-pull-1.large-7.large-pull-1.columns
+          = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'translucent sign_up'}) do |f|
+            .row
+              .small-12.columns
+                %h3
+                  Create an account
+                  %sup
+                    Already have an account?
+                    %a#sign_in{:href => "#{new_user_session_path}"} Sign in
+            .row.collapse.social-logins
+              .small-12.medium-6.columns
+                %a.facebook-login{:href => "#{omniauth_authorize_path(resource_name, :facebook)}"}
+                  %i.fa.fa-facebook
+                  Login with Facebook
+              .small-12.medium-6.columns
+                %a.twitter-login{:href => "#{omniauth_authorize_path(resource_name, :twitter)}"}
+                  %i.fa.fa-twitter
+                  Login with Twitter
+            .row
+              .small-12.columns
+                %span.or-divider or
+            .row
+              .small-12.columns
+                = f.input :first_name, class: 'transparent', autofocus: true, required: true, placeholder: 'First Name', wrapper: false
+                %label{:for => "user_first_name"} First Name
+            .row
+              .small-12.columns
+                = f.input :last_name, class: 'transparent', required: true, placeholder: 'Last Name', wrapper: false
+                %label{:for => "user_last_name"} Last Name
+            .row
+              .small-12.columns
+                = f.input :email, class: 'transparent', required: true, placeholder: 'Email', wrapper: false
+                %label{:for => "user_email"} Email
+            .row
+              .small-12.columns
+                = f.input :password, class: 'transparent', required: true, placeholder: 'Password', wrapper: false
+                %label{:for => "user_password"} Password
+            .row
+              .small-12.columns.space-bottom
+                %p
+                  By signing up you agree to the
+                  = link_to 'Terms of Use', home_term_of_services_path
+                  \&amp;
+                  = link_to 'Privacy Policy', home_privacy_policy_path
+            .row
+              .small-12.columns
+                = f.submit "Create Account", class: 'button primary'

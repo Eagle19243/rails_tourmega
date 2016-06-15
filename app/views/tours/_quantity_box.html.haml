@@ -1,0 +1,11 @@
+- [:min_quantity, :max_quantity].each do |field|
+  .form-group.quantity-box{ class: "tour_#{field}" }
+    %span.select.optional.control-label{:for => "tour_#{field}"}= display_quantity_box(field)
+    .input-group.inline
+      %span.input-group-btn
+        %button.btn.btn-default.btn-number{"data-field" => "tour[#{field}]", "data-type" => "minus", :disabled => "disabled", :type => "button"}
+          %span.glyphicon.glyphicon-minus
+      %input.form-control.input-number{ id: "tour_#{field}", min: 1, max: 100, name: "tour[#{field}]", :type => "text", :value => "#{f.object.send(field) || 1}" }
+        %span.input-group-btn
+          %button.btn.btn-default.btn-number{"data-field" => "tour[#{field}]", "data-type" => "plus", :type => "button"}
+            %span.glyphicon.glyphicon-plus

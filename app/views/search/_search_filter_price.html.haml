@@ -1,0 +1,29 @@
+.row
+  .small-12.columns.field
+    %label Price range
+    %input{ type: "text", id: 'price_range', name: 'price_range', value: ''}
+
+:javascript
+  $(function(){
+    $('#price_range').ionRangeSlider({
+      type: 'double',
+      min: 0,
+      max: 1000,
+      prefix: '$',
+      grid: true,
+      force_edges: true,
+      onStart: function(data) {
+        window.price_range = {
+          from: data.from,
+          to: data.to
+        };
+      },
+      onFinish: function (data) {
+        window.price_range = {
+          from: data.from,
+          to: data.to
+        };
+        getToursFromWindowOptions();
+      }
+    });
+  });

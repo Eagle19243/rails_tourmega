@@ -1,0 +1,144 @@
+.inner-wrap
+  %section.main-section
+    #reservation.white-bg{}
+      %form#edit_booking_2361.edit_booking{"accept-charset" => "UTF-8", :action => "", :method => "post", "stripe-form" => "true"}
+        %input#booking_step{:name => "booking[step]", :type => "hidden", :value => "billing_information"}/
+        %input#booking_gateway_token{:name => "booking[gateway_token]", :type => "hidden", :value => "unset"}/
+        .row.wide.space-botom{"data-equalizer" => ""}
+          .small-4.medium-4.columns.step{"data-equalizer-watch" => ""}
+            .text-center
+              %a{"data-method" => "put", :href => "/hosts/1690-authentic-hanoian-cuisine/bookings/2361?booking%5Bback_to_step%5D=reservation", :rel => "nofollow"}
+                .small-number 1
+                .inline Reservation
+              %svg.animated_checkmark{"enable-background" => "new 0 0 50 50", :height => "50px", :space => "preserve", :version => "1.1", :viewbox => "0 0 50 50", :width => "50px", :x => "0px", :xmlns => "http://www.w3.org/2000/svg", "xmlns:xlink" => "http://www.w3.org/1999/xlink", :y => "0px"}
+                %polyline{:fill => "none", :points => "2.247,26.864 16.715,41.332 47.528,10.518 ", :stroke => "#00A651", "stroke-miterlimit" => "10"}
+          .columns.current.medium-4.small-4.step{"data-equalizer-watch" => ""}
+            .text-center
+              .small-number 2
+              .inline Billing Information
+          .small-4.medium-4.columns.step{"data-equalizer-watch" => ""}
+            .text-center
+              .small-number 3
+              .inline Review and Submit
+        .row.space-top.space-bottom
+          .small-12.columns.text-center.space-top.space-bottom
+            %img.avatar.large{:alt => "#{@creator.name}", :src => "#{@creator.avatar_url}"}/
+            %p.no-space.small You are reserving a Megatour with
+            %h3.host-name= @creator.name
+            .uppercase.semi-bold= @creator.primary_address.to_s
+        .row
+          .small-12.small-centered.medium-10.columns.text-center.space-bottom
+            %h3.semi-bold.large Experiences range from $30 per person
+            %p
+              %span.semi-bold Final price depends on amenities selected. Your credit card will be used to hold your reservation and will not be charged until you confirm this reservation.
+              After your host confirms availability you will receive an email with final pricing and reservation details at which point you can accept and pay.
+        .row.space-top.space-bottom{"data-equalizer" => ""}
+          .small-2.medium-1.large-1.columns{"data-equalizer-watch" => ""}
+            .vertical-text
+              %span
+                Billing Information
+          .small-10.columns.end.content-block{"data-equalizer-watch" => ""}
+            .row
+              .small-12.large-4.columns
+                %label Card Type
+              .small-12.large-8.columns.end.credit-cards
+                %ul.small-block-grid-1.medium-block-grid-2.large-block-grid-4
+                  %li
+                    %input#amex{:name => "card-type", "ng-disabled" => "card_exists", "ng-model" => "cardType", :required => "", :type => "radio", :value => "american express"}
+                      %label{:for => "amex"}
+                        .credit-card.amex
+                  %li
+                    %input#discover{:name => "card-type", "ng-disabled" => "card_exists", "ng-model" => "cardType", :required => "", :type => "radio", :value => "discover"}
+                      %label{:for => "discover"}
+                        .credit-card.discover
+                  %li
+                    %input#visa{:name => "card-type", "ng-disabled" => "card_exists", "ng-model" => "cardType", :required => "", :type => "radio", :value => "visa"}
+                      %label{:for => "visa"}
+                        .credit-card.visa
+                  %li
+                    %input#mastercard{:name => "card-type", "ng-disabled" => "card_exists", "ng-model" => "cardType", :required => "", :type => "radio", :value => "mastercard"}
+                      %label{:for => "mastercard"}
+                        .credit-card.mastercard
+            .row
+              .small-12.large-4.columns
+                %label Card Number
+              .small-12.large-8.columns
+                %input#card-number{"data-stripe" => "number", "ng-class" => "{prefill: cardNumber==selectedIndex}", "ng-if" => "!card_exists", "ng-model" => "cardNumber", "payments-format" => "card", :placeholder => "0000 0000 0000 0000", :required => "", :type => "text"}
+                  %input#card-number{"ng-disabled" => "card_exists", "ng-if" => "card_exists", "ng-model" => "cardNumberr", :required => "", :type => "text"}
+            .row
+              .small-12.medium-4.columns
+                %label Expiration Date
+              .small-12.medium-4.columns.end
+                .row
+                  .small-6.columns
+                    %select#card-exp-month{"data-stripe" => "exp-month", "ng-disabled" => "card_exists", "ng-model" => "cardMonth", :required => ""}
+                      %option 1
+                      %option 2
+                      %option 3
+                      %option 4
+                      %option 5
+                      %option 6
+                      %option 7
+                      %option 8
+                      %option 9
+                      %option 10
+                      %option 11
+                      %option 12
+                  .small-6.columns
+                    %select#card-exp-year{"data-stripe" => "exp-year", "ng-disabled" => "card_exists", "ng-model" => "cardYear", :required => ""}
+                      %option 2016
+                      %option 2017
+                      %option 2018
+                      %option 2019
+                      %option 2020
+                      %option 2021
+                      %option 2022
+                      %option 2023
+                      %option 2024
+                      %option 2025
+                      %option 2026
+            .row
+              .small-12.medium-4.columns
+                %label{:for => "card-cvv"} CVV
+              .small-12.medium-2.columns
+                %input#card-cvv{"data-stripe" => "cvc", "ng-if" => "!card_exists", "ng-model" => "ccv", "payments-type-model" => "type", "payments-validate" => "cvc", :placeholder => "CVV", :type => "text"}
+                  %input#card-cvv{:disabled => "", "ng-if" => "card_exists", "ng-model" => "ccv", :type => "text"}
+              / #save_credit.small-12.medium-6.columns.end
+              /   .save_credit_container{"ng-if" => "!card_exists"}
+              /     %input#booking_save_payment_true.hidden{:name => "booking[save_payment]", :type => "checkbox", :value => "true"}
+              /       %label{:for => "booking_save_payment_true"}
+              /         Save credit card information for future use
+              .small-12.medium-2.columns
+            .row
+              .small-12.medium-4.columns
+                %label{:for => "cardholder-name"} Cardholder Name
+              .small-12.large-8.columns.end
+                %input#booking_cardholder_name{:name => "booking[cardholder_name]", "ng-if" => "!card_exists", :type => "text"}/
+                %input#booking_cardholder_name{:disabled => "disabled", :name => "booking[cardholder_name]", "ng-if" => "card_exists", :type => "text", :value => "******"}/
+            .row
+              .small-12.medium-4.columns
+                %label{:for => "promo-code"} Promo Code/ Gift Card
+              .small-12.large-8.columns.end
+                %input#booking_promo_code{:name => "booking[promo_code]", :type => "text", :value => ""}
+            .row
+              .small-12.medium-4.columns
+                %label{:for => "booking_save_payment_truea"} Apply Credits
+              .small-12.medium-8.columns.end.space-bottom
+                %input{:name => "booking[apply_credits]", :type => "hidden", :value => "0"}/
+                %input#booking_apply_credits.hidden{:name => "booking[apply_credits]", :type => "checkbox", :value => "1"}/
+                %label{:for => "booking_apply_credits"}
+                  .credits_title.text-left.semi-bold
+                    Available credits: $25
+                  .credits_subtitle.text-left
+                    If you are paying with credits we still ask you to provide your credit card information to reserve your booking. If your experience is less than your total credit balance your credit card will not be charged.
+            .row
+              .small-offset-4.small-4.columns
+                %img{:alt => "Stripe secure processing", :src => "https://d26oxw2p26xsun.cloudfront.net/assets/icons/stripe-secure-processing-c459442832f3c5716a259234943d6199.png"}/
+              .small-4.columns.change_card.end
+                %a{"ng-click" => "card_exists = false", "ng-show" => "card_exists"} +CHANGE CARD DETAILS
+        .row
+          .small-12.columns.text-center.space-top.space-bottom
+            %p.grey.semi-bold Last step! Review and submit your request. Your credit card will not be charged.
+            %a#simple_submit.button.large{:href => "/hosts/1690-authentic-hanoian-cuisine/bookings/2361", "ng-if" => "card_exists"}
+              Continue
+            %input.button.large{:name => "commit", "ng-if" => "!card_exists", :type => "submit", :value => "Continue"}/

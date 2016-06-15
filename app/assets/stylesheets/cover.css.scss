@@ -1,0 +1,80 @@
+.cover.creator {
+    height: 390px;
+    position: relative;
+    background: -webkit-linear-gradient(270deg,  #ecf2d6,  #bbeadd);
+    background: linear-gradient(180deg,  #ecf2d6,  #bbeadd);
+    z-index: 0;
+}
+.cover.creator:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    z-index: 5;
+    width: 100%;
+    height: 390px;
+    background-size: auto 100%;
+    background: url(../img/landscape.svg) 50% 0 repeat-x;
+}
+.cover.creator .clouds {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    z-index: 2;
+    background: url(../img/clouds.svg) no-repeat;
+    -webkit-animation: amimated-clouds 65s linear infinite;
+    animation: amimated-clouds 65s linear infinite;
+}
+.cover.creator .clouds2 {
+    position: absolute;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    z-index: 2;
+    background: url(../img/clouds.svg) 0 0 no-repeat;
+    -webkit-animation: amimated-clouds-2 65s linear 25s infinite;
+    animation: amimated-clouds-2 65s linear 25s infinite;
+}
+.cover.creator .zeppelin {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 3;
+    background: url(../img/zeppelin.svg) 0 0 no-repeat;
+    -webkit-animation: zep 150s linear infinite;
+    animation: zep 150s linear infinite;
+}
+.cover.creator .zeppelin2 {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    z-index: 3;
+    background: url(../img/zeppelin2.svg) 100% 0 no-repeat;
+    -webkit-animation: airballooon 200s linear infinite;
+    animation: airballooon 200s linear infinite;
+}
+.cover.creator .airplane {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    width: 100%;
+    height: 45px;
+    z-index: 4;
+    background: url(../img/airplane.svg) 100% 0 no-repeat;
+    -webkit-animation: airplane 60s linear infinite;
+    animation: airplane 60s linear infinite;
+}

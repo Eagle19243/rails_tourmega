@@ -1,0 +1,86 @@
+- content_for(:title, "Build an itinerary of tour on Tourmega")
+
+.row
+  .small-12.columns
+    .headline.text-center
+      %h1.h3 Let’s create an awesome megatour together!
+      %h5 Next, please give us your tour's itinerary. Don't forget to include images to make it vivid.
+    .step-panel
+      = simple_form_for(tour, url: update_tour_itinerary_tour_path, method: :put, html: { class: 'edit_tour' }) do |f|
+        .panel-container
+          .field
+            %label
+              What should participants know about this tour?
+            .input-box
+              = f.input :overview, as: :text, label: false, input_html: { class: 'redactor'}
+
+          .field.row.display-table
+            .medium-7.columns.table-cell
+              %label{for: 'tour_thumbnail_image'} Upload cover photo
+              #cover-upload-thumbnail-container.upload-container.preview
+                %ul.preview-items-cover
+                %div
+                  %span.icon.fa.fa-photo
+                  %p Click to upload.
+              = f.input :thumbnail_image, as: :file, input_html: { accept: "image/png,image/gif,image/jpeg", class: 'hidden'}, label: false
+            .medium-5.columns.field-guide.table-cell.space-3
+              %p
+                A picture is worth a thousand words. A high quality cover photo can greatly improve your booking rate.
+                Choose your best one to catch your potential travelers' attention.
+          .field.row.display-table
+            .medium-7.columns.table-cell
+              .text-center{class: ('hidden' unless tour.thumbnail_image)}
+                %img{:src => tour.thumbnail_image_url.presence, id: 'temporary-thumbnail-image'}/
+            .medium-5.columns.field-guide.table-cell.space-3
+              %p.hidden
+                A picture is worth a thousand words. A high quality cover photo can greatly improve your booking rate.
+                Choose your best one to catch your potential travelers' attention.
+
+          .field.row.display-table
+            .medium-7.columns.table-cell
+              %label{for: 'tour_images'} Upload highlight photos
+              #cover-upload-images-container.upload-container.preview
+                %ul.preview-items-cover
+                %div
+                  %span.icon.fa.fa-photo
+                  %p Click to upload.
+              = f.input :images, as: :file, input_html: { accept: "image/png,image/gif,image/jpeg", multiple: true, class: 'hidden'}, label: false
+            .medium-5.columns.field-guide.table-cell.space-3
+              %p
+                Choose the highlight photos within your tour that travelers will experience
+          .field.row.display-table
+            .medium-7.columns.table-cell
+              .text-center#temporary-images
+                - tour.images.each do |image|
+                  %img{:src => image.url}/
+            .medium-5.columns.field-guide.table-cell.space-3
+              %p.hidden
+                Choose the highlight photos within your tour that travelers will experience
+
+          .field
+            %label What is your tour itinerary?
+            %p Tell your travelers about the most amazing experiences they will get on your tour.
+            .input-box
+              = f.input :description, as: :text, label: false, input_html: { class: 'redactor' }
+        .row
+          .small-12.medium-4.medium-push-8.columns.text-right
+            = f.button :submit, 'Next step', class: 'button ladda-button', 'data-style' => 'expand-right', 'data-color' => 'mint'
+
+:javascript
+  $(function(){
+    $('#tour_thumbnail_image').on('change', function(){
+      readURL(this, $('#temporary-thumbnail-image'));
+    });
+
+    $('#tour_images').on('change', function(){
+      readMultipleURL(this, $('#temporary-images'));
+    });
+
+    $('#cover-upload-images-container').on('click', function(){
+      $('#tour_images').click();
+    });
+
+    $('#cover-upload-thumbnail-container').on('click', function(){
+      $('#tour_thumbnail_image').click();
+    });
+  });

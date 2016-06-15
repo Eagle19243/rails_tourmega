@@ -1,0 +1,30 @@
+#reviews{name: 'reviews'}
+  .panel.white-bg
+    %h4 Reviews
+    - if tour.reviews.present?
+      %span.average_rating
+      %span= "#{tour.average_rating.to_f} stars, based on #{tour.no_of_reviews} reviews"
+      - tour.reviews.find_each do |review|
+        .small-2
+          %img{:src => "#{review.reviewer_avatar_url}", :alt => "review.reviewer_name"}/
+        .small-8
+          .name
+            = review.reviewer_name
+          .rating
+            = details_rating(review)
+          .comment
+            = review.comment
+    #disqus_thread
+    %noscript
+      Please enable JavaScript to view the
+      %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
+
+:javascript
+  $(function(){
+    var score = #{tour.average_rating}
+    $('.average_rating').raty({
+      starType: 'i',
+      readOnly: true,
+      score: score
+    });
+  });

@@ -1,0 +1,15 @@
+.row
+  .small-12.columns
+    %ul.breadcrumbs
+      %li
+        = link_to "#{current_user.name}", users_path, remote: true
+      %li.unavailable
+        %a{:href => "#"} Pending Reservations
+.row.overflow-scroll-x
+  = render 'reservation_table', reservations: @reservations
+
+:javascript
+  $(function(){
+    $('.content-column').removeClass('free-meals');
+    $('li.pending-reservations>a').addClass('current');
+  });

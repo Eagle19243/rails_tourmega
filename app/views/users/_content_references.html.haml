@@ -1,0 +1,44 @@
+#destinations.free-meal-image.white-bg.space-bottom
+  #hero.photo-bg{:style => "background-image: url('#{asset_url('misc/references-image.jpg')}'); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"}
+    .message
+      .row
+        .small-offset-1.small-10.columns.text-center.intro
+          %h1.larger Refer your friends!
+          %p Each friend gets $25 off their first booking, and you get $25 off for each friend that completes a booking.
+          %p Coming soon
+.row.free-meals-share
+  .small-12.column
+    .title.space-bottom GET FREE CREDITS
+    .row.share
+      .large-6.columns
+        = link_to facebook_users_references_path, method: :post, remote: true, class: 'no-loading' do
+          .icon.text-center
+            %i.fa.fa-facebook
+          .content Refer a friend using Facebook
+      .large-6.columns
+        = link_to twitter_users_references_path, method: :post, remote: true, class: 'no-loading' do
+          .icon.text-center
+            %i.fa.fa-twitter
+          .content Refer a friend using Twitter
+    .row.share
+      .large-6.columns
+        = link_to google_plus_users_references_path, method: :post, remote: true, class: 'no-loading' do
+          .icon.text-center
+            %i.fa.fa-google-plus
+          .content Refer a friend using Google+
+      .large-6.columns
+        .icon.text-center.email
+          %i.fa.fa-envelope
+        .content.email
+          = simple_form_for(current_user, url: email_users_references_path, method: :post, remote: true) do |f|
+            = f.input :reference_email, as: :fake, placeholder: "Enter Email Address", label: false, wrapper: false
+            = f.button :submit, 'Send', class: 'button expand', 'data-disable-with' => 'Sending'
+
+:javascript
+  $(function(){
+    $("#copy_button").click(function(){
+      $('#successful_message').css('visibility', 'visible');
+    });
+    $('.content-column').addClass('free-meals')
+    $('li.references>a').addClass('current');
+  });

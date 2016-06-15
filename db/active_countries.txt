@@ -1,0 +1,12 @@
+BD|Dhaka
+KH|Phnom Penh
+CN|Beijing|Shanghai
+IN|Agra,Bangalore,Calcutta,Chennai,Cochin,Coimbatore,Delhi,Goa,Hyderabad,Jaipur,Jodhpur,Mumbai,Mysore,Udaipur,Varanasi
+ID|Bali
+JP|Kyoto,Tokyo
+LA|Vientiane
+MY|Kuala Lumpur,Penang
+PH|Manila
+SG|Singapore
+TH|Bangkok,ChiangMail,Krabi
+VN|Hà Nội, Ninh Bình, Huế, Đà Nẵng, Nha Trang, Hồ Chí Minh

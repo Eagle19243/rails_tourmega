@@ -1,0 +1,11 @@
+#destinations.white-bg
+  .row.wide
+    .small-12.columns.text-center
+      %h2= t('home.intro_locations')
+      .row.destinations{ data: { equalizer: '' } }
+        - @countries.each do |country|
+          %a.small-12.medium-6.large-3.columns.destination{href: "#{country_path(country)}"}
+            .image.countries.lazy{style: "background-image: url(#{country.default_scene_image_url});"}
+            .content
+              %span= country.name
+              %p

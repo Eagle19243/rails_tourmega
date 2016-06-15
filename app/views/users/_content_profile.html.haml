@@ -1,0 +1,53 @@
+.row
+  .small-12.columns
+    = render 'profile_navbar'
+
+#profile
+  = simple_form_for(current_user, url: user_path(current_user.id), method: :put, remote: true, html: { class: 'ng-pristine ng-valid' }) do |f|
+    .row
+      .small-12.medium-7.columns
+        %h4.manage-header Traveler Information
+        = f.input :first_name, required: true
+        = f.input :last_name, required: true
+        = f.input :biography, as: :text, input_html: { rows: 10, type: 'text', placeholder: 'From 50 to 500 characters that describes yourself the best' }
+        .text-right
+          = link_to 'View Your Profile', public_profile_user_path(current_user), target: '_blank', class: 'button btn btn-default'
+          = f.button :submit, 'Update Profile', 'data-disable-with' => 'Updating', class: 'button'
+      .small-12.medium-5.columns
+        %h4.manage-header Profile Avatar
+        .row
+          .small-12.medium-6.columns.user-info.text-center
+            .vertical-align
+              = f.input :avatar, as: :file, input_html: { accept: "image/png,image/gif,image/jpeg", class: 'hidden'}, label: 'Change Avatar'
+          .small-12.medium-6.columns.user-info.text-center
+            .vertical-align
+              = image_tag f.object.avatar_url, alt: f.object.name, class: 'avatar large'
+          .small-12.columns.text-center.hidden
+            %img{:src => "", id: 'temporary-avatar', width: '300px', height:'300px', style: 'margin-bottom: 20px;' }
+            .form-group
+              %label.string{style: 'padding-left: 60px; background: url(https://d26oxw2p26xsun.cloudfront.net/assets/icons/arrow-d2479cd3c113adea5dca195ae630c8bd.png) no-repeat;'} Click update to change
+
+:javascript
+  $(function(){
+    $('.vertical-align:has(img)').on('click', function(){
+      $('#user_avatar').click();
+    });
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#temporary-avatar').attr('src', e.target.result).attr('alt', 'Temporary Avatar').removeClass('hidden');
+          $('#temporary-avatar').parent().removeClass('hidden');
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $('#user_avatar').on('change', function(){
+      readURL(this);
+    });
+    $('.content-column').removeClass('free-meals');
+    $('li.profile>a').addClass('current');
+  });
+s

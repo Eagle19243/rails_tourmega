@@ -1,0 +1,25 @@
+.row{"data-equalizer" => ""}
+  .small-2.medium-1.large-1.columns.space-bottom{"data-equalizer-watch" => ""}
+    .vertical-text
+      %span
+        General
+  .small-10.columns.end.content-block{"data-equalizer-watch" => ""}
+    .row
+      .small-12.large-4.columns
+        %label Date(s)
+      .small-12.large-8.columns.end
+        .fields
+          .row
+            .columns.medium-6.small-12
+              .form-group
+                .input-group
+                  .input-group-addon
+                    %i.fa.fa-calendar
+                  = f.text_field :start_at, class: 'form-control datepicker', value: @reservation.start_at.strftime('%A, %d %B %Y')
+    .row
+      .small-12.large-4.columns
+        %label{:for => "reservation_number_of_passengers"}
+          Number of guests
+          %span Including yourself
+      .small-12.medium-6.large-3.columns.end
+        = f.input :number_of_passengers, as: :select, collection: Array(@tour.min_quantity..@tour.max_quantity), input_html: { class: 'form-control' }, label: false

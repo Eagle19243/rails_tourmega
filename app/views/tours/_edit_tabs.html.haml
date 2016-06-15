@@ -1,0 +1,28 @@
+.row
+  %ul.tabs
+    %li.submit_profile
+      %a{ href: "#{profile_tour_path(tour)}" }
+        %button#submit_profile.tab-button{:name => "submit_profile", :type => "button" }
+          %i.icon.fa.fa-odnoklassniki{"aria-hidden" => "true"}>
+          Profile
+    %li.disabled.submit_tour_itinerary
+      %a{ href: (tour.itinerary_or_after? ? "#{tour_itinerary_tour_path(tour)}" : "") }
+        %button#submit_tour_itinerary.tab-button{:name => "submit_tour_itinerary", :type => "button"}
+          %i.icon.fa.fa-suitcase{"aria-hidden" => "true"}>
+          Tour Itinerary
+    %li.disabled.submit_additional_info
+      %a{href: (tour.additional_info_or_after? ? "#{additional_info_tour_path(tour)}" : "") }
+        %button#submit_additional_info.tab-button{:name => "submit_additional_info", :type => "button"}
+          %i.icon.fa.fa-braille{"aria-hidden" => "true"}>
+          Additional Info
+    %li.submit_preview
+      %a{href: (tour.pending_or_after? ? "#{preview_tour_path(tour)}" : "") }
+        %button#submit_preview.button.preview{:name => "submit_preview"}
+          %i.icon.fa.fa-rocket{"aria-hidden" => "true"}>
+          Preview
+
+:javascript
+  $(function(){
+    $('ul.tabs > li').removeClass('active');
+    $("li.submit_#{@active_tab}").addClass('active');
+  });

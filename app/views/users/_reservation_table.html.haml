@@ -1,0 +1,25 @@
+.small-12.columns
+  %table.booking
+    %thead.heading
+      %tr
+        %th Tour
+        %th Guide
+        %th Date/Time
+        %th # of Passengers
+        %th Total Price
+        %th Status
+    %tbody
+      %tr.spacer
+      - if reservations.blank?
+        %tr
+          %td.text-center No Reservations
+      - else
+        - reservations.each do |rs|
+          %tr
+            %td
+              = link_to rs.tour.name, tour_path(rs.tour)
+            %td= rs.tour.creator_name
+            %td= rs.start_at
+            %td= rs.number_of_passengers
+            %td= rs.total_price
+            %td= rs.status

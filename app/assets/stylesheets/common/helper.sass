@@ -1,0 +1,15 @@
+.p-relative
+  position: relative
+
+.p-absolute
+  position: absolute
+
+@each $var in 25, 50, 100
+  .width-#{$var}per
+    width: #{$var}+ "%"
+
+@each $var in 5, 10, 15, 20, 25, 30, 50
+  .top-#{$var}
+    margin-top: #{$var}px
+  .bottom-#{$var}
+    margin-bottom: #{$var}px

@@ -1,0 +1,36 @@
+- content_for(:title, "Preview #{@tour.name} on Tourmega")
+
+= javascript_include_tag 'gmap_tour_location'
+
+%section.main-section
+  #host-profile-page
+    #hero.has-photos{:lightbox => ""}
+      .orbit-container
+        %ul{"data-options" => "slide_number: false; bullets: false; timer: false", "data-orbit" => "data-orbit"}
+          - @tour.images.each do |image|
+            %li{:active => ""}
+              %a.slide{:href => "#{image.url}", :title => "#{image.identifier}"}
+                .hero.photo{"data-interchange" => "[#{image.url}, (default)]"}
+                  %img.hide{:src => "#{image.url}"}
+      .caption
+        = "with #{@tour.creator.name}"
+        %span= "in #{@tour.location_full_address}"
+    .row.wide.white-bg
+      = render 'tour_introduction', tour: @tour
+      = render 'preview_panel', tour: @tour
+    .row.space-top
+      = render 'tour_details', tour: @tour
+    .row
+      .small-12.column
+        .panel.white-bg
+          #map-location-address{ address: "#{@tour.location.address}", lat: "#{@tour.location.latitude}", lng: "#{@tour.location.longitude}" }
+    .row
+      = render 'similar_tours', tour: @tour
+
+:javascript
+  $(function(){
+    $('#header').addClass('not-overlay');
+    $('#header').css('position', '');
+  });
+
+= include_gmap('initLocationAddressMap')

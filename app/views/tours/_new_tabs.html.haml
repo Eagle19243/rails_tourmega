@@ -1,0 +1,24 @@
+.row
+  %ul.tabs
+    %li.submit_profile
+      %button#submit_profile.tab-button{:name => "submit_profile", :type => "button" }
+        %i.icon.fa.fa-odnoklassniki{"aria-hidden" => "true"}>
+        Profile
+    %li.disabled.submit_tour_itinerary
+      %button#submit_tour_itinerary.tab-button{:name => "submit_tour_itinerary", :type => "button"}
+        %i.icon.fa.fa-suitcase{"aria-hidden" => "true"}>
+        Tour Itinerary
+    %li.disabled.submit_additional_info
+      %button#submit_additional_info.tab-button{:name => "submit_additional_info", :type => "button"}
+        %i.icon.fa.fa-braille{"aria-hidden" => "true"}>
+        Additional Info
+    %li.submit_preview
+      %button#submit_preview.button.preview{:name => "submit_preview"}
+        %i.icon.fa.fa-rocket{"aria-hidden" => "true"}>
+        Preview
+
+:javascript
+  $(function(){
+    $('ul.tabs > li').removeClass('active');
+    $("li.submit_#{@active_tab}").addClass('active');
+  });

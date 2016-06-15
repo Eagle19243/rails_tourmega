@@ -1,0 +1,39 @@
+// Include some nice mixins
+
+// Example: import partial styesheet named '_#{namespace}.css.scss'
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap
+ *= require bootstrap-datepicker
+ *= require font-awesome
+ *= require maximage
+ *= require blueimp-gallery.min
+ *= require modified_bootstrap
+ *= require tspoon.min
+ *= require spinner
+ *= require ladda.min
+ *= require nprogress
+ *= require jquery.raty
+ *= require tourmega
+ *= require_tree ./common
+ *= require chosen
+ *= require chosen-bootstrap
+ *= require ion.rangeSlider
+ *= require ion.rangeSlider.skinFlat
+ *= require redactor-rails
+ *= require redactor-rails/plugins
+ *= require sweetalert/dist/sweetalert
+ *= require bootstrap-modal/css/bootstrap-modal
+ *= require bootstrap-clockpicker.min
+ */

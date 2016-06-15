@@ -1,0 +1,36 @@
+- content_for(:title, "How Tourmega works")
+
+= javascript_include_tag 'gmap_autocomplete'
+
+#desktop.border-bottom.white-bg.padding-bottom
+  = render 'home/howitworks'
+#safety-feedback.light-grey-bg
+  .row.wide.small-stacked
+    .small-12.medium-6.columns.content.text-center
+      %h3
+        %img{:alt => "backpack", :src => "#{asset_url('backpack.png')}"}
+        %br
+          Every guide is verified
+      %p
+        Safety and security are our top priorities.
+    .small-12.medium-6.columns.content.text-center
+      %h3
+        %img{:alt => "feedback", :src => "#{asset_url('feedback.png')}"}
+        %br
+          Traveler feedback
+      %p
+        Hear from travelers about their Tourmega experiences.
+#browse-featured.white-bg
+  .row
+    .small-12.small-centered.columns.text-center.content
+      %h3
+        Start now
+      = render 'shared/search_form', location: Location.new, autofocus: false
+
+
+:javascript
+  loadGoogleMapScript('#{google_map_uri}', true, initAutocomplete);
+  $(function(){
+    $('.how-it-works-path>a').addClass('current');
+    $('#new_location input[type=submit]').css({'margin': '0', 'height': '36px'});
+  });

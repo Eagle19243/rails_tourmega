@@ -1,0 +1,25 @@
+= javascript_include_tag 'gmap_autocomplete'
+
+#hero.grey-to-light-grey-bg.ng-scope
+  .flexslider-container
+    .flexslider.manual
+      %ul.slides
+        - @slides.each do |slide|
+          %li.full{ style: "background-image: url(#{slide.image_url});" }
+            %a.hero_link{:href => "#"}
+              .caption
+                %span= slide.caption
+                %br
+                  %span.location= slide.location.upcase
+  .message
+    .row
+      .small-12.columns
+        .row
+          .small-12.columns.text-center
+            %h1.larger= t('home.larger_text')
+            %h2.hide-for-small= t('home.hide_for_small_text')
+    .row.full-width.locations-container-wrapper
+      = render 'shared/search_form', location: @location, autofocus: true
+
+
+= include_gmap('initAutocomplete')

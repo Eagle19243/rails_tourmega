@@ -1,0 +1,14 @@
+.row
+  .small-12.columns
+    %ul.breadcrumbs
+      %li.unavailable
+        = link_to "Reservations", reservations_users_path, remote: true
+
+.row.overflow-scroll-x
+  = render 'reservation_table', reservations: @reservations
+
+:javascript
+  $(function(){
+    $('.content-column').removeClass('free-meals');
+    $('li.reservations>a').addClass('current');
+  });

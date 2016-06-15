@@ -1,0 +1,14 @@
+.panel.panel-has-header.white-bg.panel-veritfy
+  .panel-header Verified ID
+  .panel-body
+    %ul.list-unstyled
+      - Verification::SOURCES.each do |source|
+        %li
+          .item
+            - if user.send("#{source}_verified?")
+              %i.icon.fa.fa-check-circle-o
+            - else
+              %i.icon.red.fa.fa-times-circle-o
+            .item-body
+              %span= source.to_s.titleize
+              %span.text-gray= display_verified_status(user, source)

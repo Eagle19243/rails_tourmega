@@ -1,0 +1,19 @@
+.small-12.columns
+  %ul.block-grid.small-block-grid-1.medium-block-grid-2.large-block-grid-3{"data-equalizer" => ""}
+    - if tours.blank?
+      %li
+        .photo.photo-bg{:style => "height: 262px; background-image: url('#{asset_url('misc/past-travel.jpg')}'); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"}
+          .body
+            %p.name.no-space You don't have any past experiences!
+            %h3.name.no-space Book A Tour Today
+            %hr.border-bottom.no-space
+              %a.button.no-space{ href: search_index_path } Search Now
+    - else
+      - tours.each do |tour|
+        %li
+          .photo.photo-bg{:style => "height: 262px; background-image: url('#{tour.thumbnail_image_url}')); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"}
+            .body
+              %p.name.no-space= tour.name
+              %h3.name.no-space= tour.location_short_address
+              %hr.border-bottom.no-space
+                %a.button.no-space{ href: tour_path(tour) } View details

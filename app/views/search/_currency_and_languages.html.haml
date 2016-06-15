@@ -1,0 +1,117 @@
+.action-toggle-bottom-block.hide-sm
+  %span.open-content
+    %i.fa.fa-globe
+    Language and Currency
+  %span.close-content
+    %i.fa.fa-remove
+    Close
+.search-bottom-block
+  .search-bottom-block-content
+    .row
+      .small-3.columns
+        .language-picker
+          %label.screen-reader-only
+            %span Choose language
+          %select#language-selector.language-selector
+            %option{:value => "id"} Bahasa Indonesia
+            %option{:value => "ms"} Bahasa Melayu
+            %option{:value => "ca"} Català
+            %option{:value => "da"} Dansk
+            %option{:value => "de"} Deutsch
+            %option{:selected => "", :value => "en"} English
+            %option{:value => "es"} Español
+            %option{:value => "el"} Eλληνικά
+            %option{:value => "fr"} Français
+            %option{:value => "it"} Italiano
+            %option{:value => "hu"} Magyar
+            %option{:value => "nl"} Nederlands
+            %option{:value => "no"} Norsk
+            %option{:value => "pl"} Polski
+            %option{:value => "pt"} Português
+            %option{:value => "fi"} Suomi
+            %option{:value => "sv"} Svenska
+            %option{:value => "tr"} Türkçe
+            %option{:value => "is"} Íslenska
+            %option{:value => "cs"} Čeština
+            %option{:value => "ru"} Русский
+            %option{:value => "th"} ภาษาไทย
+            %option{:value => "zh"} 中文 (简体)
+            %option{:value => "zh-TW"} 中文 (繁體)
+            %option{:value => "ja"} 日本語
+            %option{:value => "ko"} 한국어
+        .currency-picker
+          %label.screen-reader-only{ for: "currency-selector" }
+            %span Choose currency
+          %select#currency-selector
+            %option{:value => "AED"} AED
+            %option{:value => "ARS"} ARS
+            %option{:value => "AUD"} AUD
+            %option{:value => "BGN"} BGN
+            %option{:value => "BRL"} BRL
+            %option{:value => "CAD"} CAD
+            %option{:value => "CHF"} CHF
+            %option{:value => "CLP"} CLP
+            %option{:value => "CNY"} CNY
+            %option{:value => "COP"} COP
+            %option{:value => "CRC"} CRC
+            %option{:value => "CZK"} CZK
+            %option{:value => "DKK"} DKK
+            %option{:value => "EUR"} EUR
+            %option{:value => "GBP"} GBP
+            %option{:value => "HKD"} HKD
+            %option{:value => "HRK"} HRK
+            %option{:value => "HUF"} HUF
+            %option{:value => "IDR"} IDR
+            %option{:value => "ILS"} ILS
+            %option{:value => "INR"} INR
+            %option{:value => "JPY"} JPY
+            %option{:value => "KRW"} KRW
+            %option{:value => "MAD"} MAD
+            %option{:value => "MXN"} MXN
+            %option{:value => "MYR"} MYR
+            %option{:value => "NOK"} NOK
+            %option{:value => "NZD"} NZD
+            %option{:value => "PEN"} PEN
+            %option{:selected => "", :value => "PHP"} PHP
+            %option{:value => "PLN"} PLN
+            %option{:value => "RON"} RON
+            %option{:value => "RUB"} RUB
+            %option{:value => "SAR"} SAR
+            %option{:value => "SEK"} SEK
+            %option{:value => "SGD"} SGD
+            %option{:value => "THB"} THB
+            %option{:value => "TRY"} TRY
+            %option{:value => "TWD"} TWD
+            %option{:value => "UAH"} UAH
+            %option{:value => "USD"} USD
+            %option{:value => "UYU"} UYU
+            %option{:value => "VND"} VND
+            %option{:value => "ZAR"} ZAR
+      .small-3.columns.hide-sm{style: 'float:left;'}
+        %h5.title Discover
+        %ul.list-layout
+          %li
+            %a{:href => "#"} Trust &amp; Safety
+          %li
+            %a{:href => "#"} Travel Credit
+          %li
+            %a{:href => "#"} Mobile
+          %li
+            %a{:href => "#"} Business Travel
+          %li
+            %a{:href => "#"} Site Map
+    %hr.divider/
+    .text-center
+      %h5.title.hide-sm Join Us On
+      %ul.social
+        %li
+          %a{:href => "https://www.facebook.com/tourmega", :target => "_blank"}
+            %i.fa.fa-facebook.fa-2x
+        %li
+          %a{:href => "https://www.twitter.com/tourmega", :target => "_blank"}
+            %i.fa.fa-twitter.fa-2x
+        %li
+          %a{:href => "https://www.instagram.com/tourmega", :target => "_blank"}
+            %i.fa.fa-instagram.fa-2x
+      %p
+        TourMega © 2016. All Rights Reserved

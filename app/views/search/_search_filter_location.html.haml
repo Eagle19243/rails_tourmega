@@ -1,0 +1,4 @@
+= simple_form_for :search, url: search_index_path, method: :get, remote: true, html: { class: 'search-form'} do |f|
+  %i.fa.fa-search
+  = f.input :address, input_html: { placeholder: "#{t('input.placeholder.where_are_you_going')}", type: 'text', autocomplete: 'off', 'fill-to-input' => 'full_address', class: 'autocomplete-location', value: @address, autofocus: true }, wrapper: false, label: false
+  = f.input :location, input_html: { name: 'location[full_address]', id: 'full_address', class: 'hidden', value: @full_address }, label: false, wrapper: false, required: true

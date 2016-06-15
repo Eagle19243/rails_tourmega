@@ -1,0 +1,93 @@
+%hr
+.row
+  .medium-3.column
+    %span Location
+  .medium-9.column
+    .row
+      .medium-6.column
+        %ul.list-unstyled
+          %li
+            %span Around:
+            %strong= tour.location.to_s
+            %i.fa.fa-map-marker{lat: "#{tour.location.latitude}", lng: "#{tour.location.longitude}"}
+      .medium-6.column
+        %ul.list-unstyled
+          %li
+            %span Pickup:
+            %strong= tour.pickup_address.to_s
+            %i.fa.fa-map-marker{lat: "#{tour.pickup_address.latitude}", lng: "#{tour.pickup_address.longitude}"}
+%hr
+.row
+  .medium-3.column
+    %span Categories
+  .medium-9.column
+    .row
+      .medium-6.column
+        %ul.list-unstyled.list-icon
+          - tour.categories.first(6).each do |category|
+            %li.has-tip.tip-top{"data-tooltip" => "", :title => "#{category.description}"}
+              %span= image_tag(category.icon_url, width: 30, height: 30)
+              %span= category.name
+      .medium-6.column
+        %ul.list-unstyled.list-icon
+          - (tour.categories - tour.categories.first(6)).each do |category|
+            %li
+              %span= image_tag(category.icon_url, width: 30, height: 30)
+              %strong= category.name
+%hr
+.row
+  .medium-3.column
+    %span Time
+  .medium-9.column
+    .row
+      .medium-6.column
+        %ul.list-unstyled.list-icon
+          %li
+            %span
+              %i.icon.fa.fa-globe
+              Departure at:
+            %span= tour.start_time.presence || '9:00 AM'
+      .medium-6.column
+        %ul.list-unstyled.list-icon
+          %li
+            %span
+              %i.icon.fa.fa-tv
+              Duration:
+            %span= "#{tour.duration_in_minutes} minutes"
+
+%hr
+.row
+  .medium-3.column
+    %span Additional
+  .medium-9.column
+    .row
+      .medium-6.column
+        %ul.list-unstyled
+          %li
+            %span= "Price #{display_price_type(tour.price_type)}:"
+            %strong= "#{tour.price} $"
+          %li
+            %span Size:
+            %strong= "#{tour.min_quantity} - #{tour.max_quantity} people"
+          %li
+            %span Transportation:
+            %strong= tour.transportations.join(', ').presence || 'Car'
+          %li
+            %span Discount:
+            %strong 0%
+      .medium-6.column
+        %ul.list-unstyled
+          %li
+            %span Languages:
+            %strong= tour.languages.join(', ')
+%hr
+.row
+  .medium-3.column
+    %span Cancellation
+  .medium-9.column
+    .row
+      %ul.list-unstyled
+        %li
+          %span= tour.cancellation
+
+

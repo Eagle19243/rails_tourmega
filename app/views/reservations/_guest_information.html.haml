@@ -1,0 +1,28 @@
+.row{"data-equalizer" => ""}
+  .small-2.medium-1.large-1.columns.space-bottom{"data-equalizer-watch" => ""}
+    .vertical-text
+      %span
+        Request
+  .small-10.columns.end.content-block{"data-equalizer-watch" => ""}
+    .row
+      .small-12.large-4.columns
+        %label
+          Tell us about yourself
+          %span Our hosts are wonderful people too and would love to know more about you to make your experience unique and personalized. Use this space to share a little about you
+      .small-12.large-8.columns.end
+        = f.input :guest_information, as: :text, label: false, input_html: { rows: 5 }, required: true
+
+    .row
+      .small-12.large-4.columns
+        %label
+          Your travel background
+          %span Tell your host about your interest in the local cuisine and cooking. Is this your first visit to the destination? Are there foods you are excited to learn about or try?
+      .small-12.large-8.columns.end
+        = f.input :guest_travel_background, as: :text, label: false, input_html: { rows: 5 }, required: true
+    .row
+      .small-12.large-4.columns
+        %label
+          Additional request
+          %span Tell your host about your additional requests satifying yourself while travelling
+      .small-12.large-8.columns.end
+        = f.input :additional_request, as: :text, label: false, input_html: { rows: 5 }, required: true

@@ -1,0 +1,14 @@
+= javascript_include_tag 'history_state', media: 'all'
+
+%section.main-section
+  #about-page
+    #hero{"background-image" => "https://d26oxw2p26xsun.cloudfront.net/assets/hero/about-c371bb10b02be473546f55b6d925abe2.jpg"}
+      .message
+        .row
+          .small-12.small-centered.medium-10.large-8.columns.text-center
+            %h1.larger Local guide
+            %h1.larger for an authentic taste of life
+    = render 'team_info_navigation'
+
+    #information-tab
+      = render "tab_#{@column}"

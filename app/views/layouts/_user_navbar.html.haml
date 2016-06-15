@@ -1,0 +1,32 @@
+%nav.right.hide-for-small
+  %ul
+    - if user_signed_in?
+      %li
+        .user
+          %img.avatar.current-user-avatar{alt: "#{current_user.username}", src: "#{current_user.avatar_url}", width: "40"}
+            %a.name{ href: "" }= current_user.name
+            %i.fa.fa-angle-down
+            .dropdown
+              = link_to "Profile", users_path
+              = link_to "Public Profile", public_profile_user_path(current_user)
+              = link_to "Crafted Tours", tours_path if current_user.is_a_host?
+              = link_to "Reservations", reservations_users_path(status: :confirmed)
+              = link_to "Previous Travels", travels_users_path
+              = link_to "Logout", destroy_user_session_path, :method => :delete
+    - else
+      %li
+        = link_to "Sign Up", new_user_registration_path
+      %li
+        = link_to "Login", new_user_session_path
+    - unless search_controller?
+      %li
+        = link_to "About", home_about_path
+      - if display_help_navigation?
+        %li
+          = link_to "Help", home_help_path
+      - if false && display_become_guide_navigation?
+        %li
+          = link_to "Become A Guide", home_become_guide_path
+      - if display_craft_your_navigation?
+        %li
+          = link_to "Craft your tour", new_tour_path, class: "button secondary"
