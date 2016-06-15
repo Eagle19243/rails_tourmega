@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   before_action :prepare_location, only: [:index], unless: :js_request?
-
+  before_action :store_start_date_session, only: [:index], unless: :js_request?
   def index
     @tours = Tour.where(id: Rails.cache.fetch('response_tours')).page(params[:page]) if Rails.cache.exist?('response_tours')
     respond_to do |format|
@@ -42,6 +42,13 @@ class SearchController < ApplicationController
 
   def location_params
     eval params.require(:location).require(:full_address)
+  end
+
+  def store_start_date_session
+    debugger
+    if params[:location]
+      session[:tours_start_date] = params[:location][:start_date]
+    end
   end
 
 end

@@ -325,29 +325,50 @@ i.fa.fa-map-marker {
 
     .search-form-action{
       width: 1%;
-
-      input[type="submit"]{
-        -moz-border-radius: 0px;
-        -webkit-border-radius: 0px;
-        border-radius: 0px;
-      }
-    }
-
-    .search-form-content{
-      input{
-        -moz-border-radius: 0px;
-        -webkit-border-radius: 0px;
-        border-radius: 0px;
+      .button {
+        margin: 0px 0px 5px 0px;
+        height: 42px;
+        width: 100%;
       }
     }
 
     .search-form-location{
       float: left;
-      width: 70%;
+      width: 75%;
     }
     .search-form-date{
       float: left;
-      width: 30%;
+      width: 25%;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px){
+  .locations-container-wrapper{
+    .locations-container{
+      .search-form-action{
+        input[type="submit"]{
+          moz-border-radius: 0px 5px 5px 0;
+        -webkit-border-radius: 0px 5px 5px 0;
+        border-radius: 0px 5px 5px 0;
+        }
+      }
+
+      .search-form-location{
+        input{
+          -moz-border-radius: 5px 0 0 5px;
+          -webkit-border-radius: 5px 0 0 5px;
+          border-radius: 5px 0 0 5px;
+        }
+      }
+
+      .search-form-date{
+        input{
+          -moz-border-radius: 0px;
+          -webkit-border-radius: 0px;
+          border-radius: 0px;
+        }
+      }
     }
   }
 }
@@ -385,10 +406,27 @@ i.fa.fa-map-marker {
 }
 
 // Horizontal Form
+.horizontal_form {
+  .control-label {
+    padding-top: 5px;
+  }
+  select {
+    margin-bottom: 0px;
+  }
+  .text-right input {
+    margin-right: 15px;
+  }
+}
+
 .simple_form{
   .form-group{
     input {
       margin-bottom: 0;
+    }
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
     }
   }
 }
@@ -1308,5 +1346,14 @@ section#header.solid, section#header.stuck{
 }
 
 .redactor-editor{
-  min-height: 200px;
+  min-height: 300px;
+  border-top: 2px solid #000;
+}
+
+.redactor-box{
+  border: 2px solid #000;
+}
+
+.radio label {
+  text-transform: capitalize;
 }

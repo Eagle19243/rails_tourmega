@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   before_action :fetch_travels, only: [:travels]
   before_action :fetch_crafted_tours, only: [:crafted_tours]
   before_action :get_public_user_tours, only: [:public_profile]
-  before_action :set_column_navigation, only: [:reservations, :travels, :references, :verifications, :crafted_tours, :account_settings, :profile_information, :availability]
+  before_action :set_bank_account, only: [:bank_accounts]
+  before_action :set_column_navigation, only: [:reservations, :travels, :references, :verifications, :crafted_tours, :account_settings, :profile_information, :availability, :bank_accounts]
 
   def public_profile
     @reviews = TourReview.for_user(@user.id)
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
   def profile_information; end
   def availability; end
   def references; end
+  def bank_accounts; end
 
   def index
     @column = 'profile'
@@ -82,5 +84,9 @@ class UsersController < ApplicationController
   def get_public_user_tours
     @user = User.find(params[:id])
     @tours = @user.tours
+  end
+
+  def set_bank_account
+    @bank_account = current_user.current_bank_account || current_user.bank_accounts.new
   end
 end

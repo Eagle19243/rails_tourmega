@@ -150,11 +150,6 @@ categories = [
     icon: open(File.join(Rails.root, '/app/assets/images/categories/night_life.png'))
   },
   {
-    symbol: 'outdoors',
-    name: I18n.t('search.tour_types.outdoors'),
-    icon: open(File.join(Rails.root, '/app/assets/images/categories/outdoors.png'))
-  },
-  {
     symbol: 'photography',
     name: I18n.t('search.tour_types.photography'),
     icon: open(File.join(Rails.root, '/app/assets/images/categories/photography.png'))

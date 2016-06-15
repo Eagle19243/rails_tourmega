@@ -40,7 +40,7 @@ class ToursController < ApplicationController
         format.html { redirect_to users_path, notice: I18n.t('megatours.update_successfully') }
         format.js
       else
-        format.html { redirect_to users_path, notice: I18n.t('megatours.update_failed') }
+        format.html { redirect_to users_path, alert: I18n.t('megatours.update_failed') }
         format.js
       end
     end
@@ -54,7 +54,8 @@ class ToursController < ApplicationController
         format.html { redirect_to tour_itinerary_tour_path(@tour) }
         format.js { render 'edit.js', next_tab: ITINERARY_STEP }
       else
-        redirect_to tours_path, notice: I18n.t('megatours.create_failed')
+        format.html { redirect_to tours_path, alert: I18n.t('megatours.create_failed') }
+        format.js
       end
     end
   end
@@ -78,7 +79,7 @@ class ToursController < ApplicationController
       @tour.go_to_itinerary! if @tour.may_go_to_itinerary?
       redirect_to tour_itinerary_tour_path(@tour)
     else
-      redirect_to tours_path, notice: I18n.t('megatours.update_failed')
+      redirect_to tours_path, alert: I18n.t('megatours.update_failed')
     end
   end
 
@@ -91,7 +92,7 @@ class ToursController < ApplicationController
       @tour.go_to_additional_info! if @tour.may_go_to_additional_info?
       redirect_to additional_info_tour_path(@tour)
     else
-      redirect_to tour_itinerary_tour_path(@tour), notice: I18n.t('megatours.update_failed')
+      redirect_to tour_itinerary_tour_path(@tour), alert: I18n.t('megatours.update_failed')
     end
   end
 
@@ -104,7 +105,7 @@ class ToursController < ApplicationController
       @tour.go_to_preview! if @tour.may_go_to_preview?
       redirect_to preview_tour_path(@tour)
     else
-      redirect_to additional_info_tour_path(@tour), notice: I18n.t('megatours.update_failed')
+      redirect_to additional_info_tour_path(@tour), alert: I18n.t('megatours.update_failed')
     end
   end
 

@@ -88,7 +88,7 @@ ActiveAdmin.register User do
       input :first_name
       input :last_name
       input :avatar
-      input :gender, as: :select, collection: I18n.t('user.gender').values, input_html: { class: "chosen-input" }
+      input :gender, as: :select, collection: I18n.t('user_profile.gender').values, input_html: { class: "chosen-input" }
       input :phone
       input :nationality_id, as: :select, collection: Country.collection, input_html: { class: "chosen-input" }
       input :job_title

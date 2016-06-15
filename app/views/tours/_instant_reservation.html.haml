@@ -16,7 +16,7 @@
                   .input-group
                     .input-group-addon
                       %i.fa.fa-calendar
-                    = f.text_field :start_at, class: 'form-control datepicker', placeholder: 'mm/dd/yyyy'
+                    = f.text_field :start_at, class: 'form-control datepicker', placeholder: 'mm/dd/yyyy', value: session[:tours_start_date]
             .medium-4.large-5.columns
               .form-group.reservation_number_of_passengers
                 %label.select.optional.control-label{:for => "reservation_number_of_passengers"} Passengers

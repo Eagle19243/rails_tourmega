@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   belongs_to :primary_address, class_name: 'Location', foreign_key: :primary_address_id, dependent: :destroy
   belongs_to :nationality, class_name: 'Country', foreign_key: :nationality_id
   has_many :reservations, dependent: :destroy
+  has_many :bank_accounts, dependent: :destroy
 
   enum guide_type: GUIDE_TYPE
   accepts_nested_attributes_for :host
@@ -103,5 +104,9 @@ class User < ActiveRecord::Base
 
   def total_references
     BookingReference.where(referral_code: self.invite_code).count
+  end
+
+  def current_bank_account
+    bank_accounts.order('created_at ASC').first
   end
 end

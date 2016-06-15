@@ -1,4 +1,9 @@
 en:
+  errors:
+    messages:
+      wrong_size: "is the wrong size (should be %{file_size})"
+      size_too_small: "is too small (should be at least %{file_size})"
+      size_too_big: "is too big (should be at most %{file_size})"
   hello: "Hello world"
   active_admin:
     powered_by: "TourMega © 2016. All Rights Reserved with ActiveAdmin"
@@ -17,7 +22,8 @@ en:
       become_guide:
         flash:
           notice: 'You successfully register to become a host. Going to make a experience with love with us'
-  user:
+  user_profile:
+    bank_accounts_desc: 'When you receive a payment for a reservation, we call that payment to you a "payout". Our secure payment system supports several payout methods, which can be setup and edited here. Your available payout options and currencies differ by country, and you can also use routing rules to split your payouts amongst a few different methods.'
     gender:
       male: Male
       female: Female

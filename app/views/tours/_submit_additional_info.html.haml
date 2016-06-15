@@ -7,7 +7,7 @@
     .headline.text-center
       %h1.h3 Let’s create an awesome megatour together!
       %h5 Last step, you are almost done. Please add some additional information with time and price.
-    .step-panel
+    .step-panel.padding-top
       = simple_form_for(tour, url: update_additional_info_tour_path, method: :put, html: { class: 'new_tour' }) do |f|
         .panel-container
           .field.row.display-table
@@ -60,19 +60,12 @@
                 .input-box
                   = f.input :price_type, as: :text, wrapper: false, label: false, input_html: {value: 'price_per_person'}
 
-          .field
-            %label
-              Flexible conditions:
-            %p
-              Included and Excluded conditions in the price
-            .input-box
-              = f.input :flexible_requirement, as: :text, label: false, input_html: { class: 'redactor' }
-
-          .field
-            %label
-              Cancellation policy:
+          .field.padding-top
+            %label.
+              Cancellation policy
             .input-box
               = f.input :cancellation, as: :radio_buttons, collection: Tour::CANCELLATION_RULE, label: false, input_html: { class: 'as-button', style: 'opacity: 1' }
+
         .row
           .small-12.medium-4.medium-push-8.columns.text-right
             = f.button :submit, 'Next step', class: 'button ladda-button', 'data-style' => 'expand-right', 'data-color' => 'mint'

@@ -77,6 +77,8 @@ Rails.application.routes.draw do
       get :account_settings
       get :profile_information
       get :availability
+      get :bank_accounts
+      resources :bank_accounts, only: [:create, :update]
     end
   end
 

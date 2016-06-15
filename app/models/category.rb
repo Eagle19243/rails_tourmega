@@ -9,7 +9,7 @@ class Category < ActiveRecord::Base
   MAPPING_TOURNATIVE = {
     'Art & Theaters' => 'art',
     'Culture' => 'art',
-    'Outdoors' => 'outdoors',
+    'Outdoors' => 'sightseeing',
     'Food' => 'food',
     'Night life' => 'night_life',
     'Tech & Specialty' => 'tech',

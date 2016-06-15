@@ -5,6 +5,7 @@ class Tour < ActiveRecord::Base
 
   include TourSearchConcern
   include Reviewable
+  include Private
   extend FriendlyId
   friendly_id :name, :use => [:slugged, :finders]
 
@@ -28,6 +29,11 @@ class Tour < ActiveRecord::Base
   # validates :description, :duration_in_minutes, :location, :max_quantity, :min_quantity, :name, :creator, :price, :price_type, :user_id, :location_id, :pickup_address_id, presence: true
   validates :name, :creator, :location_id, :pickup_address_id, presence: true
   validate :check_min_and_max_quantity
+  validates :name, length: { minimum: 20 }, allow_blank: true
+  validates :description, length: { minimum: 150 }, allow_blank: true
+  validates :overview, length: { minimum: 150 }, allow_blank: true
+
+  # validate :check_dimensions
 
   PRICE_TYPE = [ :fixed_price, :price_per_person ]
   enum price_type: PRICE_TYPE
@@ -141,6 +147,12 @@ class Tour < ActiveRecord::Base
   def check_min_and_max_quantity
     if min_quantity && max_quantity && min_quantity > max_quantity
       errors.add :base, "The min quantity of people in tour has to be less than the max quantity"
+    end
+  end
+
+  def check_dimensions
+    if !thumbnail_image_cache.nil? && (thumbnail_image.width < 600 || thumbnail_image.height < 400)
+      errors.add :image, "Images are too small. Need to be at least 600x400."
     end
   end
 end

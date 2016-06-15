@@ -1,7 +1,7 @@
+- unless Rails.env.production?
+  #pending-notification
+    = render "shared/flash_messages", locals: { flash: flash }
 %section#header{"sticky-nav" => "", class: ("not-overlay" unless overlay_header_display? )}
-  - unless Rails.env.production?
-    #pending-notification
-      = render "shared/flash_messages", locals: { flash: flash }
   .row.wide#main-header
     .small-12.columns
       #logo

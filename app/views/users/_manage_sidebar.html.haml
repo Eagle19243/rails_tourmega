@@ -22,6 +22,16 @@
           .left.space-right
             %i.fa.fa-user
           Profile Info
+      %li.availability
+        = link_to availability_users_path, remote: true do
+          .left.space-right
+            %i.fa.fa-calendar
+          Availability
+      %li.bank_accounts
+        = link_to bank_accounts_users_path, remote: true do
+          .left.space-right
+            %i.fa.fa-university
+          Bank Accounts
       %li.references
         = link_to references_users_path, remote: true do
           .left.space-right

@@ -242,7 +242,7 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
-  config.omniauth :facebook, Figaro.env.facebook_key, Figaro.env.facebook_secret, scope: 'email,user_birthday', secure_image_url: true
+  config.omniauth :facebook, Figaro.env.facebook_key, Figaro.env.facebook_secret, scope: 'email,user_birthday', secure_image_url: true, :image_size => 'large'
 
   config.omniauth :twitter, Figaro.env.twitter_key, Figaro.env.twitter_secret
 

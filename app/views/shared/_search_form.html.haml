@@ -1,4 +1,4 @@
-.small-8.columns.locations-container.center.text-center
+.small-9.columns.locations-container.center.text-center
   = simple_form_for(location, url: search_index_path, method: :get) do |f|
     .search-form-content
       .search-form-location
@@ -6,6 +6,18 @@
         = f.input :location, as: :fake, input_html: { name: 'location[full_address]', id: 'full_address', class: 'hidden' }, label: false, wrapper: false, required: true
       .search-form-date
         .date-start
-          %input.checkin.ui-datepicker{:type => "text", :name =>"start-date", :placeholder => "Start date"}
+          %input.checkin.datepicker{ type: 'text', placeholder: 'Start date', name: 'location[start_date]' }
     .search-form-action
-      = f.button :submit, 'Search', class: 'button', style: 'margin: 0px 0px 5px 0px; height:42px;'
+      = f.button :submit, 'Search', class: 'button', style: 'margin: 0px 0px 5px 0px; height:42px; width: 100%;'
+
+:javascript
+  $(function(){
+    $('.datepicker').datepicker({
+      format: 'dd/mm/yyyy',
+      todayHighlight: true,
+      leftArrow: '&laquo;',
+      rightArrow: '&raquo;',
+      autoclose: true,
+      orientation: "bottom"
+    });
+  });

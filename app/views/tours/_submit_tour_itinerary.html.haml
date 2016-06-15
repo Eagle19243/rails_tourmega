@@ -5,14 +5,22 @@
     .headline.text-center
       %h1.h3 Let’s create an awesome megatour together!
       %h5 Next, please give us your tour's itinerary. Don't forget to include images to make it vivid.
-    .step-panel
+    .step-panel.padding-top
       = simple_form_for(tour, url: update_tour_itinerary_tour_path, method: :put, html: { class: 'edit_tour' }) do |f|
         .panel-container
           .field
             %label
-              What should participants know about this tour?
+              Overview of the tour
+            %p Minimum of 150 characters.
             .input-box
-              = f.input :overview, as: :text, label: false, input_html: { class: 'redactor'}
+              = f.input :overview, as: :text, label: false, input_html: { class: 'redactor' }
+          .field
+            %label Itinerary of the tour
+            %p
+              Tell your travelers about the most amazing experiences they will get on your tour.
+              Minimum of 150 characters.
+            .input-box
+              = f.input :description, as: :text, label: false, input_html: { class: 'redactor' }
 
           .field.row.display-table
             .medium-7.columns.table-cell
@@ -57,17 +65,35 @@
               %p.hidden
                 Choose the highlight photos within your tour that travelers will experience
 
-          .field
-            %label What is your tour itinerary?
-            %p Tell your travelers about the most amazing experiences they will get on your tour.
-            .input-box
-              = f.input :description, as: :text, label: false, input_html: { class: 'redactor' }
         .row
           .small-12.medium-4.medium-push-8.columns.text-right
             = f.button :submit, 'Next step', class: 'button ladda-button', 'data-style' => 'expand-right', 'data-color' => 'mint'
 
 :javascript
   $(function(){
+    $('form').on('submit', function(e){
+      var overview_length = $('#tour_overview').prev().text().length;
+      var description_length = $('#tour_description').prev().text().length;
+      var thumbnail_image = $('#temporary-thumbnail-image').attr('src') != undefined
+      var images_length = $('#temporary-images').children().length
+
+      if (overview_length < 150 || description_length < 150 || thumbnail_image == false || images_length == 0) {
+        e.preventDefault();
+        Ladda.stopAll();
+        if (overview_length == 0)
+          sweetAlert('Overview of the tour cannot be empty');
+        else if (overview_length < 150)
+          sweetAlert('Overview of the tour must be minimum at 150 characters');
+        else if (description_length == 0)
+          sweetAlert('Itinerary of the tour cannot be empty');
+        else if (description_length < 150)
+          sweetAlert('Itinerary of the tour must be minimum at 150 characters');
+        else if (thumbnail_image == false)
+          sweetAlert('The cover photo of the tour must be chosen');
+        else if (images_length == 0)
+          sweetAlert('The highlight photos of the tour must be chosen');
+      }
+    });
     $('#tour_thumbnail_image').on('change', function(){
       readURL(this, $('#temporary-thumbnail-image'));
     });
@@ -84,3 +110,10 @@
       $('#tour_thumbnail_image').click();
     });
   });
+
+  function strip(html)
+  {
+     var tmp = document.implementation.createHTMLDocument("New").body;
+     tmp.innerHTML = html;
+     return tmp.textContent || tmp.innerText || "";
+  }

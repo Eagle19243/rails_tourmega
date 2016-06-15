@@ -10,15 +10,16 @@
       .row
         .small-12.small-centered.medium-8.columns.text-center.guide.space-top
           %h3 Please fill out the form in details
-    .row.small-6
-      = simple_form_for(@contact, url: home_send_contact_path, method: :post) do |f|
-        .small-12.columns
-          = f.input :email, input_html: { autofocus: true, placeholder: 'Email' }, label: false, required: true
-          = f.input :name, input_html: { placeholder: 'Name' }, label: false, require: false
-          = f.input :subject, as: :select, collection: Contact::SUBJECT, :input_html => { :class => "chosen-input with-bootstrap", multiple: false, 'data-placeholder' => "Which subject your issue related?" }, label: false
-          = f.input :content, as: :fake, as: :text, input_html: { style: 'height: 185px;', placeholder: 'Please describe your issue. Your issue is our concern' }, label: false
-          .medium-4.medium-push-8.text-right
-            = f.button :submit, 'Send us', class: 'button'
+      .row
+        .small-6.small-centered.columns
+          = simple_form_for(@contact, url: home_send_contact_path, method: :post) do |f|
+            .small-12.columns
+              = f.input :email, input_html: { autofocus: true, placeholder: 'Email' }, label: false, required: true
+              = f.input :name, input_html: { placeholder: 'Name' }, label: false, require: false
+              = f.input :subject, as: :select, collection: Contact::SUBJECT, :input_html => { :class => "chosen-input with-bootstrap", multiple: false, 'data-placeholder' => "Which subject your issue related?" }, label: false
+              = f.input :content, as: :fake, as: :text, input_html: { style: 'height: 185px;', placeholder: 'Please describe your issue. Your issue is our concern' }, label: false
+              .medium-4.medium-push-8.text-right
+                = f.button :submit, 'Send us', class: 'button'
 
 :javascript
   $(function(){

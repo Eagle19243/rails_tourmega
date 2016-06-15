@@ -14,7 +14,7 @@
             .medium-7.columns.table-cell
               %label What should this tour be called?
               .input-box
-                = f.input :name, label: false, input_html: { placeholder: 'Name your megatour' }
+                = f.input :name, label: false, input_html: { placeholder: 'Name your megatour', minlength: 20 }
             .medium-5.columns.field-guide.table-cell.space-3
               %p A catchy name should tell travelers about the unique experience and location, but also be as short as possible.
 
@@ -31,24 +31,26 @@
             .medium-7.columns.table-cell
               %label Where do you pickup participants?
               .input-box
-                = f.input :locate_pickup_address, as: :fake, input_html: { placeholder: 'Type the address to choose', class: 'autocomplete-location', autocomplete: 'off', 'fill-to-input' => 'tour_pickup_address', value: f.object.pickup_address.try(:address) }, label: false
+                = f.input :locate_pickup_address, as: :fake, input_html: { placeholder: 'Type the address to choose', class: 'autocomplete-location', autocomplete: 'off', 'fill-to-input' => 'tour_pickup_address', value: f.object.pickup_address.try(:address) }, label: false, required: true
                 = f.input :pickup_address, as: :fake, input_html: { name: 'tour[pickup_address]', id: 'tour_pickup_address', class: 'hidden', value: f.object.pickup_address.try(:hash_attributes) }, label: false, wrapper: false, required: false
             .medium-5.columns.field-guide.table-cell.space-3
               %p Choose as details as possible the location that you will pickup travellers
 
           .field.row
-            .medium-8.column
+            .medium-12.column
               %label
                 What is it about?
               %p.field-desc
               .categories.select-icons
                 #category_ids.hidden
-                %ul.id_categories.small-block-grid-3.medium-block-grid-3.large-block-grid-6
+                  - tour.categories.each do |category|
+                    %input{type: "text", name: 'tour[category_ids][]', value: category.id}/
+                %ul.id_categories.small-block-grid-3.medium-block-grid-3.large-block-grid-10
                   - Category.find_each do |category|
                     %li
                       %div.icon-category{:class => ('active' if tour.categories.include?(category)), name: category.id}
                         = render "resources/svg/categories/#{category.symbol}"
-                      %label= category.name.titleize            
+                      %label= category.name.titleize
         .row
           .small-12.medium-4.medium-push-8.columns.text-right
             = f.button :submit, 'Next step', class: 'button ladda-button', 'data-style' => 'expand-right', 'data-color' => 'mint'
@@ -84,3 +86,11 @@
       $element.append("<input type='text' name='tour[category_ids][]' value='" + category_id + "'>");
     }
   }
+
+  $('form').on('submit', function(e){
+    if ($('#category_ids').children().length == 0){
+      sweetAlert('You need to choose at least a category.');
+      Ladda.stopAll();
+      e.preventDefault();
+    }
+  });
