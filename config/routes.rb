@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   namespace :home, path: '/' do
     get :about
     get :become_guide
+    get :partners
     get :term_of_services, path: 'term-of-services'
     get :privacy_policy, path: 'privacy-policy'
     get :copyright

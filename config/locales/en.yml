@@ -77,6 +77,7 @@ en:
       sightseeing: 'Sightseeing & Landmarks'
       cruises: Cruises
       sports: Sports
+
   become_guide:
     background_image: "http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Hoi-An-2396.jpg"
     header: 'Join our Tourmega lovers community'
@@ -91,6 +92,19 @@ en:
         1: Phone/ Email communication
         2: In-person visit and tasting
         3: Enter your payment details and get ready to create an experience!
+      picture: 'http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Mekong-Delta-Circuit-3-Jours-0557.jpg'
+    trust_and_safety: "We want you to feel 100% comfortable when guiding. This is why we have made sure that every TourMega booking is covered by our guide guarantee that covers you should any problems arise. All of our guides are pre-screened, recommended and reviewed by the TourMega community. Additionally, we communicate as much information about our guests as possible and allow you to communicate with them directly so that you never have to accept a booking without feeling absolutely comfortable about it."
+    guide_feedback: '"It was a pleasure to guide people from all over the world. We had a wonderful interaction and sharing of experiences with our guests. It was gratifying to know that they enjoyed the meal so much. We did not want our guests to leave and neither did they. We look forward to guide for TourMega again."'
+    guide_photo_bg: 'http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Phu-Loc-2863.jpg'
+  partner:
+    background_image: "http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Hoi-An-2396.jpg"
+    header: 'Becoming our supply partner'
+    introduction: 'Whether you are a tour operator, travel agency or a travel aggregator, we would love to include your tours on our site and help you get more exposure and sell your products.  '
+    why_we_need_host:
+      header: 'Becoming out distribution partner'
+      introduction: 'As a travel aggregator and search engine, we features hundreds of thousands of tours from many partners.  distribution partner.  Earn extra revenue by helping us distribute our products on your platform.'
+    application:
+      header: 'Contact us for more information'
       picture: 'http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Mekong-Delta-Circuit-3-Jours-0557.jpg'
     trust_and_safety: "We want you to feel 100% comfortable when guiding. This is why we have made sure that every TourMega booking is covered by our guide guarantee that covers you should any problems arise. All of our guides are pre-screened, recommended and reviewed by the TourMega community. Additionally, we communicate as much information about our guests as possible and allow you to communicate with them directly so that you never have to accept a booking without feeling absolutely comfortable about it."
     guide_feedback: '"It was a pleasure to guide people from all over the world. We had a wonderful interaction and sharing of experiences with our guests. It was gratifying to know that they enjoyed the meal so much. We did not want our guests to leave and neither did they. We look forward to guide for TourMega again."'

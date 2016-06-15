@@ -23,6 +23,9 @@ class HomeController < ApplicationController
   def how_it_works
   end
 
+  def partners
+  end
+
   def safety
 
   end

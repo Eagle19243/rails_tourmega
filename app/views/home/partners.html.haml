@@ -1,0 +1,41 @@
+- content_for(:title, "Becoming our supply partner.")
+
+%section.main-section
+  #host-page
+    #hero{ style: "background-image: url(#{t('partner.background_image')}); background-size: cover; background-position: 50% 25%; background-repeat: no-repeat;" }
+      .message
+        .row
+          .small-12.small-centered.medium-10.large-8.columns.text-center
+            %h1.larger= t('partner.header')
+    #what-they-are.light-grey-bg
+      .row.wide
+        .small-12.large-8.large-centered.columns.content.text-center
+          %h4= t('partner.introduction')
+    #what-they-do.white-bg
+      .row.wide{"data-equalizer" => ""}
+        .small-12.medium-7.large-6.columns.content.shorter.large-stacked{"data-equalizer-watch" => "", :style => "height: 698px;"}
+          .row
+            .small-12.columns.space-bottom
+              %h3.header= t('partner.why_we_need_host.header')
+              %p= t('partner.why_we_need_host.introduction')
+          .row
+            .small-12.columns.space-top
+              %h3.header= t('partner.application.header')
+              %a.button.wide.space-top{:href => "#{home_contact_us_path}"} Contact us for more information
+        .small-12.medium-5.large-6.columns.picture{ style: "height: 698px; background-image: url(#{t('partner.application.picture')}); background-size: cover; background-position: 50% 80%; background-repeat: no-repeat;" }
+    #safety-feedback.light-grey-bg
+      .row.wide
+        .small-12.medium-6.columns.content
+          %h3.header
+            %i.fa.fa-lock
+            Trust &amp; safety
+          %p= t('partner.trust_and_safety')
+        .small-12.medium-6.columns.content
+          %h3.header
+            %i.fa.fa-comments
+            Guide Feedback
+          %p= t('partner.guide_feedback')
+    #host-faqs.photo-bg{ style: "background-image: url(#{t('partner.guide_photo_bg')}); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;" }
+      .row
+        .small-12.columns.content.text-center
+          %h3{style: 'font-weight: 700;'} Your experience and creativity are the only limits
