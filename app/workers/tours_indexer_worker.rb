@@ -2,7 +2,7 @@ class ToursIndexerWorker
   include Sidekiq::Worker
   sidekiq_options queue: 'elasticsearch', retry: false
   Logger = Sidekiq.logger.level == Logger::DEBUG ? Sidekiq.logger : nil
-  Client = Elasticsearch::Client.new(url: ENV['BONSAI_URL'], logger: Logger)
+  Client = Elasticsearch::Client.new(url: ENV['ES_SERVER_URL'], logger: Logger)
 
   def perform(operation, record_id)
     logger.debug [operation, "ID: #{record_id}"]

@@ -45,7 +45,6 @@ class SearchController < ApplicationController
   end
 
   def store_start_date_session
-    debugger
     if params[:location]
       session[:tours_start_date] = params[:location][:start_date]
     end
