@@ -29,17 +29,11 @@
               %a.button.wide.space-top{:href => "#{host_users_path}"} Register a tour in 10 minutes
         .small-12.medium-5.large-6.columns.picture{ style: "height: 698px; background-image: url(#{t('become_guide.application.picture')}); background-size: cover; background-position: 50% 80%; background-repeat: no-repeat;" }
     #safety-feedback.light-grey-bg
-      .row.wide
-        .small-12.medium-6.columns.content
+      .row
+        .small-12.small-centered.large-9.columns.content.text-center
           %h3.header
-            %i.fa.fa-lock
             Trust &amp; safety
           %p= t('become_guide.trust_and_safety')
-        .small-12.medium-6.columns.content
-          %h3.header
-            %i.fa.fa-comments
-            Guide Feedback
-          %p= t('become_guide.guide_feedback')
     #host-faqs.photo-bg{ style: "background-image: url(#{t('become_guide.guide_photo_bg')}); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;" }
       .row
         .small-12.columns.content.text-center
