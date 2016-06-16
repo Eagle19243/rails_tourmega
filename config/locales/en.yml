@@ -88,9 +88,12 @@ en:
     guide_photo_bg: 'http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Phu-Loc-2863.jpg'
   partner:
     background_image: "http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Hoi-An-2396.jpg"
-    header: 'Becoming our supply partner'
-    introduction: 'Whether you are a tour operator, travel agency or a travel aggregator, we would love to include your tours on our site and help you get more exposure and sell your products.  '
-    why_we_need_host:
+    header: ''
+    introduction: 'Partner and grow with us'
+    para1:
+      header: 'Becoming our supply partner'
+      introduction: 'Whether you are a tour operator, travel agency or a travel aggregator, we would love to include your tours on our site and help you get more exposure and sell your products.  '
+    para2:
       header: 'Becoming out distribution partner'
       introduction: 'As a travel aggregator and search engine, we features hundreds of thousands of tours from many partners.  distribution partner.  Earn extra revenue by helping us distribute our products on your platform.'
     application:
