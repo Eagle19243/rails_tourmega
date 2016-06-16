@@ -102,17 +102,17 @@ slides = [
   {
     caption: 'Love Helping People',
     location: 'Create new income for locals while enjoying unique experiences',
-    remote_image_url: 'https://d1fivur53ms4lq.cloudfront.net/assets/new_banners/3-e6f36c7899b0ac8bb69bbc05bc2aa9d7.jpg'
+    remote_image_url: 'https://s3-us-west-1.amazonaws.com/tourmega-production/background1.jpg'
   },
   {
     caption: 'Taking a trip',
     location: 'Request a tour and enjoy authentic experiences',
-    remote_image_url: 'https://d1fivur53ms4lq.cloudfront.net/assets/new_banners/8-7839c4f2ad131f62546781a7407deec1.jpg'
+    remote_image_url: 'https://s3-us-west-1.amazonaws.com/tourmega-production/background2.jpg'
   },
   {
-    caption: 'Feeling Advanturous',
+    caption: 'Feeling Adventurous',
     location: 'Get submersed in the local culture and travel safely',
-    remote_image_url: 'https://d1fivur53ms4lq.cloudfront.net/assets/new_banners/2-0aa5ce8f94472890834aeff279ddd5a5.jpg'
+    remote_image_url: 'https://s3-us-west-1.amazonaws.com/tourmega-production/background3.jpg'
   }
 ]
 
