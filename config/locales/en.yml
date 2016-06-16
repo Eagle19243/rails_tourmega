@@ -1,9 +1,4 @@
 en:
-  errors:
-    messages:
-      wrong_size: "is the wrong size (should be %{file_size})"
-      size_too_small: "is too small (should be at least %{file_size})"
-      size_too_big: "is too big (should be at most %{file_size})"
   hello: "Hello world"
   active_admin:
     powered_by: "TourMega © 2016. All Rights Reserved with ActiveAdmin"
@@ -16,20 +11,16 @@ en:
       long: ! "%B %d %Y"
   record_not_found: "Could not find the record"
   record_not_unique: "The record is not unique"
-  unauthorized: 'You are not authorised to access this page.'
+  unauthorized: 'You are not authorized to access this page.'
   controllers:
     profiles:
       become_guide:
         flash:
           notice: 'You successfully register to become a host. Going to make a experience with love with us'
-  user_profile:
-    bank_accounts_desc: 'When you receive a payment for a reservation, we call that payment to you a "payout". Our secure payment system supports several payout methods, which can be setup and edited here. Your available payout options and currencies differ by country, and you can also use routing rules to split your payouts amongst a few different methods.'
+  user:
     gender:
       male: Male
       female: Female
-  references:
-    successfully: 'Your friend is going to get the invitation email soon'
-    failed: There is an unexpected error.
   cuisines:
     header: "Discover the local cuisine"
     para: "Here are some of the best local-cooked dishes that you don't typically find in restaurants. Join our tours below with whom you can share these authentic local foods."
@@ -77,21 +68,20 @@ en:
       sightseeing: 'Sightseeing & Landmarks'
       cruises: Cruises
       sports: Sports
-
   become_guide:
     background_image: "http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Hoi-An-2396.jpg"
     header: 'Join our Tourmega lovers community'
-    introduction: 'Guides are at the heart of the TourMega community, and we would love to talk with you if you think you might be a good fit to join our growing community.'
-    why_we_need_host:
-      header: 'An Ideal Guide'
-      introduction: ' We love connecting with passionate travel guide who care about the experiences they create and delight in sharing it with others. If you are an airline, hotel, car rental site, or travel search engine, you can partner with us by providing a link back to TourMega to tourists and travelers. We would love to meet you and give you the opportunity to make profit via doing what you love and share it with travelers.'
+    introduction: 'A well curated tour can be a life changing experience for a traveler. Sound like something you can provide? If so, sign up for TourMega today and start showing the world what you got.'
     application:
       header: 'Application Process'
       steps:
-        0: Submit online application form
-        1: Phone/ Email communication
-        2: In-person visit and tasting
-        3: Enter your payment details and get ready to create an experience!
+        0: Sign up and create a TourMega profile
+        1: Submit your tour online
+        2: Wait for approval of tour and receive individual feedback from TourMega staff
+        3: Update calendar and availability
+        4: Accept or reject to customer's booking requests within 24 hours
+        5: Provide travelers with a memorable experience
+        6: Leave reviews for the travelers
       picture: 'http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Mekong-Delta-Circuit-3-Jours-0557.jpg'
     trust_and_safety: "We want you to feel 100% comfortable when guiding. This is why we have made sure that every TourMega booking is covered by our guide guarantee that covers you should any problems arise. All of our guides are pre-screened, recommended and reviewed by the TourMega community. Additionally, we communicate as much information about our guests as possible and allow you to communicate with them directly so that you never have to accept a booking without feeling absolutely comfortable about it."
     guide_feedback: '"It was a pleasure to guide people from all over the world. We had a wonderful interaction and sharing of experiences with our guests. It was gratifying to know that they enjoyed the meal so much. We did not want our guests to leave and neither did they. We look forward to guide for TourMega again."'
@@ -127,7 +117,7 @@ en:
       content: "<p>We are here to connect world travellers with local tour guides for a real, local experience. We are a marketplace where you can discover, book and offer tours, activities and unique experiences anywhere in the world.</p><p>We offer high quality local experiences reviewed by community, each with trustworthy and reliable.</p>"
       step:
         0: "https://d1oh9y2nmj4y5b.cloudfront.net/uploads/cover_photo/filename/7/small_japan.jpg|Home cooks|Experience the joy of a homemade meal (and eat it the way the locals do) over conversation about food and culture"
-    how_it_works: How it Works
+    how_it_works: How it works
     howitworks:
       step:
         0: "Find amazing tours for your travel|Search from our large inventory of tours for your travel destination"
@@ -163,4 +153,4 @@ en:
     instagram: https://www.instagram.com/tourmega
   input:
     placeholder:
-      where_are_you_going: Where to go?
+      where_are_you_going: Type for listing tours all over the world
