@@ -90,4 +90,23 @@
         %li
           %span= tour.cancellation
 
-
+%hr
+.row
+  .medium-3.column
+    %span Video Presentation
+.row
+  .medium-9.column
+    .row
+      %video{:width => 320, :height => 240, :controls => true}
+        %source{:src => "#{tour.video_presentation.url}", :type => 'video/webm; codecs="vp8, vorbis"'}
+        %source{:src => "#{tour.video_presentation.url}", :type => 'video/mp4; codecs="vp8, vorbis"'}
+        %source{:src => "#{tour.video_presentation.url}", :type => 'video/ogg; codecs="vp8, vorbis"'}
+        %a{href: "#{tour.video_presentation.url}"} Download
+:javascript
+  var video = document.querySelector("section.nocontrols video");
+  document.querySelector("div.controls button.play").addEventListener('click', function(e) {
+    video.play();
+  }, false);
+  document.querySelector("div.controls button.pause").addEventListener('click', function(e) {
+    video.pause();
+  }, false);

@@ -125,7 +125,7 @@ class ToursController < ApplicationController
                                  :min_quantity, :max_quantity, :price, :price_type, :flexible_price,
                                  :flexible_requirement, :duration_in_minutes, :thumbnail_image,
                                  :pickup_address_id, :location_id, :location, :pickup_address_id,
-                                 :pickup_address, :start_time, :offerings, languages: [], images: [],
+                                 :pickup_address, :start_time, :offerings, :video_presentation, languages: [], images: [],
                                   category_ids: [])
   end
 

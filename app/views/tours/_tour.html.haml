@@ -22,6 +22,6 @@
       %a.profile-picture{:href => "#{public_profile_user_path(tour.creator)}"}
         %img{:alt => "name", :src => "#{tour.creator_avatar_url}"}/
       %h3.listing-name{:title => "#{tour.name}"}
-        %a{:href => custom_tour_path}= tour.name.trim(35)
+        %a{:href => custom_tour_path}= tour.name.strip
       .listing-location
         = render 'shared/tour_rating', tour: tour

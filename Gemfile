@@ -27,6 +27,7 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'fog', require: 'fog/aws'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave_direct'
+gem 'carrierwave-video'
 gem 'mini_magick'
 gem 'redactor-rails'
 gem 'remotipart', '~> 1.2'
@@ -62,6 +63,8 @@ gem 'money-rails'
 gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 
 group :development, :test do
+  gem 'rails-pry'
+  gem 'pry-nav'
   gem 'byebug'
   gem 'lograge'
   gem 'spring'

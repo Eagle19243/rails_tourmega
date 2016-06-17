@@ -10,5 +10,15 @@
         %p= tour.description.try(:html_safe)
         .expandable-indicator
       %a.el-expandable-more{:href => "#"} See more
+
+  -# .panel.white-bg
+    %h4 Video Presentation
+    .el-expandable
+      .el-expandable-content
+%video{ html: {width: 400, height: 300, controls: 'controls'}}
+  %sourse{src: "#{tour.video_presentation.url}", type: "video/mp4"}
+  Tag video doesn`t support
+  =link_to 'Download video', tour.video_presentation.url, class: 'el-expandable-more'
+
 .small-12.large-8.columns
   = render 'reviews', tour: tour

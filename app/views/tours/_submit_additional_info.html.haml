@@ -61,7 +61,7 @@
                   = f.input :price_type, as: :text, wrapper: false, label: false, input_html: {value: 'price_per_person'}
 
           .field.padding-top
-            %label.
+            %label 
               Cancellation policy
             .input-box
               = f.input :cancellation, as: :radio_buttons, collection: Tour::CANCELLATION_RULE, label: false, input_html: { class: 'as-button', style: 'opacity: 1' }
