@@ -65,25 +65,25 @@
               %p.hidden
                 Choose the highlight photos within your tour that travelers will experience
           //VIDEO
-          = f.input :video_presentation, as: :file, input_html: { accept: "video/mp4, video/ogg, video/avi" }, label: false
-          -# .field.row.display-table
-          -#   .medium-7.columns.table-cell
-          -#     %label{for: 'tour_video_presentation'} Upload Video Presentation
-          -#     #cover-upload-video-container.upload-container.preview
-          -#       %ul.preview-items-cover
-          -#       %div
-          -#         %span.icon.fa.fa-video-camera
-          -#         %p Click to upload.
-          -#    = f.input :video_presentation, as: :file, input_html: { accept: "video/mp4" }, label: false
-          -#   .medium-5.columns.field-guide.table-cell.space-3
-          -#     %p
-          -#       Choose the Video Presentation
-          -# .field.row.display-table
-          -#   .medium-7.columns.table-cell
-          -#     .text-center#temporary-video-presentation= tour.video_presentation.try(:url)
-          -#   .medium-5.columns.field-guide.table-cell.space-3
-          -#     %p.hidden
-          -#       Choose the Video Presentation
+          -# = f.input :video_presentation, as: :file, input_html: { accept: "video/mp4, video/ogg, video/avi" }, label: false
+          .field.row.display-table
+            .medium-7.columns.table-cell
+              %label{for: 'tour_video_presentation'} Upload Video Presentation
+              #cover-upload-video-container.upload-container.preview
+                %ul.preview-items-cover
+                %div
+                  %span.icon.fa.fa-video-camera
+                  %p Click to upload.
+              = f.input :video_presentation, as: :file, input_html: { accept: "video/mp4, video/ogg, video/avi", class: 'hidden' }, label: false
+            .medium-5.columns.field-guide.table-cell.space-3
+              %p
+                Choose the Video Presentation
+          .field.row.display-table
+            .medium-7.columns.table-cell
+              .text-center#temporary-video-presentation= tour.video_presentation.try(:url)
+            .medium-5.columns.field-guide.table-cell.space-3
+              %p.hidden
+                Choose the Video Presentation
 
         .row
           .small-12.medium-4.medium-push-8.columns.text-right
@@ -120,7 +120,7 @@
     });
 
     $('#tour_video_presentation').on('change', function(){
-      //readURL(this, $('#temporary-video-presentation'));
+      readVideoURL(this, $('#temporary-video-presentation'));
     });
 
     $('#tour_images').on('change', function(){
