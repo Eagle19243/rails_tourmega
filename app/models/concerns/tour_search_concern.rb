@@ -72,7 +72,11 @@ module TourSearchConcern
 
   module ClassMethods
     def reindex_all_records
-      Tour.__elasticsearch__.import refresh: true, force: true
+      index_exists = Tour.__elasticsearch__.client.search_exists rescue false
+      Tour.__elasticsearch__.create_index! force: true unless index_exists
+      p 'Reindexing all tours'
+      errors_count = Tour.__elasticsearch__.import refresh: true, force: true
+      p "Finished with #{errors_count} errors"
     end
   end
 
