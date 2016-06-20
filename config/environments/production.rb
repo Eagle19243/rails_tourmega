@@ -24,7 +24,7 @@ Rails.application.configure do
     port: 587,
     domain: "tourmega.com",
     authentication: "plain",
-    user_name: 'support@tourmega.com',
+    user_name: 'support@tournative.com',
     password: 'gCd5Bo5PVLbZXPmUz-OqUw'
   }
   config.consider_all_requests_local       = false
