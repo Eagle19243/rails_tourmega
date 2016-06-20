@@ -9,7 +9,7 @@
             .dropdown
               = link_to "Profile", users_path
               = link_to "Public Profile", public_profile_user_path(current_user)
-              = link_to "Crafted Tours", tours_path if current_user.is_a_host?
+              = link_to "Your tours", tours_path if current_user.is_a_host?
               = link_to "Reservations", reservations_users_path(status: :confirmed)
               = link_to "Previous Travels", travels_users_path
               = link_to "Logout", destroy_user_session_path, :method => :delete
@@ -29,4 +29,4 @@
           = link_to "Become A Guide", home_become_guide_path
       - if display_craft_your_navigation?
         %li
-          = link_to "Craft your tour", new_tour_path, class: "button secondary"
+          = link_to "Post a tour", new_tour_path, class: "button secondary"
