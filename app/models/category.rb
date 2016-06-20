@@ -7,13 +7,14 @@ class Category < ActiveRecord::Base
   validates :name, presence: true
 
   MAPPING_TOURNATIVE = {
-    'Art & Theaters' => 'art',
-    'Culture' => 'art',
-    'Outdoors' => 'sightseeing',
-    'Food' => 'food',
-    'Night life' => 'night_life',
-    'Tech & Specialty' => 'tech',
-    'Shopping' => 'shopping'
+    'Art & Theaters' => 'artsy',
+    'Culture' => 'landmarks',
+    'Outdoors' => 'outdoor_and_nature',
+    'Food' => 'food_and_drink',
+    'Night life' => 'night_activities',
+    'Tech & Specialty' => 'unusual',
+    'Shopping' => 'artsy',
+    'Photography' => 'outdoor_and_nature'
   }
 
   def self.mapping_from_tournative(tournative_category_name)

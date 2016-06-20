@@ -65,12 +65,12 @@ namespace :data do
       {
         symbol: 'art',
         name: I18n.t('search.tour_types.art'),
-        icon: open(File.join(Rails.root, '/app/assets/images/categories/art.png'))
+        icon: open(File.join(Rails.root, '/app/assets/images/categories/artsy.png'))
       },
       {
         symbol: 'tech',
         name: I18n.t('search.tour_types.tech'),
-        icon: open(File.join(Rails.root, '/app/assets/images/categories/tech.png'))
+        icon: open(File.join(Rails.root, '/app/assets/images/categories/unusual.png'))
       },
       {
         symbol: 'shopping',
@@ -85,22 +85,22 @@ namespace :data do
       {
         symbol: 'night_life',
         name: I18n.t('search.tour_types.night_life'),
-        icon: open(File.join(Rails.root, '/app/assets/images/categories/night_life.png'))
+        icon: open(File.join(Rails.root, '/app/assets/images/categories/night_activities.png'))
       },
       {
         symbol: 'photography',
         name: I18n.t('search.tour_types.photography'),
-        icon: open(File.join(Rails.root, '/app/assets/images/categories/photography.png'))
+        icon: open(File.join(Rails.root, '/app/assets/images/categories/landmarks.png'))
       },
       {
         symbol: 'excursion',
         name: I18n.t('search.tour_types.excursion'),
-        icon: open(File.join(Rails.root, '/app/assets/images/categories/excursion.png'))
+        icon: open(File.join(Rails.root, '/app/assets/images/categories/outdoor_and_nature.png'))
       },
       {
         symbol: 'sightseeing',
         name: I18n.t('search.tour_types.sightseeing'),
-        icon: open(File.join(Rails.root, '/app/assets/images/categories/sightseeing.png'))
+        icon: open(File.join(Rails.root, '/app/assets/images/categories/landmarks.png'))
       },
       {
         symbol: 'cruises',
@@ -110,7 +110,7 @@ namespace :data do
       {
         symbol: 'sports',
         name: I18n.t('search.tour_types.sports'),
-        icon: open(File.join(Rails.root, '/app/assets/images/categories/sports.png'))
+        icon: open(File.join(Rails.root, '/app/assets/images/categories/sports_and_adventure.png'))
       }
     ]
 

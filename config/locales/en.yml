@@ -57,17 +57,16 @@ en:
     location: "Destinations"
     date: Dates
     tour_types:
-      art: "Arts & Culture"
-      tech: "Tech & Specialty"
-      shopping: "Shopping"
-      food: "Food & Wine"
-      night_life: "Night Life"
-      outdoors: "Outdoors & Nature"
-      photography: "Photography"
-      excursion: "Excursions & Day Trips"
-      sightseeing: 'Sightseeing & Landmarks'
-      cruises: Cruises
-      sports: Sports
+      artsy: "Arts & Culture"
+      cruises: "Cruises"
+      food_and_drink: "Food and Drink"
+      landmarks: "Landmarks"
+      night_activities: "Night Activities"
+      outdoor_and_nature: "Outdoor & Nature"
+      music_and_dance: "Music and Dance"
+      health_and_fitness: "Health and Fitness"
+      sports_and_adventure: "Sports and Adventure"
+      unusual: "Unusual"
   become_guide:
     background_image: "http://www.vietnamphotoadventures.com/wp-content/gallery/vpa-optimized/Hoi-An-2396.jpg"
     header: 'Join our Tourmega lovers community'
