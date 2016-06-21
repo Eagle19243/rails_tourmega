@@ -28,10 +28,10 @@ class SearchController < ApplicationController
 
   def prepare_location
     if params[:location]
-      country = Country.find_by(slug: location_params[:country]).try(:downcase)
-      city = City.find_by(slug: location_params[:administrative_area_level_1]).try(:downcase)
+      country = Country.find_by(slug: params[:location][:country].try(:downcase))
+      city = City.find_by(slug: params[:location][:administrative_area_level_1].try(:downcase))
 
-      @location = Location.new(location_params)
+      @location = Location.new(JSON.parse(location_params))
       @location.assign_attributes(persisted_country: country, persisted_city: city)
       @address = params[:address]
       @full_address = params[:location][:full_address]
@@ -41,7 +41,7 @@ class SearchController < ApplicationController
   end
 
   def location_params
-    eval params.require(:location).require(:full_address)
+    params.require(:location).require(:full_address)
   end
 
   def store_start_date_session
