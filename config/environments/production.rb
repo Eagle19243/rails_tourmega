@@ -23,7 +23,7 @@ Rails.application.configure do
     address: "smtp.mandrillapp.com",
     port: 587,
     domain: "tourmega.com",
-    authentication: "plain",
+    authentication: 'login', # Mandrill supports 'plain' or 'login'
     user_name: 'support@tournative.com',
     password: 'gCd5Bo5PVLbZXPmUz-OqUw'
   }
