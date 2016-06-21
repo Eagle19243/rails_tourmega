@@ -63,8 +63,8 @@ namespace :data do
   task :update_categories => :environment do
     categories = [
       {
-        symbol: 'art',
-        name: I18n.t('search.tour_types.art'),
+        symbol: 'artsy',
+        name: I18n.t('search.tour_types.artsy'),
         icon: open(File.join(Rails.root, '/app/assets/images/categories/artsy.png'))
       },
       {

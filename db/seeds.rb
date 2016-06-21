@@ -125,9 +125,9 @@ puts "Creating Category Data"
 Category.delete_all
 categories = [
   {
-    symbol: 'art',
-    name: I18n.t('search.tour_types.art'),
-    icon: open(File.join(Rails.root, '/app/assets/images/categories/art.png'))
+    symbol: 'artsy',
+    name: I18n.t('search.tour_types.artsy'),
+    icon: open(File.join(Rails.root, '/app/assets/images/categories/artsy.png'))
   },
   {
     symbol: 'tech',
