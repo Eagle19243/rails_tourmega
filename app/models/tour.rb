@@ -11,6 +11,7 @@ class Tour < ActiveRecord::Base
 
   mount_uploader :thumbnail_image, ImageUploader
   mount_uploaders :images, ImageUploader
+  mount_uploader :video_presentation, VideoUploader
 
   belongs_to :location
   belongs_to :pickup_address, class_name: 'Location', foreign_key: :pickup_address_id
@@ -52,6 +53,10 @@ class Tour < ActiveRecord::Base
   delegate :service_tour_id, :url, to: :tour_import, prefix: false, allow_nil: true
 
   paginates_per 4
+
+  def set_success(format, opts)
+    self.success = true
+  end
 
   class << self
     def import_from_external(service_tour_id, tour_json, to_user, in_location = nil)

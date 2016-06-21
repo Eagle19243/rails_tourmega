@@ -85,6 +85,6 @@ class ApplicationController < ActionController::Base
 
   def authenticate_host!
     authenticate_user!
-    raise Exceptions::TourNonAuthorizedError unless current_user.is_a_host?
+    #raise Exceptions::TourNonAuthorizedError unless current_user.is_a_host?
   end
 end

@@ -108,6 +108,18 @@ function readURL(input, container) {
   }
 }
 
+function readVideoURL(input, container) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      var url = $('#tour_video_presentation').val();
+      container.text(url);
+      container.parent().removeClass('hidden');
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 function readMultipleURL(input, container) {
   container.html('');
   if (input.files) {
