@@ -3,6 +3,7 @@
 :queues:
   - [default, 20]
   - [mailer, 20]
+  - [mailers, 20]
   - [elasticsearch, 10]
 :logfile: ./log/sidekiq.log
 :pidfile: ./log/sidekiq.pid
