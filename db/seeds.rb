@@ -145,9 +145,9 @@ categories = [
     icon: open(File.join(Rails.root, '/app/assets/images/categories/food.png'))
   },
   {
-    symbol: 'night_life',
-    name: I18n.t('search.tour_types.night_life'),
-    icon: open(File.join(Rails.root, '/app/assets/images/categories/night_life.png'))
+    symbol: 'night_activities',
+    name: I18n.t('search.tour_types.night_activities'),
+    icon: open(File.join(Rails.root, '/app/assets/images/categories/night_activities.png'))
   },
   {
     symbol: 'photography',
@@ -155,14 +155,29 @@ categories = [
     icon: open(File.join(Rails.root, '/app/assets/images/categories/photography.png'))
   },
   {
-    symbol: 'excursion',
-    name: I18n.t('search.tour_types.excursion'),
-    icon: open(File.join(Rails.root, '/app/assets/images/categories/excursion.png'))
+    symbol: 'outdoor_and_nature',
+    name: I18n.t('search.tour_types.outdoor_and_nature'),
+    icon: open(File.join(Rails.root, '/app/assets/images/categories/outdoor_and_nature.png'))
   },
   {
-    symbol: 'sightseeing',
-    name: I18n.t('search.tour_types.sightseeing'),
-    icon: open(File.join(Rails.root, '/app/assets/images/categories/sightseeing.png'))
+    symbol: 'landmarks',
+    name: I18n.t('search.tour_types.landmarks'),
+    icon: open(File.join(Rails.root, '/app/assets/images/categories/landmarks.png'))
+  },
+  {
+    symbol: 'music_and_dance',
+    name: I18n.t('search.tour_types.music_and_dance'),
+    icon: open(File.join(Rails.root, '/app/assets/images/categories/music_and_dance.png'))
+  },
+  {
+    symbol: 'health_and_fitness',
+    name: I18n.t('search.tour_types.health_and_fitness'),
+    icon: open(File.join(Rails.root, '/app/assets/images/categories/health_and_fitness.png'))
+  },
+  {
+    symbol: 'sports_and_adventure',
+    name: I18n.t('search.tour_types.sports_and_adventure'),
+    icon: open(File.join(Rails.root, '/app/assets/images/categories/sports_and_adventure.png'))
   },
   {
     symbol: 'cruises',
