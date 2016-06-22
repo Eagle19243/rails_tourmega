@@ -49,7 +49,7 @@
                   - Category.find_each do |category|
                     %li
                       %div.icon-category{:class => ('active' if tour.categories.include?(category)), name: category.id}
-                        = render "resources/svg/categories/#{category.symbol}"
+                        %svg{src: category.icon.url}
                       %label= category.name.titleize
         .row
           .small-12.medium-4.medium-push-8.columns.text-right
