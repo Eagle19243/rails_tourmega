@@ -6,13 +6,13 @@ class Contact < ActiveRecord::Base
 
   SUBJECT = [
     'Customer service',
-    'Technical support',
-    'Report scam or illegal',
+    'Technical support',,
     'Suggestions or concerns',
+    'Report tours or guides',
+    'Press and Media',
     'Career opportunities',
-    'Investor relation',
-    'Press and media',
-    'Partnership'
+    'Investor relations',
+    'Other'
   ]
 
   enum subject: SUBJECT
