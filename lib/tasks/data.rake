@@ -74,7 +74,7 @@ namespace :data do
       },
       {
         symbol: 'food',
-        name: I18n.t('search.tour_types.food'),
+        name: I18n.t('search.tour_types.food_and_drink'),
         icon: open(File.join(Rails.root, '/app/assets/images/categories/food.png'))
       },
       {
@@ -109,7 +109,7 @@ namespace :data do
       },
       {
         symbol: 'sports',
-        name: I18n.t('search.tour_types.sports'),
+        name: I18n.t('search.tour_types.sports_and_adventure'),
         icon: open(File.join(Rails.root, '/app/assets/images/categories/sports.png'))
       }
     ]
