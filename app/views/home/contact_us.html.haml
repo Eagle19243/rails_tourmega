@@ -16,8 +16,8 @@
             .small-12.columns
               = f.input :name, input_html: { placeholder: 'Name' }, label: false, require: true
               = f.input :email, input_html: { autofocus: true, placeholder: 'Email' }, label: false, required: true
-              = f.input :subject, as: :select, collection: Contact::SUBJECT, :input_html => { :class => "chosen-input with-bootstrap", multiple: false, 'data-placeholder' => "Which subject your issue related?" }, label: false
-              = f.input :content, as: :fake, as: :text, input_html: { style: 'height: 185px;', placeholder: 'Please describe your issue. Your issue is our concern' }, label: false
+              = f.input :subject, as: :select, collection: Contact::SUBJECT, :input_html => { :class => "chosen-input with-bootstrap", multiple: false, 'data-placeholder' => "Select a topic:" }, label: false
+              = f.input :content, as: :fake, as: :text, input_html: { style: 'height: 185px;', placeholder: 'Please fill in your message' }, label: false
               .medium-4.medium-push-8.text-right
                 = f.button :submit, 'Send', class: 'button'
 
