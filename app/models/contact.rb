@@ -11,6 +11,7 @@ class Contact < ActiveRecord::Base
     'Report tours or guides',
     'Press and Media',
     'Career opportunities',
+    'Partnership',
     'Investor relations',
     'Other'
   ]
