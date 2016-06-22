@@ -6,7 +6,7 @@ class Contact < ActiveRecord::Base
 
   SUBJECT = [
     'Customer service',
-    'Technical support',,
+    'Technical support',
     'Suggestions or concerns',
     'Report tours or guides',
     'Press and Media',
