@@ -3,48 +3,48 @@ namespace :data do
   task :update_countries => :environment do
     countries = [
       {
-        slug: 'cambodia',
-        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_cambodia.jpg'))]
+        slug: 'brazil',
+        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_brazil.jpg'))]
       },
       {
         slug: 'china',
         scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_china.jpg'))]
       },
       {
-        slug: 'indonesia',
-        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_indonesia.jpg'))]
+        slug: 'costa-rica',
+        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_costa_rica.jpg'))]
       },
       {
-        slug: 'japan',
-        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_japan.jpg'))]
-      },
-      {
-        slug: 'malaysia',
-        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_malaysia.jpg'))]
-      },
-      {
-        slug: 'philippines',
-        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_philippines.jpg'))]
-      },
-      {
-        slug: 'bangladesh',
-        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_bangladesh.jpg'))]
+        slug: 'egypt',
+        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_egypt.jpg'))]
       },
       {
         slug: 'india',
         scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_india.jpg'))]
       },
       {
-        slug: 'laos',
-        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_laos.jpg'))]
+        slug: 'italy',
+        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_italy.jpg'))]
       },
       {
-        slug: 'singapore',
-        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_singapore.jpg'))]
+        slug: 'kenya',
+        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_kenya.jpg'))]
       },
       {
-        slug: 'thailand',
-        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_thailand.jpg'))]
+        slug: 'mexico',
+        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_mexico.jpg'))]
+      },
+      {
+        slug: 'peru',
+        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_peru.jpg'))]
+      },
+      {
+        slug: 'portugal',
+        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_portugal.jpg'))]
+      },
+      {
+        slug: 'united-states',
+        scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_usa.jpg'))]
       },
       {
         slug: 'vietnam',
