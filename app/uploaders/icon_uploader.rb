@@ -5,7 +5,4 @@ class IconUploader < BaseUploader
     true
   end
 
-  def asset_host
-    ENV['CDN_ASSET_HOST']
-  end
 end
