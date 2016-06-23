@@ -123,4 +123,12 @@ class ImageUploader < BaseUploader
       model.width, model.height = ::MiniMagick::Image.open(file.file)[:dimensions]
     end
   end
+
+  def fog_public
+    true
+  end
+
+  def asset_host
+    ENV['CDN_ASSET_HOST']
+  end
 end
