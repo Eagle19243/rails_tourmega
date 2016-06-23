@@ -11,7 +11,7 @@
         %h4.manage-header Personal
         = f.input :gender, as: :select, collection: User::GENDERS, required: true
         = f.input :phone_number, input_html: { placeholder: 'E.g. (+1) 322-454-3495' }
-        = f.input :current_occupation, input_html: { placeholder: 'Title' }
+        = f.input :job_title, label: "Current occupation", input_html: { placeholder: 'Title' }
         = f.label 'Birthdate'
         = f.text_field :date_of_birth, class: 'form-control datepicker', placeholder: 'mm/dd/yyyy', label: 'Birth date'
         = f.input :hobbies, as: :text, input_html: { rows: 10, type: 'text', placeholder: 'From 50 to 250 characters that describes your hobbies the best' }
