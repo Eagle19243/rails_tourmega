@@ -1,5 +1,21 @@
 class Tour < ActiveRecord::Base
-  LANGUAGES = ["English", "Vietnamese", "French", "Janpanese", "Chinese"]
+  LANGUAGES = ["English",
+              "Vietnamese",
+              "French",
+              "Japanese",
+              "Spanish",
+              "German",
+              "Portuguese",
+              "Arabic",
+              "Korean",
+              "Swahili",
+              "Hindi",
+              "Bengali",
+              "Russian",
+              "Javanese",
+              "Lahnda",
+              "Turkish",
+              "Chinese"]
 
   attr_accessor :tag_list
 

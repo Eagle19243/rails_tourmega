@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
   DEFAULT_NAME = "Tourmega Lovers"
   DEFAULT_AVATAR_URL = Figaro.env.DEFAULT_AVATAR_URL
   GENDERS = ["Male", "Female"]
-  GUIDE_TYPE = [  :professional_tour_company,
-                  :local_with_licensed_tour_guide,
-                  :local_with_non_licensed_tour_guide
+  GUIDE_TYPE = [  :licensed_tour_company,
+                  :licensed_local_guide,
+                  :unlicensed_local_guide
                 ]
 
   devise :database_authenticatable, :registerable, :recoverable, :async,
