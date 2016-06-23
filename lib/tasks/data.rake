@@ -51,9 +51,11 @@ namespace :data do
         scene_images: [open(File.join(Rails.root, '/app/assets/images/countries/small/small_vietnam.jpg'))]
       }
     ]
+    Country.update_all(is_searching_active: false)
     countries.each do |country_params|
       @country = Country.find_by(slug: country_params[:slug])
       @country.scene_images = country_params[:scene_images]
+      @country.is_searching_active = true
       @country.save!
       p "Updated #{country_params[:slug]}"
     end
